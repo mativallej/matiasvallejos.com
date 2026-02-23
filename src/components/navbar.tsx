@@ -33,10 +33,18 @@ export function Navbar() {
       <div className="flex items-center justify-between h-16 px-6 lg:px-10 max-w-[1080px] mx-auto">
       {/* Left: X/Twitter icon + home link */}
       <div className="flex items-center gap-6">
-        <Link
+        <a
           href="/"
           aria-label="Home"
-          className="text-[#78716C] hover:text-white transition-colors duration-200"
+          onClick={(e) => {
+            e.preventDefault()
+            if (pathname === "/") {
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            } else {
+              router.push("/")
+            }
+          }}
+          className="text-[#78716C] hover:text-white transition-colors duration-200 cursor-pointer"
         >
           <Image
             src="/images/emoji.png"
@@ -45,7 +53,7 @@ export function Navbar() {
             height={24}
             className="rounded-full"
           />
-        </Link>
+        </a>
 
         {/* Tagline */}
         <span className="hidden sm:block font-mono text-body-sm italic text-[#FB923C]">

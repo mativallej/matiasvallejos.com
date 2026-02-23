@@ -90,7 +90,7 @@ export function Hero() {
             <h1 className="font-serif text-[32px] md:text-[36px] font-bold text-white tracking-[-0.02em] leading-[1.1]">
               Matias Vallejos
             </h1>
-            <p className="font-mono text-[15px] text-[#78716C] tracking-wide">Product Builder</p>
+            <p className="font-mono text-[15px] text-[#78716C] tracking-wide">Product Engineer 🇦🇷</p>
           </div>
 
           {/* Status */}
