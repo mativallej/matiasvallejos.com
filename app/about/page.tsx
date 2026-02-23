@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Navbar } from "@/components/navbar"
 import { PageHeader } from "@/components/page-header"
 import { Contact } from "@/components/contact"
+import { Skills } from "@/components/skills"
 import { Footer } from "@/components/footer"
 
 const timeline = [
@@ -242,6 +243,8 @@ export default function AboutPage() {
           ))}
         </div>
       </motion.section>
+
+      <Skills />
 
       <Contact />
 

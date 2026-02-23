@@ -9,6 +9,9 @@ export interface Product {
   video?: string
   image?: string
   date: string
+  instagram?: string
+  tiktok?: string
+  twitter?: string
 }
 
 export const products: Product[] = [
@@ -16,11 +19,14 @@ export const products: Product[] = [
     id: 1,
     title: "Tegu",
     slug: "tegu",
-    description: "A focused workspace for indie makers to plan, ship, and iterate on their products without the bloat of enterprise tools.",
-    tags: ["SaaS", "Next.js", "TypeScript"],
-    link: "https://github.com/matiasvallejosdev",
-    github: "https://github.com/matiasvallejosdev",
+    description: "Marketplace connecting homeowners with verified professionals for home services in Argentina. AI-powered matching, WhatsApp integration, with pay-per-lead and subscription models for pros.",
+    tags: ["Marketplace", "Homeservices", "Mobile", "Web", "AI", "WhatsApp"],
+    link: "https://tegu.ar",
+    github: "https://github.com/mativallej",
     date: "2026",
+    instagram: "https://instagram.com/tegu_app",
+    tiktok: "https://tiktok.com/@tegu_app",
+    twitter: "https://x.com/tegu_app",
   },
   {
     id: 2,
