@@ -25,7 +25,7 @@ export default function ProjectCard({
   project: Product
   variant?: "default" | "tall" | "wide"
 }) {
-  const { title, description, tags, link, github, video, image, date } = project
+  const { title, slug, description, tags, link, github, video, image, date } = project
 
   const aspectClass =
     variant === "tall"
@@ -63,9 +63,9 @@ export default function ProjectCard({
           </div>
 
           {/* Hover overlay — covers only the image */}
-          <div className="absolute inset-0 bg-[#0C0A09]/90 rounded-md flex flex-col justify-start p-4 gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <div className="absolute inset-0 bg-[#0C0A09]/90 rounded-md flex flex-col justify-start p-4 gap-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-200">
             <h3 className="text-body font-semibold text-white">{title}</h3>
-            <p className="text-body-sm text-text-body leading-relaxed">{description}</p>
+            <p className="text-body-sm text-text-body leading-relaxed line-clamp-3">{description}</p>
             <div className="flex flex-wrap gap-1.5">
               {tags.map((tag) => (
                 <span
@@ -77,6 +77,16 @@ export default function ProjectCard({
               ))}
             </div>
             <span className="font-mono text-micro text-text-muted">{date}</span>
+            <Link
+              href={`/products/${slug}`}
+              className="inline-flex items-center gap-2 font-mono text-caption uppercase text-[#FB923C] hover:text-white transition-colors duration-200"
+            >
+              Case of study
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </div>

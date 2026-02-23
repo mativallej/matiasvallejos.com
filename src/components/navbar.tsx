@@ -6,9 +6,9 @@ import { usePathname, useRouter } from "next/navigation"
 
 const navLinks = [
   { label: "about", href: "/about", scroll: false },
-  { label: "products", href: "#products", scroll: true },
+  { label: "products", href: "/products", scroll: false },
   { label: "blog", href: "/blog", scroll: false },
-  { label: "books", href: "#books", scroll: true },
+  { label: "books", href: "/books", scroll: false },
 ]
 
 export function Navbar() {
