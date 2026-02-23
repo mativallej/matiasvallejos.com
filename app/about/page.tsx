@@ -96,6 +96,38 @@ export default function AboutPage() {
         description="I'm Matias Vallejos, a product builder from Cordoba, Argentina. I create lean digital products that solve real problems, move fast, and ship with purpose. I don't optimize for tech stacks -- I optimize for impact."
       />
 
+      {/* Download CV */}
+      <motion.div
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="px-6 lg:px-10 max-w-[1080px] mx-auto -mt-4 mb-8"
+      >
+        <a
+          href="/matias-vallejos-cv.pdf"
+          download
+          className="group inline-flex items-center gap-2.5 font-mono text-[12px] font-semibold tracking-[0.04em] uppercase border border-[#3D3935] text-[#A8A29E] px-5 py-3 rounded-lg hover:text-white hover:border-[#57534E] hover:bg-[#12100E] transition-all duration-200"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="group-hover:translate-y-0.5 transition-transform duration-200"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Download CV
+        </a>
+      </motion.div>
+
       {/* Values */}
       <motion.section
         variants={sectionVariants}

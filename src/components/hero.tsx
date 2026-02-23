@@ -64,7 +64,7 @@ const socialLinks = [
 
 export function Hero() {
   return (
-    <section id="about" className="px-6 lg:px-10 pt-20 pb-24 md:pt-24 md:pb-32 max-w-[1080px] mx-auto">
+    <section id="about" className="px-6 lg:px-10 pt-20 pb-10 md:pt-24 md:pb-14 max-w-[1080px] mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-12 md:gap-14">
         {/* Left column — Identity */}
         <motion.div
@@ -102,34 +102,6 @@ export function Hero() {
             <span className="font-mono text-[11px] text-[#A3B86C]/80 uppercase tracking-[0.06em]">
               Available for collaborations
             </span>
-          </div>
-
-          {/* CTAs */}
-          <div className="flex flex-col gap-2.5 w-full max-w-[240px]">
-            <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.06em]">
-              My latest product
-            </span>
-            <a
-              href="#products"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="group inline-flex items-center justify-center gap-2.5 font-mono text-[12px] font-semibold tracking-[0.04em] uppercase bg-[#E8742A] text-[#080706] px-5 py-3 rounded-lg hover:bg-[#D4622A] hover:shadow-glow transition-all duration-200"
-            >
-              explore tegu
-              <span className="group-hover:translate-x-0.5 transition-transform duration-200">{'\u2192'}</span>
-            </a>
-            <a
-              href="#writing"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('writing')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="inline-flex items-center justify-center font-mono text-[12px] font-normal tracking-[0.04em] uppercase border border-[#3D3935] text-[#57534E] px-5 py-3 rounded-lg hover:text-[#A8A29E] hover:border-[#57534E] hover:bg-[#12100E] transition-all duration-200"
-            >
-              read my writing
-            </a>
           </div>
 
           {/* Social links */}
@@ -188,6 +160,27 @@ export function Hero() {
                 'I don\u2019t write code for the sake of it. I build products that people actually use \u2014 tools that feel right, work fast, and get out of the way. Less architecture, more shipping.'
               }
             </p>
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="#products"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="group inline-flex items-center justify-center gap-2.5 font-mono text-[12px] font-semibold tracking-[0.04em] uppercase bg-[#E8742A] text-[#080706] px-5 py-3 rounded-lg hover:bg-[#D4622A] hover:shadow-glow transition-all duration-200"
+            >
+              explore tegu
+              <span className="group-hover:translate-x-0.5 transition-transform duration-200">{'\u2192'}</span>
+            </a>
+            <a
+              href="/about"
+              className="inline-flex items-center justify-center font-mono text-[12px] font-normal tracking-[0.04em] uppercase border border-[#3D3935] text-[#57534E] px-5 py-3 rounded-lg hover:text-[#A8A29E] hover:border-[#57534E] hover:bg-[#12100E] transition-all duration-200"
+            >
+              about me
+            </a>
           </div>
 
           {/* Bottom meta */}

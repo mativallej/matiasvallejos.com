@@ -1,0 +1,83 @@
+.prose-custom {
+  --tw-prose-body: #A8A29E;
+  --tw-prose-headings: #FAFAF9;
+  --tw-prose-links: #E8742A;
+  --tw-prose-bold: #FAFAF9;
+  --tw-prose-counters: #78716C;
+  --tw-prose-bullets: #57534E;
+  --tw-prose-hr: #3D3935;
+  --tw-prose-quotes: #A8A29E;
+  --tw-prose-quote-borders: #E8742A;
+  --tw-prose-captions: #78716C;
+  --tw-prose-code: #FB923C;
+  --tw-prose-th-borders: #3D3935;
+  --tw-prose-td-borders: #3D3935;
+}
+
+.prose-custom :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.prose-custom :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
+  color: #FB923C;
+}
+
+.prose-custom :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  background-color: #12100E;
+  border: 1px solid #3D3935;
+  border-radius: 8px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.prose-custom :where(pre code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  color: #A8A29E;
+}
+
+.prose-custom :where(code):not(:where(pre code, [class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: "JetBrains Mono", monospace;
+  background-color: #12100E;
+  border: 1px solid #3D3935;
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  font-size: 0.875em;
+}
+
+.prose-custom :where(code):not(:where(pre code, [class~="not-prose"], [class~="not-prose"] *))::before {
+  content: none;
+}
+
+.prose-custom :where(code):not(:where(pre code, [class~="not-prose"], [class~="not-prose"] *))::after {
+  content: none;
+}
+
+.prose-custom :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  border-left-color: #E8742A;
+  font-style: italic;
+}
+
+.prose-custom :where(h1, h2, h3, h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  scroll-margin-top: 5rem;
+}
+
+.prose-custom :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-size: 14px;
+}
+
+.prose-custom :where(th):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  color: #FAFAF9;
+  font-weight: 600;
+}
+
+.prose-custom :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  color: #FAFAF9;
+}

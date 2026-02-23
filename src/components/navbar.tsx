@@ -1,12 +1,13 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
 
 const navLinks = [
   { label: "about", href: "/about", scroll: false },
   { label: "products", href: "#products", scroll: true },
-  { label: "writing", href: "#writing", scroll: true },
+  { label: "blog", href: "/blog", scroll: false },
   { label: "books", href: "#books", scroll: true },
 ]
 
@@ -37,15 +38,13 @@ export function Navbar() {
           aria-label="Home"
           className="text-[#78716C] hover:text-white transition-colors duration-200"
         >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-          </svg>
+          <Image
+            src="/images/emoji.png"
+            alt="Matias Vallejos"
+            width={24}
+            height={24}
+            className="rounded-full"
+          />
         </Link>
 
         {/* Tagline */}

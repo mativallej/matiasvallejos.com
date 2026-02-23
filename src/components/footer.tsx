@@ -78,10 +78,25 @@ export function Footer() {
         {/* Left: Quote + location */}
         <div className="flex flex-col gap-2">
           <p className="text-body italic text-[#A8A29E]">
-            {"\"No escribo codigo. Creo productos.\""}
+            {"\"I don't write code. I build products.\""}
           </p>
           <span className="font-mono text-caption text-[#57534E]">
-            {"Made with 🧡 by Matias Vallejos"}
+            {"Made with 🧡 by Matias Vallejos · "}
+            <a
+              href="https://github.com/mativallej/matiasvallejos.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#78716C] hover:text-white transition-colors duration-200"
+            >
+              Source
+            </a>
+            {" · "}
+            <a
+              href="/design-system"
+              className="text-[#78716C] hover:text-white transition-colors duration-200"
+            >
+              Design System
+            </a>
           </span>
         </div>
 

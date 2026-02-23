@@ -29,9 +29,9 @@ export default function ProjectCard({
 
   const aspectClass =
     variant === "tall"
-      ? "aspect-auto h-full"
+      ? "aspect-[3/2] md:aspect-auto md:h-full"
       : variant === "wide"
-        ? "aspect-[5/2]"
+        ? "aspect-[5/2] sm:aspect-[5/2]"
         : "aspect-[3/2]"
 
   return (
