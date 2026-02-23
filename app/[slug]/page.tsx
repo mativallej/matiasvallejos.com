@@ -107,6 +107,27 @@ export default async function BlogPostPage({
           className="prose prose-invert prose-custom max-w-[720px]"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+
+        {/* Support link */}
+        <div className="max-w-[720px] mt-16 pt-8 border-t border-[#3D3935]">
+          <a
+            href="https://cafecito.app/mativallej"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-mono text-caption text-[#78716C] hover:text-[#FB923C] transition-colors duration-200"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M18.5 3H6a4 4 0 0 0-4 4v1a4 4 0 0 0 3 3.87V17a5 5 0 0 0 5 5h4a5 5 0 0 0 5-5v-5.13A4 4 0 0 0 22 8V7a4 4 0 0 0-3.5-4zM6 5h12.5A2 2 0 0 1 20 7v1a2 2 0 0 1-2 2h-1V7a1 1 0 0 0-2 0v3H9V7a1 1 0 0 0-2 0v3H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
+            </svg>
+            invitame un cafecito
+          </a>
+        </div>
       </article>
 
       <div className="pt-8" />
