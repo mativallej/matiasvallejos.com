@@ -62,7 +62,7 @@ export function Navbar() {
       </div>
 
       {/* Right: nav links */}
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-3 sm:gap-6">
         {navLinks.map((link) =>
           link.scroll ? (
             <a

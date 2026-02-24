@@ -42,7 +42,7 @@ export function BlogList({
     <>
       {/* Filters */}
       <section className="px-6 lg:px-10 max-w-[1080px] mx-auto">
-        <div className="flex items-center gap-2 pb-8 border-b border-[#3D3935]">
+        <div className="flex flex-wrap items-center gap-2 pb-8 border-b border-[#3D3935]">
           <button
             type="button"
             onClick={() => setActiveTag("all")}
@@ -106,7 +106,7 @@ export function BlogList({
                     <p className="text-body-sm text-[#57534E] line-clamp-2 md:line-clamp-1">
                       {post.description}
                     </p>
-                    <div className="flex items-center gap-3 font-mono text-caption">
+                    <div className="flex flex-wrap items-center gap-3 font-mono text-caption">
                       <span className="text-[#57534E]">
                         {format(parseISO(post.date), "MMM yyyy")}
                       </span>

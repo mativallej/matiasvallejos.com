@@ -116,7 +116,7 @@ export function Footer() {
         </div>
 
         {/* Right: Social links */}
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           {socialLinks.map((link) => (
             <a
               key={link.label}
@@ -124,10 +124,10 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Follow on ${link.label}`}
-              className="inline-flex items-center gap-2 font-mono text-caption text-[#78716C] border border-[#3D3935] px-3 py-2 rounded-md hover:text-white hover:border-[#57534E] transition-all duration-200"
+              className="inline-flex items-center gap-2 font-mono text-caption text-[#78716C] border border-[#3D3935] px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md hover:text-white hover:border-[#57534E] transition-all duration-200"
             >
               {link.icon}
-              {link.label}
+              <span className="hidden sm:inline">{link.label}</span>
             </a>
           ))}
         </div>

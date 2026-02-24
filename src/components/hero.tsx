@@ -184,17 +184,17 @@ export function Hero() {
           </div>
 
           {/* Bottom meta */}
-          <div className="flex items-center gap-6 pt-4 border-t border-[#3D3935]/40">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-[#3D3935]/40">
             <div className="flex flex-col gap-1">
               <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">Location</span>
               <span className="font-mono text-[12px] text-[#78716C]">{'C\u00f3rdoba, Argentina'}</span>
             </div>
-            <div className="w-px h-8 bg-[#3D3935]/40" />
+            <div className="w-px h-8 bg-[#3D3935]/40 hidden sm:block" />
             <div className="flex flex-col gap-1">
               <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">Focus</span>
               <span className="font-mono text-[12px] text-[#78716C]">Product Engineering</span>
             </div>
-            <div className="w-px h-8 bg-[#3D3935]/40" />
+            <div className="w-px h-8 bg-[#3D3935]/40 hidden sm:block" />
             <div className="flex flex-col gap-1">
               <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">Since</span>
               <span className="font-mono text-[12px] text-[#78716C]">2021</span>

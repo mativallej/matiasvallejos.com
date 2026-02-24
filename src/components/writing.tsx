@@ -54,13 +54,13 @@ export function Writing({ posts }: { posts: FeaturedPost[] }) {
           >
             <Link
               href={`/${post.slug}`}
-              className="group flex items-center justify-between py-4 border-b border-[#3D3935] cursor-pointer"
+              className="group flex items-center justify-between py-4 border-b border-[#3D3935] cursor-pointer gap-4"
             >
-              <div className="flex flex-col gap-1">
-                <span className="text-body font-semibold text-white group-hover:text-[#FB923C] transition-colors duration-200">
+              <div className="flex flex-col gap-1 min-w-0">
+                <span className="text-body font-semibold text-white group-hover:text-[#FB923C] transition-colors duration-200 truncate">
                   {post.title}
                 </span>
-                <div className="flex items-center gap-3 font-mono text-caption">
+                <div className="flex flex-wrap items-center gap-3 font-mono text-caption">
                   <span className="text-[#57534E]">{post.date}</span>
                   {post.tags.map((tag) => (
                     <span key={tag} className="text-[#FB923C]">

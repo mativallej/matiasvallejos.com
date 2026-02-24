@@ -57,7 +57,7 @@ export default function BooksPage() {
 
       {/* Filters */}
       <section className="px-6 lg:px-10 max-w-[1080px] mx-auto">
-        <div className="flex items-center gap-2 pb-8 border-b border-[#3D3935]">
+        <div className="flex flex-wrap items-center gap-2 pb-8 border-b border-[#3D3935]">
           {bookCategories.filter((cat) => cat.key === "all" || books.some((b) => b.category === cat.key)).map((cat) => (
             <button
               key={cat.key}
