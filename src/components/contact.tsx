@@ -38,7 +38,7 @@ export function Contact() {
           I work best with founders and small teams who care about craft and want to ship something meaningful.
         </p>
         <a
-          href="mailto:hello@matiasvallejos.com"
+          href="mailto:matiasvallejosdev@outlook.com"
           className="inline-flex items-center gap-2 font-mono text-body-sm font-semibold bg-[#E8742A] text-[#080706] px-5 py-2.5 rounded-md hover:bg-[#D4622A] hover:shadow-glow transition-all duration-200"
         >
           {"get in touch →"}

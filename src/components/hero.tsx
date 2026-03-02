@@ -42,7 +42,7 @@ const socialLinks = [
   },
   {
     label: 'Email',
-    href: 'mailto:hello@matiasvallejos.com',
+    href: 'mailto:matiasvallejosdev@outlook.com',
     icon: (
       <svg
         width="14"

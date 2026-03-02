@@ -331,7 +331,7 @@ export default function DesignSystemPage() {
 
               <Section
                 title="Color Palette — Accent"
-                subtitle="Secondary accents drawn from Cosmico's pampa aesthetics: mate green, pampa gold, and Córdoba sky."
+                subtitle="Secondary accents drawn from pampa aesthetics: mate green, pampa gold, and Córdoba sky."
               >
                 <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
                   {Object.entries(designTokens.colors.accent).map(
@@ -703,7 +703,7 @@ export default function DesignSystemPage() {
                     }}
                   >
                     Every element earns its place. This system combines the craft
-                    of Cosmico&apos;s Argentine identity with the ruthless
+                    of Argentine identity with the ruthless
                     clarity of modern product design. The result: a personal
                     brand that feels both human and forward-looking.
                   </p>
@@ -731,7 +731,7 @@ export default function DesignSystemPage() {
                 <DesignPrincipleCard
                   number="05"
                   title="Argentine Undertone"
-                  description="Cosmico's pampa aesthetic lives in the color palette and occasional motifs — never overt, always felt. Like mate in the morning."
+                  description="The pampa aesthetic lives in the color palette and occasional motifs — never overt, always felt. Like mate in the morning."
                 />
                 <DesignPrincipleCard
                   number="06"

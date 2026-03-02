@@ -16,9 +16,9 @@ const timeline = [
   },
   {
     year: "2025",
-    title: "Shipped Cosmico",
+    title: "Co-founded Docta Valley",
     description:
-      "Designed and released a warm, minimal design system rooted in Argentine aesthetics. Stone neutrals meet purposeful ornamentation.",
+      "Co-founded a community connecting tech founders and builders in Córdoba. Creating the space to spread ideas, make connections, and launch startups.",
   },
   {
     year: "2024",
