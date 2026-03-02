@@ -14,6 +14,7 @@ export interface Product {
   instagram?: string
   tiktok?: string
   twitter?: string
+  linkedin?: string
 }
 
 export const products: Product[] = [
@@ -29,6 +30,7 @@ export const products: Product[] = [
     instagram: "https://instagram.com/tegu_app",
     tiktok: "https://tiktok.com/@tegu_app",
     twitter: "https://x.com/tegu_app",
+    linkedin: "https://linkedin.com/company/teguapp",
   },
   {
     id: 2,
