@@ -11,6 +11,7 @@ export interface Product {
   images?: string[]
   caseStudy?: string
   date: string
+  metrics?: { value: string; label: string }[]
   instagram?: string
   tiktok?: string
   twitter?: string
@@ -31,6 +32,9 @@ export const products: Product[] = [
     tiktok: "https://tiktok.com/@tegu_app",
     twitter: "https://x.com/tegu_app",
     linkedin: "https://linkedin.com/company/teguapp",
+    metrics: [
+      { value: "~", label: "cooking metrics..." },
+    ],
   },
   {
     id: 2,
@@ -42,6 +46,11 @@ export const products: Product[] = [
     github: "https://github.com/mativallej/docta-valley",
     images: ["/images/product/dv-001.jpeg", "/images/product/dv-002.jpeg"],
     date: "2025",
+    metrics: [
+      { value: "+200", label: "personas" },
+      { value: "+4", label: "eventos" },
+      { value: "+12", label: "startups" },
+    ],
     twitter: "https://x.com/DoctaValley",
   },
   {
@@ -54,5 +63,10 @@ export const products: Product[] = [
     github: "https://github.com/mativallej/ai-expense-tracker-n8n",
     video: "/images/product/expenses.mp4",
     date: "2025",
+    metrics: [
+      { value: "+50", label: "stars" },
+      { value: "+8", label: "forks" },
+      { value: "+118K", label: "views" },
+    ],
   },
 ]

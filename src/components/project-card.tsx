@@ -55,7 +55,7 @@ export default function ProjectCard({
   project: Product
   variant?: "default" | "tall" | "wide"
 }) {
-  const { title, slug, description, tags, link, github, video, image, images, caseStudy, date, instagram, tiktok, twitter, linkedin } = project
+  const { title, slug, description, tags, link, github, video, image, images, caseStudy, date, metrics, instagram, tiktok, twitter, linkedin } = project
 
   const [isHovered, setIsHovered] = useState(false)
 
@@ -166,6 +166,18 @@ export default function ProjectCard({
                   )}
                 </div>
               )}
+              {metrics && metrics.length > 0 && (
+                <div className="mt-auto -mx-4 -mb-4 border-t border-white/10">
+                  <div className="grid" style={{ gridTemplateColumns: `repeat(${metrics.length}, 1fr)` }}>
+                    {metrics.map((m, i) => (
+                      <div key={m.label} className={`flex flex-col items-center py-2 ${i > 0 ? "border-l border-white/10" : ""}`}>
+                        <span className="font-mono text-caption font-semibold text-[#FB923C]">{m.value}</span>
+                        <span className="font-mono text-micro text-white/40">{m.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
@@ -173,9 +185,9 @@ export default function ProjectCard({
       </div>
 
       {/* Mobile info — visible only on small screens */}
-      <div className="md:hidden px-3 pt-2 pb-1 flex flex-col gap-2">
+      <div className="md:hidden px-4 pt-4 pb-3 flex flex-col gap-3">
         <h3 className="text-body font-semibold text-white">{title}</h3>
-        <p className="text-body-sm text-text-body leading-relaxed line-clamp-3">{description}</p>
+        <p className="text-body-sm text-text-body leading-relaxed">{description}</p>
         <div className="flex flex-wrap gap-1.5">
           {tags.map((tag) => (
             <span
@@ -219,6 +231,20 @@ export default function ProjectCard({
           )}
         </div>
       </div>
+
+      {/* Metrics — mobile */}
+      {metrics && metrics.length > 0 && (
+        <div className="md:hidden border-t border-white/10 mx-4">
+          <div className="grid py-3" style={{ gridTemplateColumns: `repeat(${metrics.length}, 1fr)` }}>
+            {metrics.map((m, i) => (
+              <div key={m.label} className={`flex flex-col items-center ${i > 0 ? "border-l border-white/10" : ""}`}>
+                <span className="font-mono text-caption font-semibold text-[#FB923C]">{m.value}</span>
+                <span className="font-mono text-micro text-white/40">{m.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Button */}
       <div className="p-2 flex-shrink-0">
