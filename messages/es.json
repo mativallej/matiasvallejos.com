@@ -15,7 +15,9 @@
   "Hero": {
     "panelSection": "Sección",
     "panelHome": "Inicio",
-    "role": "Ingeniero de Producto 🇦🇷",
+    "roleLine1": "Co-Founder @ Tegu",
+    "roleLine2": "Ingeniero de Producto",
+    "role": "Co-Founder @ Tegu · Ingeniero de Producto",
     "available": "Disponible para colaboraciones",
     "intro": "Builder enfocado en producto desde Córdoba, Argentina. Diseño productos digitales ágiles que resuelven problemas reales, avanzan rápido y se envían con propósito.",
     "beliefLead": "Creo que el mejor código es el que genera impacto, no el que impresiona a otros desarrolladores. Cada proyecto que toco empieza con una pregunta:",
@@ -24,27 +26,36 @@
     "ctaExplore": "explorar tegu",
     "ctaAbout": "sobre mí",
     "metaLocation": "Ubicación",
-    "metaLocationValue": "Córdoba, Argentina",
+    "metaLocationValue": "Córdoba, Argentina 🇦🇷",
     "metaFocus": "Foco",
     "metaFocusValue": "Ingeniería de Producto",
     "metaSince": "Desde",
     "metaSinceValue": "2021"
   },
-  "Dashboard": {
-    "section": "Sección",
-    "home": "Inicio",
-    "metricUnit": "AÑOS",
-    "metricLabel": "Construyendo productos que resuelven problemas reales",
-    "metricBadge": "Trayectoria",
-    "pillar1": "Proyectos",
-    "pillar2": "Ingeniería",
-    "pillar3": "Impacto",
-    "pillarBadge": "Cómo trabajo",
-    "insightTag": "Insights",
-    "insightTitle": "Lecciones construyendo Tegu: cómo convertir un side project en un marketplace real",
-    "insightBy": "Por",
-    "insightAuthor": "Matias Vallejos",
-    "shareCta": "Compartir este sitio"
+  "Impact": {
+    "title": "Resultados",
+    "updated": "En vivo",
+    "tegu": { "label": "Usuarios en Tegu" },
+    "community": { "label": "Builders en la comunidad Docta Valley" },
+    "openSource": { "label": "Stars en GitHub en 6 repos públicos" },
+    "press": { "label": "Apariciones en prensa sobre Tegu" },
+    "reach": { "label": "Vistas en un solo lanzamiento" },
+    "experience": {
+      "label": "Cómo trabajo",
+      "line1": "Producto",
+      "line2": "Ingeniería",
+      "line3": "Impacto"
+    },
+    "insight": {
+      "tag": "Insights",
+      "title": "Lecciones construyendo Tegu: cómo convertir un side project en un marketplace real",
+      "by": "Por",
+      "author": "Matias Vallejos"
+    },
+    "pressStrip": {
+      "tag": "Aparecido en",
+      "features": "apariciones"
+    }
   },
   "Now": {
     "title": "Ahora",
@@ -57,6 +68,17 @@
   "Writing": {
     "title": "Blog",
     "viewAll": "ver todos →"
+  },
+  "Press": {
+    "title": "Prensa",
+    "feature": "aparición",
+    "features": "apariciones"
+  },
+  "OpenSource": {
+    "title": "Open Source",
+    "viewAll": "ver en GitHub →",
+    "featured": "Destacado",
+    "archived": "Archivado"
   },
   "Contact": {
     "available": "disponible para colaboraciones",
@@ -72,7 +94,6 @@
     "quote": "\"No escribo código. Construyo productos.\"",
     "credit": "Hecho con 🧡 por Matias Vallejos",
     "source": "Código",
-    "designSystem": "Design System",
     "cafecito": "Cafecito",
     "followOn": "Seguime en {label}"
   }

@@ -11,6 +11,7 @@ export interface Product {
   link: string
   github?: string
   video?: string
+  videoFit?: "cover" | "contain"
   image?: string
   images?: string[]
   caseStudy?: string
@@ -26,7 +27,7 @@ export const products: Product[] = [
   {
     id: 1,
     title: "Tegu",
-    subtitle: "Home services marketplace",
+    subtitle: "AI home services marketplace",
     logo: "/images/product/tegu.png",
     logoBg: "#FB923C",
     slug: "tegu",
@@ -76,6 +77,7 @@ export const products: Product[] = [
     link: "https://x.com/mativallejosdev/status/1979669047622209758",
     github: "https://github.com/mativallej/ai-expense-tracker-n8n",
     video: "/images/product/expenses.mp4",
+    videoFit: "contain",
     date: "2025",
     metrics: [
       { value: "+50", label: "stars" },

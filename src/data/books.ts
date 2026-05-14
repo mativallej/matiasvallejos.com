@@ -1,3 +1,5 @@
+export type Verdict = "must-read" | "worth-it" | "skim" | "skip"
+
 export interface Book {
   id: number
   title: string
@@ -5,9 +7,39 @@ export interface Book {
   note: string
   category: string
   rating: number
-
   year: string
   destacado: boolean
+  /** What you actually changed/applied after reading. The opinionated core. */
+  takeaway?: string
+  /** Honest verdict on whether it's worth a reader's time. */
+  verdict?: Verdict
+  /** One line from the book worth pulling. */
+  quote?: string
+  /** Which of your products/decisions this influenced. */
+  appliedTo?: string
+}
+
+export const verdictLabels: Record<Verdict, string> = {
+  "must-read": "Must read",
+  "worth-it": "Worth it",
+  "skim": "Skim",
+  "skip": "Skip",
+}
+
+export const verdictColors: Record<Verdict, { fg: string; bg: string }> = {
+  "must-read": { fg: "#FB923C", bg: "rgba(251,146,60,0.15)" },
+  "worth-it": { fg: "#A3B86C", bg: "rgba(163,184,108,0.15)" },
+  "skim": { fg: "#A8A29E", bg: "rgba(168,162,158,0.10)" },
+  "skip": { fg: "#78716C", bg: "rgba(120,113,108,0.10)" },
+}
+
+export function getVerdict(book: Book): Verdict {
+  if (book.verdict) return book.verdict
+  if (book.rating >= 5 && book.destacado) return "must-read"
+  if (book.rating >= 5) return "worth-it"
+  if (book.rating >= 4) return "worth-it"
+  if (book.rating >= 3) return "skim"
+  return "skip"
 }
 
 export const books: Book[] = [

@@ -95,13 +95,6 @@ export function Footer() {
             </a>
             {" · "}
             <a
-              href="/design-system"
-              className="text-[#78716C] hover:text-white transition-colors duration-200"
-            >
-              {t("designSystem")}
-            </a>
-            {" · "}
-            <a
               href="https://cafecito.app/mativallej"
               target="_blank"
               rel="noopener noreferrer"

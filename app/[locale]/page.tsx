@@ -4,6 +4,8 @@ import { Hero } from "@/components/hero"
 import { Now } from "@/components/now"
 import { Products } from "@/components/products"
 import { Writing } from "@/components/writing"
+import { Press } from "@/components/press"
+import { OpenSource } from "@/components/open-source"
 import { LatestTweets } from "@/components/latest-tweets"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
@@ -33,6 +35,8 @@ export default async function Page({
       <Now />
       <Products />
       <Writing posts={posts} />
+      <OpenSource />
+      <Press locale={locale} />
       <Contact />
       <LatestTweets />
       <div className="pt-24" />

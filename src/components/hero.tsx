@@ -1,7 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { HeroPanelWidgets } from './dashboard';
@@ -67,75 +66,62 @@ const socialLinks = [
 
 export function Hero() {
   const t = useTranslations('Hero');
-  const [panelHovered, setPanelHovered] = useState(false);
   return (
     <section id="about" className="px-6 lg:px-10 pt-20 pb-10 md:pt-24 md:pb-14 max-w-[1080px] mx-auto">
-      {/* Backdrop overlay — darkens page (except navbar) when hovering panel */}
-      <AnimatePresence>
-        {panelHovered && (
-          <motion.div
-            key="hero-panel-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="hidden md:block fixed inset-0 z-30 bg-black/70 pointer-events-none"
-            aria-hidden
-          />
-        )}
-      </AnimatePresence>
-      <div className="grid grid-cols-1 md:grid-cols-[340px_1fr] gap-10 md:gap-12 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-[460px_1fr] gap-10 md:gap-12 items-stretch">
         {/* Left column wrapper — panel is absolute so right column drives row height */}
         <div className="md:relative md:min-h-0">
         <motion.aside id="hero-panel"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          onMouseEnter={() => setPanelHovered(true)}
-          onMouseLeave={() => setPanelHovered(false)}
-          className="rounded-3xl bg-[#080706] p-3 md:p-3 flex flex-col gap-3 md:absolute md:inset-0 md:overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:z-40"
+          className="rounded-3xl bg-[#080706] p-3 md:p-3 flex flex-col gap-3 md:absolute md:inset-0 md:overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {/* Photo + Name card */}
-          <div className="rounded-2xl border border-[#3D3935]/60 p-3 flex flex-col gap-3">
-            <div className="relative w-full h-52 md:h-60">
-              <Image
+          {/* Top row: Photo + Name (2 cols) */}
+          <div className="grid grid-cols-[150px_1fr] gap-3 shrink-0">
+            <div
+              className="group rounded-2xl border border-[#3D3935]/60 overflow-hidden bg-[#12100E]"
+              style={{ height: 170, minHeight: 170 }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/me.png"
                 alt="Matias Vallejos"
-                width={300}
-                height={300}
-                className="rounded-xl object-cover w-full h-full border border-[#3D3935]/60"
-                priority
+                className="w-full h-full object-cover block transition-transform duration-500 ease-out group-hover:scale-[1.3]"
               />
             </div>
-            <div className="flex flex-col gap-2">
-              <h1 className="font-serif text-[26px] font-bold text-white tracking-[-0.02em] leading-[1.1]">
-                Matias Vallejos
-              </h1>
-              <p className="font-mono text-[12px] text-[#78716C] tracking-wide">{t('role')}</p>
+            <div className="rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col justify-between min-h-[170px]">
+              <div className="flex flex-col gap-2">
+                <h1 className="font-serif text-[24px] font-bold text-white tracking-[-0.02em] leading-[1.05]">
+                  Matias Vallejos
+                </h1>
+                <div className="flex flex-col gap-0.5">
+                  <p className="font-mono text-[12px] text-[#A8A29E] tracking-wide">{t('roleLine1')}</p>
+                  <p className="font-mono text-[12px] text-[#78716C] tracking-wide">{t('roleLine2')}</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-between w-full">
+                {socialLinks.map((social, i) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.4,
+                      ease: 'easeOut',
+                      delay: 0.2 + i * 0.06,
+                    }}
+                    className="flex items-center justify-center w-8 h-8 rounded-lg border border-[#3D3935]/50 bg-transparent text-[#78716C] hover:text-[#A8A29E] hover:border-[#57534E] transition-all duration-200"
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
+              </div>
             </div>
-          </div>
-
-          {/* Social links card */}
-          <div className="rounded-2xl border border-[#3D3935]/60 p-3 flex items-center justify-between gap-2 flex-wrap">
-            {socialLinks.map((social, i) => (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.4,
-                  ease: 'easeOut',
-                  delay: 0.2 + i * 0.06,
-                }}
-                className="flex items-center justify-center w-9 h-9 rounded-lg border border-[#3D3935]/50 bg-transparent text-[#78716C] hover:text-[#A8A29E] hover:border-[#57534E] transition-all duration-200"
-              >
-                {social.icon}
-              </motion.a>
-            ))}
           </div>
 
           {/* Widgets */}

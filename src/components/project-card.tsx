@@ -30,16 +30,16 @@ function ImageCarousel({ images, title }: { images: string[]; title: string }) {
   }, [emblaApi, images.length])
 
   return (
-    <div ref={emblaRef} className="overflow-hidden w-full h-full">
+    <div ref={emblaRef} className="absolute inset-0 overflow-hidden">
       <div className="flex h-full">
         {images.map((src, index) => (
-          <div key={src} className="min-w-0 shrink-0 grow-0 basis-full h-full">
+          <div key={src} className="relative min-w-0 shrink-0 grow-0 basis-full h-full">
             <Image
               src={src}
               alt={`${title} — ${index + 1}`}
-              className="w-full h-full object-cover"
-              width={1280}
-              height={720}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
           </div>
         ))}
@@ -55,7 +55,7 @@ export default function ProjectCard({
   project: Product
   variant?: "default" | "tall" | "wide"
 }) {
-  const { title, subtitle, logo, emoji, logoBg, slug, description, tags, link, github, video, image, images, caseStudy, date, metrics, instagram, tiktok, twitter, linkedin } = project
+  const { title, subtitle, logo, emoji, logoBg, slug, description, tags, link, github, video, videoFit, image, images, caseStudy, date, metrics, instagram, tiktok, twitter, linkedin } = project
 
   const aspectClass =
     variant === "tall"
@@ -70,9 +70,13 @@ export default function ProjectCard({
     <div className="bg-[#0C0A09] border border-neutral-400 rounded-lg overflow-hidden transition-colors duration-200 h-full flex flex-col relative">
       {/* Media area — desktop only */}
       <div className={`hidden md:block w-full ${aspectClass} p-2 pb-0 flex-1 min-h-0`}>
-        <div className="relative w-full h-full rounded-lg overflow-hidden">
+        <Link
+          href={caseStudyHref}
+          aria-label={`${title} case study`}
+          className="relative block w-full h-full rounded-lg overflow-hidden border border-neutral-400 hover:border-text-muted transition-colors duration-200"
+        >
           {video ? (
-            <Video src={video} className="w-full h-full object-contain bg-[#0C0A09]" />
+            <Video src={video} className={`w-full h-full ${videoFit === "contain" ? "object-contain bg-[#0C0A09]" : "object-cover"}`} />
           ) : images && images.length > 0 ? (
             <ImageCarousel images={images} title={title} />
           ) : image ? (
@@ -90,11 +94,14 @@ export default function ProjectCard({
           )}
 
           {/* Title overlay — full-width bottom of media card */}
-          <Link
-            href={link}
-            target="_blank"
-            aria-label={title}
-            className="absolute bottom-0 left-0 right-0 flex items-center gap-3 px-4 py-3 rounded-b-lg bg-black/40 backdrop-blur-md border-t border-white/10 text-text-muted hover:bg-black/55 hover:text-text-body transition-all duration-200"
+          <div
+            className="absolute bottom-0 left-0 right-0 flex items-center gap-3 px-4 pt-5 pb-3 rounded-b-lg bg-gradient-to-t from-black/55 via-black/20 to-transparent text-text-body pointer-events-none"
+            style={{
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              maskImage: "linear-gradient(to top, black 75%, transparent)",
+              WebkitMaskImage: "linear-gradient(to top, black 75%, transparent)",
+            }}
           >
             <span
               className="flex items-center justify-center w-9 h-9 rounded-full flex-shrink-0 overflow-hidden font-serif text-[15px] font-bold text-white"
@@ -112,8 +119,8 @@ export default function ProjectCard({
                 <span className="font-mono text-[11px] text-white/75 truncate">{subtitle}</span>
               )}
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
 
       {/* Mobile title block — minimalist (logo + title + subtitle) */}

@@ -15,7 +15,9 @@
   "Hero": {
     "panelSection": "Section",
     "panelHome": "Home",
-    "role": "Product Engineer 🇦🇷",
+    "roleLine1": "Co-Founder @ Tegu",
+    "roleLine2": "Product Engineer",
+    "role": "Co-Founder @ Tegu · Product Engineer",
     "available": "Available for collaborations",
     "intro": "Product-minded builder from Córdoba, Argentina. I craft lean digital products that solve real problems, move fast, and ship with purpose.",
     "beliefLead": "I believe the best code is the code that creates impact — not the code that impresses other developers. Every project I touch starts with a question:",
@@ -24,27 +26,36 @@
     "ctaExplore": "explore tegu",
     "ctaAbout": "about me",
     "metaLocation": "Location",
-    "metaLocationValue": "Córdoba, Argentina",
+    "metaLocationValue": "Córdoba, Argentina 🇦🇷",
     "metaFocus": "Focus",
     "metaFocusValue": "Product Engineering",
     "metaSince": "Since",
     "metaSinceValue": "2021"
   },
-  "Dashboard": {
-    "section": "Section",
-    "home": "Home",
-    "metricUnit": "YRS",
-    "metricLabel": "Shipping products that solve real problems",
-    "metricBadge": "Track record",
-    "pillar1": "Projects",
-    "pillar2": "Engineering",
-    "pillar3": "Impact",
-    "pillarBadge": "How I work",
-    "insightTag": "Insights",
-    "insightTitle": "Lessons from shipping Tegu: turning a side project into a real marketplace",
-    "insightBy": "By",
-    "insightAuthor": "Matias Vallejos",
-    "shareCta": "Share this site"
+  "Impact": {
+    "title": "Results",
+    "updated": "Live",
+    "tegu": { "label": "Users on Tegu" },
+    "community": { "label": "Builders in the Docta Valley community" },
+    "openSource": { "label": "GitHub stars across 6 public repos" },
+    "press": { "label": "Press features on Tegu" },
+    "reach": { "label": "Views on a single product launch" },
+    "experience": {
+      "label": "How I work",
+      "line1": "Product",
+      "line2": "Engineering",
+      "line3": "Impact"
+    },
+    "insight": {
+      "tag": "Insights",
+      "title": "Lessons from shipping Tegu: turning a side project into a real marketplace",
+      "by": "By",
+      "author": "Matias Vallejos"
+    },
+    "pressStrip": {
+      "tag": "As featured in",
+      "features": "features"
+    }
   },
   "Now": {
     "title": "Now",
@@ -57,6 +68,17 @@
   "Writing": {
     "title": "Blog",
     "viewAll": "view all →"
+  },
+  "Press": {
+    "title": "Press",
+    "feature": "feature",
+    "features": "features"
+  },
+  "OpenSource": {
+    "title": "Open Source",
+    "viewAll": "view on GitHub →",
+    "featured": "Featured",
+    "archived": "Archived"
   },
   "Contact": {
     "available": "available for collaborations",
@@ -72,7 +94,6 @@
     "quote": "\"I don't write code. I build products.\"",
     "credit": "Made with 🧡 by Matias Vallejos",
     "source": "Source",
-    "designSystem": "Design System",
     "cafecito": "Cafecito",
     "followOn": "Follow on {label}"
   }
