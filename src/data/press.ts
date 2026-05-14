@@ -12,6 +12,8 @@ export interface PressItem {
   quote?: string
   product?: string
   logo?: string
+  /** When true, only the logo is shown (in the marquee). Item is hidden from the press list. */
+  logoOnly?: boolean
 }
 
 export const press: PressItem[] = [
@@ -61,5 +63,39 @@ export const press: PressItem[] = [
     type: "video",
     language: "es",
     product: "Tegu",
+  },
+  {
+    id: 5,
+    outlet: "Canal 10",
+    title: "Tegu en Canal 10",
+    url: "https://www.serviciosrtv.com.ar/",
+    date: "2026-03-15",
+    type: "video",
+    language: "es",
+    product: "Tegu",
+    logo: "/images/canal-10.png",
+    logoOnly: true,
+  },
+  {
+    id: 6,
+    outlet: "iProUP",
+    title: "El Uber de los servicios: así funciona la app para contratar desde fletes hasta plomeros",
+    url: "https://www.iproup.com/economia-digital/66215-el-uber-de-los-servicios-asi-funciona-la-app-para-contratar-desde-fletes-hasta-plomeros",
+    date: "2026-03-20",
+    type: "article",
+    language: "es",
+    product: "Tegu",
+    logo: "/images/iproup.png",
+  },
+  {
+    id: 7,
+    outlet: "Perfil",
+    title: "Tegu, la app cordobesa que conecta plomeros y electricistas verificados con vecinos que no saben a quién llamar",
+    url: "https://www.perfil.com/noticias/cordoba/tegu-la-app-cordobesa-que-conecta-plomeros-y-electricistas-verificados-con-vecinos-que-no-saben-a-quien-llamar.phtml",
+    date: "2026-03-22",
+    type: "article",
+    language: "es",
+    product: "Tegu",
+    logo: "/images/perfil.png",
   },
 ]

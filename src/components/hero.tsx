@@ -1,9 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { HeroPanelWidgets } from './dashboard';
+import { ResultsCard, MakeItCard, PressStripCard } from './dashboard';
 
 const socialLinks = [
   {
@@ -44,7 +45,7 @@ const socialLinks = [
   },
   {
     label: 'Email',
-    href: 'mailto:matiasvallejosdev@outlook.com',
+    href: 'mailto:mativallej@outlook.com',
     icon: (
       <svg
         width="14"
@@ -66,135 +67,151 @@ const socialLinks = [
 
 export function Hero() {
   const t = useTranslations('Hero');
-  return (
-    <section id="about" className="px-6 lg:px-10 pt-20 pb-10 md:pt-24 md:pb-14 max-w-[1080px] mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-[460px_1fr] gap-10 md:gap-12 items-stretch">
-        {/* Left column wrapper — panel is absolute so right column drives row height */}
-        <div className="md:relative md:min-h-0">
-        <motion.aside id="hero-panel"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="rounded-3xl bg-[#080706] p-3 md:p-3 flex flex-col gap-3 md:absolute md:inset-0 md:overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {/* Top row: Photo + Name (2 cols) */}
-          <div className="grid grid-cols-[150px_1fr] gap-3 shrink-0">
-            <div
-              className="group rounded-2xl border border-[#3D3935]/60 overflow-hidden bg-[#12100E]"
-              style={{ height: 170, minHeight: 170 }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/me.png"
-                alt="Matias Vallejos"
-                className="w-full h-full object-cover block transition-transform duration-500 ease-out group-hover:scale-[1.3]"
-              />
-            </div>
-            <div className="rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col justify-between min-h-[170px]">
-              <div className="flex flex-col gap-2">
-                <h1 className="font-serif text-[24px] font-bold text-white tracking-[-0.02em] leading-[1.05]">
-                  Matias Vallejos
-                </h1>
-                <div className="flex flex-col gap-0.5">
-                  <p className="font-mono text-[12px] text-[#A8A29E] tracking-wide">{t('roleLine1')}</p>
-                  <p className="font-mono text-[12px] text-[#78716C] tracking-wide">{t('roleLine2')}</p>
-                </div>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                {socialLinks.map((social, i) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.4,
-                      ease: 'easeOut',
-                      delay: 0.2 + i * 0.06,
-                    }}
-                    className="flex items-center justify-center w-8 h-8 rounded-lg border border-[#3D3935]/50 bg-transparent text-[#78716C] hover:text-[#A8A29E] hover:border-[#57534E] transition-all duration-200"
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
-              </div>
-            </div>
-          </div>
+  const [copied, setCopied] = useState(false);
+  const [socialHover, setSocialHover] = useState(false);
 
-          {/* Widgets */}
-          <HeroPanelWidgets />
-        </motion.aside>
+  const handleCopy = () => {
+    if (typeof window === 'undefined') return;
+    navigator.clipboard?.writeText(window.location.href).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    });
+  };
+
+  return (
+    <section id="about" className="px-6 lg:px-10 pt-14 pb-8 max-w-[1080px] mx-auto">
+      <motion.aside
+        id="hero-panel"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="rounded-3xl bg-[#080706] p-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3"
+      >
+        {/* Row 1: Photo + Name+Socials + Bio (spans 2) */}
+        <div
+          className="relative rounded-2xl border border-[#3D3935]/60 overflow-hidden bg-[#12100E]"
+          style={{ minHeight: 260 }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/me.png"
+            alt="Matias Vallejos"
+            className="w-full h-full object-cover block scale-[1.3]"
+          />
+          <span
+            aria-label="Argentina"
+            title="Argentina"
+            className="absolute bottom-2 right-2 flex items-center justify-center w-10 h-10 rounded-full bg-[#080706] border border-[#3D3935] text-[20px] leading-none shadow-lg"
+          >
+            🇦🇷
+          </span>
         </div>
 
-        {/* Right column — Bio */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.7,
-            ease: [0.25, 0.46, 0.45, 0.94],
-            delay: 0.12,
-          }}
-          className="flex flex-col gap-8 md:pt-4"
+        <button
+          type="button"
+          onClick={handleCopy}
+          aria-label="Copy link to this page"
+          className={`relative text-left rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col justify-between min-h-[260px] transition-colors group cursor-pointer overflow-hidden ${socialHover ? '' : 'hover:border-[#57534E]'}`}
+          data-social-hover={socialHover ? 'true' : 'false'}
         >
-          <div className="flex flex-col gap-7">
-            <p className="font-serif text-[18px] md:text-[20px] text-[#FAFAF9] leading-[1.7] font-normal">
-              {t('intro')}
-            </p>
-
-            <p className="text-[16px] text-[#A8A29E] leading-[1.8]">{t('beliefLead')}</p>
-
-            <p className="font-serif text-[18px] md:text-[20px] text-[#FB923C] italic leading-[1.6] pl-5 border-l-2 border-[#E8742A]/30">
-              {t('beliefQuote')}
-            </p>
-
-            <p className="text-[16px] text-[#A8A29E] leading-[1.8]">{t('beliefClose')}</p>
-          </div>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-3">
-            <a
-              href="#products"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="group inline-flex items-center justify-center gap-2.5 font-mono text-[12px] font-semibold tracking-[0.04em] uppercase bg-[#E8742A] text-[#080706] px-5 py-3 rounded-lg hover:bg-[#D4622A] hover:shadow-glow transition-all duration-200"
-            >
-              {t('ctaExplore')}
-              <span className="group-hover:translate-x-0.5 transition-transform duration-200">{'\u2192'}</span>
-            </a>
-            <a
-              href="/about"
-              className="inline-flex items-center justify-center font-mono text-[12px] font-normal tracking-[0.04em] uppercase border border-[#3D3935] text-[#57534E] px-5 py-3 rounded-lg hover:text-[#A8A29E] hover:border-[#57534E] hover:bg-[#12100E] transition-all duration-200"
-            >
-              {t('ctaAbout')}
-            </a>
-          </div>
-
-          {/* Bottom meta */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-[#3D3935]/40">
-            <div className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">{t('metaLocation')}</span>
-              <span className="font-mono text-[12px] text-[#78716C]">{t('metaLocationValue')}</span>
-            </div>
-            <div className="w-px h-8 bg-[#3D3935]/40 hidden sm:block" />
-            <div className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">{t('metaFocus')}</span>
-              <span className="font-mono text-[12px] text-[#78716C]">{t('metaFocusValue')}</span>
-            </div>
-            <div className="w-px h-8 bg-[#3D3935]/40 hidden sm:block" />
-            <div className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">{t('metaSince')}</span>
-              <span className="font-mono text-[12px] text-[#78716C]">{t('metaSinceValue')}</span>
+          <div className="flex flex-col gap-3">
+            <h1 className="font-serif text-[36px] md:text-[40px] font-bold text-white tracking-[-0.03em] leading-[1]">
+              Matias
+              <br />
+              <span className="text-[#FB923C]">Vallejos</span>
+            </h1>
+            <div className="flex flex-col gap-0.5">
+              <p className="font-mono text-[15px] text-[#A8A29E] tracking-wide">{t('roleLine1')}</p>
+              <p className="font-mono text-[15px] text-[#78716C] tracking-wide">{t('roleLine2')}</p>
             </div>
           </div>
+          <div className="flex items-center justify-between w-full">
+            {socialLinks.map((social, i) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                onClick={(e) => e.stopPropagation()}
+                onMouseEnter={() => setSocialHover(true)}
+                onMouseLeave={() => setSocialHover(false)}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 + i * 0.06 }}
+                className="flex items-center justify-center w-8 h-8 rounded-lg border border-[#3D3935]/50 bg-transparent text-[#78716C] hover:text-[#A8A29E] hover:border-[#57534E] transition-all duration-200"
+              >
+                {social.icon}
+              </motion.a>
+            ))}
+          </div>
 
-        </motion.div>
-      </div>
+          {/* Copied toast */}
+          <AnimatePresence>
+            {copied && (
+              <motion.div
+                key="copied-toast"
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.18, ease: 'easeOut' }}
+                className="absolute inset-0 flex flex-col items-center justify-center bg-[#080706]/90 backdrop-blur-sm gap-2"
+              >
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A3B86C" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span className="font-mono text-[12px] text-[#FAFAF9] uppercase tracking-[0.08em]">Link copied</span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </button>
+
+        <a
+          href="/about"
+          className="relative sm:col-span-2 md:col-span-2 rounded-2xl border border-[#3D3935]/60 p-4 pb-9 flex flex-col gap-4 hover:border-[#57534E] transition-colors group block min-h-[260px]"
+        >
+          <p className="font-serif text-[16px] md:text-[18px] text-[#FAFAF9] leading-[1.5] tracking-[-0.01em] font-normal">
+            {t('intro')}
+          </p>
+          <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">
+            {t('ctaAbout')}
+          </span>
+        </a>
+
+        {/* Row 2: Results (wide, with chart) · GitHub · Community */}
+        <div className="md:col-span-2">
+          <ResultsCard />
+        </div>
+        <MakeItCard />
+        <a
+          href="https://doctavalley.com.ar"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative rounded-2xl border border-[#3D3935]/60 p-4 pb-9 hover:border-[#57534E] transition-colors group flex flex-col items-start gap-2 min-h-[170px] overflow-hidden"
+        >
+          <span className="font-serif text-[44px] leading-none tracking-tight text-[#F5E6B0]">
+            +240
+          </span>
+          <p className="text-[13px] text-[#FAFAF9] leading-snug font-medium">
+            {t('secondary.communityTitle')}
+          </p>
+          <Image
+            src="/images/docta-valley.jpg"
+            alt="Docta Valley"
+            width={32}
+            height={32}
+            className="absolute bottom-3 right-4 h-7 w-7 rounded-full object-cover opacity-90"
+          />
+          <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">
+            {t('secondary.communityTag')}
+          </span>
+        </a>
+
+        {/* Row 3: Press strip (full width) */}
+        <div className="sm:col-span-2 md:col-span-4">
+          <PressStripCard />
+        </div>
+      </motion.aside>
     </section>
   );
 }

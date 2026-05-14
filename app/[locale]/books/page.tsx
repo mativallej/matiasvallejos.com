@@ -155,7 +155,7 @@ export default function BooksPage() {
                   variants={cardVariants}
                   initial="hidden"
                   animate="visible"
-                  className={`bg-[#0C0A09] border border-[#3D3935] rounded-lg p-5 group hover:border-[#57534E] transition-colors duration-200 ${
+                  className={`bg-[#0C0A09] border border-[#3D3935]/60 rounded-2xl p-5 group hover:border-[#57534E] transition-colors duration-200 ${
                     isSkip ? "opacity-70" : ""
                   }`}
                 >

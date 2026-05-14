@@ -6,7 +6,7 @@ import { Products } from "@/components/products"
 import { Writing } from "@/components/writing"
 import { Press } from "@/components/press"
 import { OpenSource } from "@/components/open-source"
-import { LatestTweets } from "@/components/latest-tweets"
+import { ShipStatus } from "@/components/ship-status"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { getFeaturedPosts } from "@/lib/blog"
@@ -38,9 +38,8 @@ export default async function Page({
       <OpenSource />
       <Press locale={locale} />
       <Contact />
-      <LatestTweets />
-      <div className="pt-24" />
       <Footer />
+      <ShipStatus />
     </main>
   )
 }

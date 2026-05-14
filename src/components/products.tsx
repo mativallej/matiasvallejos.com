@@ -35,7 +35,10 @@ export function Products() {
           <h2 className="font-mono text-caption text-[#57534E] uppercase">
             {t("title")}
           </h2>
-          <Link href="/products" className="font-mono text-caption text-[#57534E] hover:text-[#FB923C] transition-colors duration-200">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1.5 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1 hover:text-white hover:border-[#57534E] transition-colors duration-200"
+          >
             {t("viewAll")}
           </Link>
         </div>

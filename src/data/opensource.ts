@@ -7,30 +7,38 @@ export interface Repo {
   forks: number
   archived?: boolean
   featured?: boolean
+  emoji?: string
+  tags?: string[]
 }
 
 export const githubUrl = "https://github.com/mativallej"
+
+// Re-exported here for convenience. Live values come from /api/github-stats
+// (cached 7 days). These are the fallback used until the client fetch resolves.
+export { FALLBACK_GITHUB_STATS as githubStats } from "@/lib/github"
 
 export const repos: Repo[] = [
   {
     name: "ai-expense-tracker-n8n",
     description:
-      "AI-driven personal finance automation using n8n and Google Drive to extract and categorize PDF expenses into Google Sheets.",
+      "AI-driven personal finance automation that extracts and categorizes PDF expenses into Google Sheets.",
     url: "https://github.com/mativallej/ai-expense-tracker-n8n",
     language: "TypeScript",
     stars: 59,
     forks: 10,
     featured: true,
+    tags: ["n8n", "OpenAI", "Google Sheets", "Docker"],
   },
   {
     name: "learn-to-learn",
     description:
-      "Sistema completo para aprender a aprender: encoding, spaced repetition, flashcards, active reading, study habits y knowledge management con Zettelkasten.",
+      "Complete system to learn how to learn: spaced repetition, flashcards, active reading, and Zettelkasten knowledge management.",
     url: "https://github.com/mativallej/learn-to-learn",
     language: "Markdown",
     stars: 11,
     forks: 0,
     featured: true,
+    tags: ["Zettelkasten", "Learning", "Productivity"],
   },
   {
     name: "shipstats",
@@ -41,15 +49,17 @@ export const repos: Repo[] = [
     stars: 4,
     forks: 0,
     featured: true,
+    tags: ["Prompt", "AI", "Marketing"],
   },
   {
     name: "z0-aspnetcore-boilerplate",
     description:
-      "Production-ready Clean Architecture boilerplate for .NET 9.0 APIs with PostgreSQL, AWS Cognito auth, testing, and one-command Docker setup.",
+      "Production-ready Clean Architecture boilerplate for .NET 9.0 APIs with PostgreSQL, AWS Cognito, and Docker.",
     url: "https://github.com/mativallej/z0-aspnetcore-boilerplate",
     language: "C#",
     stars: 1,
     forks: 1,
+    tags: [".NET 9", "PostgreSQL", "AWS Cognito", "Docker"],
   },
   {
     name: "unity-ecoxplorer-ar",
@@ -59,6 +69,7 @@ export const repos: Repo[] = [
     language: "C#",
     stars: 1,
     forks: 0,
+    tags: ["Unity", "AR", "Education"],
   },
   {
     name: "casino-roulette-game",
@@ -68,5 +79,6 @@ export const repos: Repo[] = [
     stars: 90,
     forks: 38,
     archived: true,
+    tags: ["Unity", "C#", "Game"],
   },
 ]

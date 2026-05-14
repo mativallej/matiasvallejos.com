@@ -54,7 +54,7 @@ export function OpenSource() {
             <h2 className="font-mono text-caption text-[#57534E] uppercase">
               {t("title")}
             </h2>
-            <span className="font-mono text-caption text-[#FB923C]">
+            <span className="inline-flex items-center gap-1 font-mono text-caption text-[#FB923C] border border-[#3D3935]/60 rounded-full px-2.5 py-1">
               {totalStars}★
             </span>
           </div>
@@ -62,9 +62,10 @@ export function OpenSource() {
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-caption text-[#57534E] hover:text-[#FB923C] transition-colors duration-200"
+            className="inline-flex items-center gap-1.5 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1 hover:text-white hover:border-[#57534E] transition-colors duration-200"
           >
-            {t("viewAll")}
+            github
+            <span className="text-[#57534E]">↗</span>
           </a>
         </div>
       </motion.div>
@@ -81,52 +82,66 @@ export function OpenSource() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
-            className="group flex flex-col gap-3 p-5 rounded-lg border border-[#3D3935] bg-[#0C0A09] hover:border-[#57534E] transition-colors duration-200"
+            className="group flex flex-col gap-3 p-4 rounded-2xl border border-[#3D3935]/60 bg-[#0C0A09] hover:border-[#57534E] transition-colors duration-200"
           >
+            {/* Top row: name + status badges */}
             <div className="flex items-start justify-between gap-3">
-              <div className="flex flex-col gap-1 min-w-0">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-mono text-body-sm font-semibold text-white group-hover:text-[#FB923C] transition-colors duration-200">
-                    {repo.name}
-                  </span>
-                  {repo.featured && (
-                    <span className="font-mono text-micro text-[#FB923C] uppercase tracking-[0.08em] px-1.5 py-0.5 rounded-sm bg-[#FB923C]/15">
-                      {t("featured")}
-                    </span>
-                  )}
-                  {repo.archived && (
-                    <span className="font-mono text-micro text-[#78716C] uppercase tracking-[0.08em] px-1.5 py-0.5 rounded-sm bg-[#3D3935]/50">
-                      {t("archived")}
-                    </span>
-                  )}
-                </div>
-              </div>
-              <span className="text-[#57534E] text-body group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0">
-                {"↗"}
-              </span>
-            </div>
-            <p className="text-body-sm text-[#A8A29E] leading-relaxed flex-1">
-              {repo.description}
-            </p>
-            <div className="flex items-center gap-4 font-mono text-caption text-[#78716C] pt-2 border-t border-[#3D3935]/50">
-              <span className="flex items-center gap-1.5">
-                <span
-                  className="w-2 h-2 rounded-full"
-                  style={{ backgroundColor: languageColor[repo.language] ?? "#57534E" }}
-                />
-                {repo.language}
-              </span>
-              <span className="flex items-center gap-1 text-[#FB923C]">
-                <StarIcon />
-                {repo.stars}
-              </span>
-              {repo.forks > 0 && (
-                <span className="flex items-center gap-1">
-                  <ForkIcon />
-                  {repo.forks}
+              <div className="flex items-center gap-2 min-w-0 flex-wrap">
+                <span className="font-mono text-body-sm font-semibold text-white group-hover:text-[#FB923C] transition-colors duration-200 inline-flex items-center gap-1.5">
+                  {repo.name}
+                  <span className="text-[#57534E] group-hover:translate-x-0.5 transition-transform duration-200">↗</span>
                 </span>
-              )}
+                {repo.featured && (
+                  <span className="font-mono text-micro text-[#FB923C] uppercase tracking-[0.08em] px-1.5 py-0.5 rounded-sm bg-[#FB923C]/15">
+                    {t("featured")}
+                  </span>
+                )}
+                {repo.archived && (
+                  <span className="font-mono text-micro text-[#78716C] uppercase tracking-[0.08em] px-1.5 py-0.5 rounded-sm bg-[#3D3935]/50">
+                    {t("archived")}
+                  </span>
+                )}
+              </div>
+              <span className="flex items-center gap-3 flex-shrink-0 text-[#78716C]">
+                <span className="flex items-center gap-1 font-mono text-caption text-[#FB923C]">
+                  <StarIcon />
+                  {repo.stars}
+                </span>
+                {repo.forks > 0 && (
+                  <span className="flex items-center gap-1 font-mono text-caption">
+                    <ForkIcon />
+                    {repo.forks}
+                  </span>
+                )}
+              </span>
             </div>
+
+            {/* Description with optional emoji */}
+            <p className="text-body-sm text-[#A8A29E] leading-relaxed flex items-start gap-2">
+              {repo.emoji && <span className="flex-shrink-0">{repo.emoji}</span>}
+              <span>{repo.description}</span>
+            </p>
+
+            {/* Tech tags */}
+            {repo.tags && repo.tags.length > 0 && (
+              <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                {repo.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="font-mono text-micro px-2 py-0.5 rounded-sm border border-[#3D3935]/70 text-[#78716C] bg-[#12100E]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+                <span className="ml-auto flex items-center gap-1.5 font-mono text-micro text-[#78716C]">
+                  <span
+                    className="w-1.5 h-1.5 rounded-full"
+                    style={{ backgroundColor: languageColor[repo.language] ?? "#57534E" }}
+                  />
+                  {repo.language}
+                </span>
+              </div>
+            )}
           </motion.a>
         ))}
       </div>

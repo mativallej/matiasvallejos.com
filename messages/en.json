@@ -5,10 +5,10 @@
     "spanish": "Spanish"
   },
   "Navbar": {
-    "tagline": "building products that matter",
+    "tagline": "Matias Vallejos",
     "now": "now",
     "about": "about",
-    "products": "products",
+    "products": "projects",
     "blog": "blog",
     "books": "books"
   },
@@ -19,7 +19,17 @@
     "roleLine2": "Product Engineer",
     "role": "Co-Founder @ Tegu · Product Engineer",
     "available": "Available for collaborations",
-    "intro": "Product-minded builder from Córdoba, Argentina. I craft lean digital products that solve real problems, move fast, and ship with purpose.",
+    "currently": "Currently shipping Tegu in Córdoba",
+    "secondary": {
+      "updateTag": "Latest Tegu update",
+      "updateTitle": "1 month monetizing: from 843 to 2,110 users, 8 pros paid in 4 days",
+      "blogTag": "Latest blog article",
+      "blogTitle": "Para recibir, primero tenes que dar",
+      "projectTag": "Top project",
+      "communityTag": "Community",
+      "communityTitle": "Builders in Docta Valley"
+    },
+    "intro": "For technical founders in LatAm who actually want to ship. I'm a product engineer — I write code, talk to users, and treat both as one discipline. Building from Córdoba is harder than from SF, and that's the unfair advantage. Currently shipping Tegu (2,200 users), Docta Valley (240+ builders), and open source (118K views on launch).",
     "beliefLead": "I believe the best code is the code that creates impact — not the code that impresses other developers. Every project I touch starts with a question:",
     "beliefQuote": "What problem are we actually solving?",
     "beliefClose": "I don't write code for the sake of it. I build products that people actually use — tools that feel right, work fast, and get out of the way. Less architecture, more shipping.",
@@ -40,11 +50,19 @@
     "openSource": { "label": "GitHub stars across 6 public repos" },
     "press": { "label": "Press features on Tegu" },
     "reach": { "label": "Views on a single product launch" },
-    "experience": {
+    "makeIt": {
       "label": "How I work",
-      "line1": "Product",
-      "line2": "Engineering",
-      "line3": "Impact"
+      "line1": "Make it useful.",
+      "line2": "Make it lean.",
+      "line3": "Make it crafted.",
+      "line4": "Make it ship."
+    },
+    "pillars": {
+      "label": "What I do",
+      "line1": "Strategy.",
+      "line2": "Product.",
+      "line3": "Code.",
+      "line4": "Impact."
     },
     "insight": {
       "tag": "Insights",
@@ -59,10 +77,13 @@
   },
   "Now": {
     "title": "Now",
-    "updated": "Updated {date}"
+    "updated": "Updated {date}",
+    "teguMetrics": "Tegu — public metrics",
+    "buildLogs": "Monthly build logs",
+    "whatNow": "What I'm doing now"
   },
   "Products": {
-    "title": "Products",
+    "title": "Things I've shipped",
     "viewAll": "view all →"
   },
   "Writing": {
@@ -74,8 +95,92 @@
     "feature": "feature",
     "features": "features"
   },
+  "About": {
+    "label": "About",
+    "title": "Builder, not coder.",
+    "titleAccent": "Product-minded.",
+    "description": "I'm Matias Vallejos, a product builder from Córdoba, Argentina. I create lean digital products that solve real problems, move fast, and ship with purpose. I don't optimize for tech stacks — I optimize for impact.",
+    "downloadCV": "Download CV",
+    "whatIBelieve": "What I believe",
+    "values": {
+      "product": {
+        "title": "Product over code",
+        "description": "I measure success by the problems I solve, not the lines I write. Technology is a means, never the end."
+      },
+      "lean": {
+        "title": "Lean by default",
+        "description": "Every feature earns its place or gets cut. Constraints drive creativity. Small is a superpower."
+      },
+      "craft": {
+        "title": "Craft matters",
+        "description": "Details compound. The border radius, the micro-interaction, the loading state — they all shape how a product feels."
+      },
+      "ship": {
+        "title": "Ship with purpose",
+        "description": "Velocity without direction is just noise. I ship fast but always toward something meaningful."
+      }
+    },
+    "timelineTitle": "Timeline",
+    "timeline": {
+      "y2026": {
+        "title": "Building Tegu",
+        "description": "Focused full-time on product development. Creating lean tools for solo builders and small teams."
+      },
+      "y2025": {
+        "title": "Co-founded Docta Valley",
+        "description": "Co-founded a community connecting tech founders and builders in Córdoba. Creating the space to spread ideas, make connections, and launch startups."
+      },
+      "y2024": {
+        "title": "First indie product",
+        "description": "Launched my first product as a solo founder. Learned that shipping matters more than perfecting."
+      },
+      "y2023": {
+        "title": "Went independent",
+        "description": "Left agency work to build my own things. Córdoba became the base, the world became the market."
+      }
+    },
+    "toolsIUse": "Tools I use",
+    "stack": {
+      "product": "Product",
+      "backend": "Backend",
+      "design": "Design",
+      "workflow": "Workflow"
+    }
+  },
+  "Ship": {
+    "shipped": "shipped",
+    "lastShip": "Last ship",
+    "shippedAgo": "Shipped",
+    "open": "Open",
+    "justNow": "just now",
+    "ago": "ago",
+    "tagOpenSource": "open source",
+    "tagMilestone": "milestone",
+    "tagPress": "press",
+    "tagBlog": "blog",
+    "tagUpdate": "tegu updates"
+  },
+  "AboutWIP": {
+    "tag": "About",
+    "title": "We're working on it.",
+    "description": "The full About page is coming soon — currently re-writing it to do justice to the journey. In the meantime: the homepage tells most of the story.",
+    "backHome": "Back home"
+  },
+  "ProjectCaseStudy": {
+    "title": "We're working on it.",
+    "description": "The full case study for this project is on the roadmap. Want the early version? Reach out and I'll send the deck.",
+    "visitProject": "Visit the live project",
+    "backHome": "Back home"
+  },
+  "Outro": {
+    "tag": "Thanks for stopping by",
+    "title": "I read every email.",
+    "subtitle": "If something here resonated, hit reply. I respond to every founder email within 48 hours.",
+    "cta": "say hi →",
+    "signature": "Made from Córdoba 🇦🇷 by Matias Vallejos"
+  },
   "OpenSource": {
-    "title": "Open Source",
+    "title": "Free for builders",
     "viewAll": "view on GitHub →",
     "featured": "Featured",
     "archived": "Archived"
@@ -84,14 +189,15 @@
     "available": "available for collaborations",
     "title": "Have a product idea? Let's build it together.",
     "subtitle": "I work best with founders and small teams who care about craft and want to ship something meaningful.",
-    "cta": "get in touch →"
+    "cta": "get in touch →",
+    "openFor": "Open for: founder collabs · product ideas · investor conversations"
   },
   "LatestTweets": {
     "title": "Latest Tweets",
     "follow": "follow on X →"
   },
   "Footer": {
-    "quote": "\"I don't write code. I build products.\"",
+    "quote": "Made from Córdoba 🇦🇷 with mate and side projects.",
     "credit": "Made with 🧡 by Matias Vallejos",
     "source": "Source",
     "cafecito": "Cafecito",

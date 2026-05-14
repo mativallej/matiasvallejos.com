@@ -122,8 +122,9 @@ function PressRow({ item, locale, index }: { item: PressItem; locale: string; in
 export function Press({ locale }: { locale: string }) {
   const t = useTranslations("Press")
 
-  const featuredVideo = press.find((p) => p.type === "video")
-  const articles = press.filter((p) => p.id !== featuredVideo?.id)
+  const visible = press.filter((p) => !p.logoOnly)
+  const featuredVideo = visible.find((p) => p.type === "video")
+  const articles = visible.filter((p) => p.id !== featuredVideo?.id)
 
   return (
     <section id="press" className="px-6 lg:px-10 py-20 max-w-[1080px] mx-auto">
@@ -137,7 +138,7 @@ export function Press({ locale }: { locale: string }) {
           <h2 className="font-mono text-caption text-[#57534E] uppercase">
             {t("title")}
           </h2>
-          <span className="font-mono text-caption text-[#57534E]">
+          <span className="inline-flex items-center gap-1.5 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1">
             {press.length} {press.length === 1 ? t("feature") : t("features")}
           </span>
         </div>

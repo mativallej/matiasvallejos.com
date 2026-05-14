@@ -5,41 +5,101 @@ export interface NowItem {
   linkLabel?: string
 }
 
+export interface TeguMetric {
+  label: string
+  value: string
+  description?: string
+  direction?: "up" | "down" | "flat"
+}
+
+export interface BuildLog {
+  month: string // "May 2026"
+  highlights: string[]
+}
+
 export interface NowData {
   updatedAt: string
+  teguMetrics: TeguMetric[]
+  buildLogs: BuildLog[]
   items: NowItem[]
 }
 
 export const now: NowData = {
-  updatedAt: "March 2026",
+  updatedAt: "May 2026",
+  teguMetrics: [
+    {
+      label: "Usuarios",
+      value: "2.200",
+      description: "Personas que ya confían en Tegu para resolver lo que necesitan en su hogar.",
+      direction: "up",
+    },
+    {
+      label: "Tareas creadas",
+      value: "294",
+      description: "Hogares que ya resolvieron con Tegu.",
+      direction: "up",
+    },
+    {
+      label: "Tiempo promedio de respuesta",
+      value: "30min",
+      description: "Recibí propuestas en minutos, no en días.",
+      direction: "up",
+    },
+    {
+      label: "Barrios en Córdoba",
+      value: "12+",
+      description: "Cobertura que crece semana a semana.",
+      direction: "up",
+    },
+    {
+      label: "Profesionales verificados",
+      value: "32",
+      description: "Identidad, antecedentes y matrículas chequeadas.",
+      direction: "up",
+    },
+  ],
+  buildLogs: [
+    {
+      month: "May 2026",
+      highlights: [
+        "Lanzamos suscripción: 8 pros pagaron en 4 días, 1 churn",
+        "Pico de 21 tareas en un solo día",
+        "Iteramos estructura hablando uno por uno con los pros",
+      ],
+    },
+    {
+      month: "April 2026",
+      highlights: [
+        "De 843 a 2.110 usuarios en un mes",
+        "1.000 activos en una semana",
+        "13K visitas con SEO trabajando solo",
+      ],
+    },
+    {
+      month: "March 2026",
+      highlights: [
+        "Lanzamiento de Tegu",
+        "De 0 a 100 usuarios",
+        "De 100 a 600 usuarios",
+      ],
+    },
+  ],
   items: [
     {
-      id: 2,
+      id: 1,
       text: "Building Tegu — marketplace for home services in Argentina",
       link: "https://tegu.ar",
       linkLabel: "tegu.ar",
     },
     {
-      id: 3,
+      id: 2,
       text: "Growing Docta Valley — tech community in Córdoba",
       link: "https://doctavalley.com.ar",
       linkLabel: "doctavalley.com.ar",
     },
     {
-      id: 4,
-      text: "Leveling up product skills — executing a 2026 product engineer roadmap",
-      link: "https://productprepa.com",
-      linkLabel: "productprepa.com",
-    },
-    {
-      id: 5,
-      text: "Reading about product, business, life — 1 book/month challenge",
-      link: "/books",
-      linkLabel: "bookshelf",
-    },
-    {
-      id: 6,
-      text: "Writing about AI, coding, life and building in public",
+      id: 3,
+      text: "Reading 1 book/month + writing in public on AI, code and life",
       link: "https://x.com/mativallej_",
       linkLabel: "follow along",
     },

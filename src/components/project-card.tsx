@@ -67,13 +67,13 @@ export default function ProjectCard({
   const caseStudyHref = `/projects/${slug}`
 
   return (
-    <div className="bg-[#0C0A09] border border-neutral-400 rounded-lg overflow-hidden transition-colors duration-200 h-full flex flex-col relative">
+    <div className="bg-[#0C0A09] border border-[#3D3935]/60 rounded-2xl overflow-hidden transition-colors duration-200 h-full flex flex-col relative">
       {/* Media area — desktop only */}
       <div className={`hidden md:block w-full ${aspectClass} p-2 pb-0 flex-1 min-h-0`}>
         <Link
           href={caseStudyHref}
           aria-label={`${title} case study`}
-          className="relative block w-full h-full rounded-lg overflow-hidden border border-neutral-400 hover:border-text-muted transition-colors duration-200"
+          className="relative block w-full h-full rounded-lg overflow-hidden border border-[#3D3935]/60 hover:border-text-muted transition-colors duration-200"
         >
           {video ? (
             <Video src={video} className={`w-full h-full ${videoFit === "contain" ? "object-contain bg-[#0C0A09]" : "object-cover"}`} />
@@ -128,7 +128,7 @@ export default function ProjectCard({
         href={link}
         target="_blank"
         aria-label={title}
-        className="md:hidden flex items-center gap-3 mx-4 mt-4 px-3 py-2 rounded-md border border-neutral-400 text-text-muted hover:text-text-body hover:border-text-muted transition-colors duration-200"
+        className="md:hidden flex items-center gap-3 mx-4 mt-4 px-3 py-2 rounded-md border border-[#3D3935]/60 text-text-muted hover:text-text-body hover:border-text-muted transition-colors duration-200"
       >
         <span
           className="flex items-center justify-center w-9 h-9 rounded-full flex-shrink-0 overflow-hidden font-serif text-[15px] font-bold text-white"
@@ -214,7 +214,7 @@ export default function ProjectCard({
         <Link
           href={link}
           target="_blank"
-          className="flex items-center justify-center gap-2 w-full font-mono text-caption uppercase py-2 rounded-md border border-neutral-400 text-text-muted hover:text-text-body hover:border-text-muted transition-colors duration-200"
+          className="flex items-center justify-center gap-2 w-full font-mono text-caption uppercase py-2 rounded-md border border-[#3D3935]/60 text-text-muted hover:text-text-body hover:border-text-muted transition-colors duration-200"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
