@@ -1,6 +1,10 @@
 export interface Product {
   id: number
   title: string
+  subtitle?: string
+  logo?: string
+  emoji?: string
+  logoBg?: string
   slug: string
   description: string
   tags: string[]
@@ -22,8 +26,11 @@ export const products: Product[] = [
   {
     id: 1,
     title: "Tegu",
+    subtitle: "Home services marketplace",
+    logo: "/images/product/tegu.png",
+    logoBg: "#FB923C",
     slug: "tegu",
-    description: "Marketplace connecting homeowners with verified professionals for home services in Argentina. AI-powered matching, WhatsApp integration, with pay-per-lead and subscription models for pros.",
+    description: "Marketplace connecting homeowners with verified professionals for home services in Argentina. AI-powered matching, WhatsApp integration, with a pay-per-lead model for pros.",
     tags: ["Marketplace", "Homeservices", "Mobile", "Web", "AI", "WhatsApp"],
     link: "https://tegu.ar",
     video: "/images/product/tegu.mp4",
@@ -33,12 +40,16 @@ export const products: Product[] = [
     twitter: "https://x.com/tegu_app",
     linkedin: "https://linkedin.com/company/teguapp",
     metrics: [
-      { value: "~", label: "cooking metrics..." },
+      { value: "7", label: "pros committed" },
+      { value: "+50", label: "waitlist" },
     ],
   },
   {
     id: 2,
     title: "Docta Valley",
+    subtitle: "Tech community in Córdoba",
+    logo: "/images/product/docta-valley.jpg",
+    logoBg: "#F5E6B0",
     slug: "docta-valley",
     description: "Community connecting tech founders and builders in Córdoba. We create the space to spread ideas, make connections, and launch Córdoba-based startups.",
     tags: ["Community", "Startups", "Networking", "Córdoba"],
@@ -56,6 +67,9 @@ export const products: Product[] = [
   {
     id: 3,
     title: "AI Expense Tracker",
+    subtitle: "Smart personal finance tracking",
+    emoji: "💸",
+    logoBg: "#1C1917",
     slug: "ai-expense-tracker",
     description: "Open-source automation that processes bank statements and receipts with GPT-4o, categorizes expenses, and populates Google Sheets dashboards. Upload via web or Google Drive.",
     tags: ["n8n", "OpenAI", "Next.js", "Google Sheets", "Docker"],

@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 
 const socialLinks = [
   {
@@ -66,6 +67,7 @@ const socialLinks = [
 ]
 
 export function Footer() {
+  const t = useTranslations("Footer")
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
@@ -78,24 +80,25 @@ export function Footer() {
         {/* Left: Quote + location */}
         <div className="flex flex-col gap-2">
           <p className="text-body italic text-[#A8A29E]">
-            {"\"I don't write code. I build products.\""}
+            {t("quote")}
           </p>
           <span className="font-mono text-caption text-[#57534E]">
-            {"Made with 🧡 by Matias Vallejos · "}
+            {t("credit")}
+            {" · "}
             <a
               href="https://github.com/mativallej/matiasvallejos.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#78716C] hover:text-white transition-colors duration-200"
             >
-              Source
+              {t("source")}
             </a>
             {" · "}
             <a
               href="/design-system"
               className="text-[#78716C] hover:text-white transition-colors duration-200"
             >
-              Design System
+              {t("designSystem")}
             </a>
             {" · "}
             <a
@@ -104,7 +107,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="text-[#78716C] hover:text-white transition-colors duration-200"
             >
-              Cafecito
+              {t("cafecito")}
             </a>
           </span>
         </div>
@@ -117,7 +120,7 @@ export function Footer() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Follow on ${link.label}`}
+              aria-label={t("followOn", { label: link.label })}
               className="inline-flex items-center gap-2 font-mono text-caption text-[#78716C] border border-[#3D3935] px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md hover:text-white hover:border-[#57534E] transition-all duration-200"
             >
               {link.icon}

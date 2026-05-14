@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -12,6 +13,7 @@ const sectionVariants = {
 }
 
 export function Contact() {
+  const t = useTranslations("Contact")
   return (
     <motion.section
       id="contact"
@@ -28,20 +30,20 @@ export function Contact() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#A3B86C]" />
           </span>
           <span className="font-mono text-caption text-[#A3B86C] uppercase">
-            available for collaborations
+            {t("available")}
           </span>
         </div>
         <h2 className="text-heading text-white text-balance">
-          {"Have a product idea? Let's build it together."}
+          {t("title")}
         </h2>
         <p className="text-body-sm text-[#78716C] max-w-[440px]">
-          I work best with founders and small teams who care about craft and want to ship something meaningful.
+          {t("subtitle")}
         </p>
         <a
           href="mailto:matiasvallejosdev@outlook.com"
           className="inline-flex items-center gap-2 font-mono text-body-sm font-semibold bg-[#E8742A] text-[#080706] px-5 py-2.5 rounded-md hover:bg-[#D4622A] hover:shadow-glow transition-all duration-200"
         >
-          {"get in touch →"}
+          {t("cta")}
         </a>
       </div>
     </motion.section>

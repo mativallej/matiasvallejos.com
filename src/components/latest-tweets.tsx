@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { Tweet } from "react-tweet"
 
 const tweetIds = [
@@ -11,6 +12,7 @@ const tweetIds = [
 ]
 
 export function LatestTweets() {
+  const t = useTranslations("LatestTweets")
   return (
     <section className="px-6 lg:px-10 py-20 max-w-[1080px] mx-auto">
       <motion.div
@@ -21,7 +23,7 @@ export function LatestTweets() {
       >
         <div className="flex items-center justify-between mb-8">
           <h2 className="font-mono text-caption text-[#57534E] uppercase">
-            Latest Tweets
+            {t("title")}
           </h2>
           <a
             href="https://x.com/mativallej_"
@@ -29,7 +31,7 @@ export function LatestTweets() {
             rel="noopener noreferrer"
             className="font-mono text-caption text-[#57534E] hover:text-[#FB923C] transition-colors duration-200"
           >
-            follow on X →
+            {t("follow")}
           </a>
         </div>
       </motion.div>

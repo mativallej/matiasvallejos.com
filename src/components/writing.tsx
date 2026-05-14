@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Link from "next/link"
+import { useTranslations } from "next-intl"
+import { Link } from "@/i18n/navigation"
 
 type FeaturedPost = {
   slug: string
@@ -24,6 +25,7 @@ const rowVariants = {
 }
 
 export function Writing({ posts }: { posts: FeaturedPost[] }) {
+  const t = useTranslations("Writing")
   return (
     <section id="writing" className="px-6 lg:px-10 py-20 max-w-[1080px] mx-auto">
       <motion.div
@@ -34,10 +36,10 @@ export function Writing({ posts }: { posts: FeaturedPost[] }) {
       >
         <div className="flex items-center justify-between mb-8">
           <h2 className="font-mono text-caption text-[#57534E] uppercase">
-            Blog
+            {t("title")}
           </h2>
           <Link href="/blog" className="font-mono text-caption text-[#57534E] hover:text-[#FB923C] transition-colors duration-200">
-            view all →
+            {t("viewAll")}
           </Link>
         </div>
       </motion.div>

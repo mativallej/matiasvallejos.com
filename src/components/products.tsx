@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Link from "next/link"
+import { useTranslations } from "next-intl"
+import { Link } from "@/i18n/navigation"
 import ProjectCard from "@/components/project-card"
 import { products } from "@/data/products"
 
@@ -21,6 +22,7 @@ const cardVariants = {
 }
 
 export function Products() {
+  const t = useTranslations("Products")
   return (
     <section id="products" className="px-6 lg:px-10 py-20 max-w-[1080px] mx-auto">
       <motion.div
@@ -31,10 +33,10 @@ export function Products() {
       >
         <div className="flex items-center justify-between mb-8">
           <h2 className="font-mono text-caption text-[#57534E] uppercase">
-            Products
+            {t("title")}
           </h2>
           <Link href="/products" className="font-mono text-caption text-[#57534E] hover:text-[#FB923C] transition-colors duration-200">
-            view all →
+            {t("viewAll")}
           </Link>
         </div>
       </motion.div>

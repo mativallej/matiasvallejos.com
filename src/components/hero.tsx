@@ -1,7 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+import { HeroPanelWidgets } from './dashboard';
 
 const socialLinks = [
   {
@@ -63,49 +66,57 @@ const socialLinks = [
 ];
 
 export function Hero() {
+  const t = useTranslations('Hero');
+  const [panelHovered, setPanelHovered] = useState(false);
   return (
     <section id="about" className="px-6 lg:px-10 pt-20 pb-10 md:pt-24 md:pb-14 max-w-[1080px] mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-12 md:gap-14">
-        {/* Left column — Identity */}
-        <motion.div
+      {/* Backdrop overlay — darkens page (except navbar) when hovering panel */}
+      <AnimatePresence>
+        {panelHovered && (
+          <motion.div
+            key="hero-panel-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="hidden md:block fixed inset-0 z-30 bg-black/70 pointer-events-none"
+            aria-hidden
+          />
+        )}
+      </AnimatePresence>
+      <div className="grid grid-cols-1 md:grid-cols-[340px_1fr] gap-10 md:gap-12 items-stretch">
+        {/* Left column wrapper — panel is absolute so right column drives row height */}
+        <div className="md:relative md:min-h-0">
+        <motion.aside id="hero-panel"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="flex flex-col gap-8"
+          onMouseEnter={() => setPanelHovered(true)}
+          onMouseLeave={() => setPanelHovered(false)}
+          className="rounded-3xl bg-[#080706] p-3 md:p-3 flex flex-col gap-3 md:absolute md:inset-0 md:overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:z-40"
         >
-          {/* Photo */}
-          <div className="relative w-[200px] h-[200px] md:w-[240px] md:h-[240px]">
-            <Image
-              src="/images/matias-profile.png"
-              alt="Matias Vallejos"
-              width={240}
-              height={240}
-              className="rounded-2xl object-cover w-full h-full border border-[#3D3935]/60"
-              priority
-            />
+          {/* Photo + Name card */}
+          <div className="rounded-2xl border border-[#3D3935]/60 p-3 flex flex-col gap-3">
+            <div className="relative w-full h-52 md:h-60">
+              <Image
+                src="/me.png"
+                alt="Matias Vallejos"
+                width={300}
+                height={300}
+                className="rounded-xl object-cover w-full h-full border border-[#3D3935]/60"
+                priority
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <h1 className="font-serif text-[26px] font-bold text-white tracking-[-0.02em] leading-[1.1]">
+                Matias Vallejos
+              </h1>
+              <p className="font-mono text-[12px] text-[#78716C] tracking-wide">{t('role')}</p>
+            </div>
           </div>
 
-          {/* Name */}
-          <div className="flex flex-col gap-3">
-            <h1 className="font-serif text-[32px] md:text-[36px] font-bold text-white tracking-[-0.02em] leading-[1.1]">
-              Matias Vallejos
-            </h1>
-            <p className="font-mono text-[15px] text-[#78716C] tracking-wide">Product Engineer 🇦🇷</p>
-          </div>
-
-          {/* Status */}
-          <div className="flex items-center gap-2.5">
-            <span className="relative flex h-[7px] w-[7px]">
-              <span className="animate-pulse absolute inline-flex h-full w-full rounded-full bg-[#A3B86C] opacity-60" />
-              <span className="relative inline-flex rounded-full h-[7px] w-[7px] bg-[#A3B86C]" />
-            </span>
-            <span className="font-mono text-[11px] text-[#A3B86C]/80 uppercase tracking-[0.06em]">
-              Available for collaborations
-            </span>
-          </div>
-
-          {/* Social links */}
-          <div className="flex items-center gap-2.5 pt-2">
+          {/* Social links card */}
+          <div className="rounded-2xl border border-[#3D3935]/60 p-3 flex items-center justify-between gap-2 flex-wrap">
             {socialLinks.map((social, i) => (
               <motion.a
                 key={social.label}
@@ -118,7 +129,7 @@ export function Hero() {
                 transition={{
                   duration: 0.4,
                   ease: 'easeOut',
-                  delay: 0.4 + i * 0.06,
+                  delay: 0.2 + i * 0.06,
                 }}
                 className="flex items-center justify-center w-9 h-9 rounded-lg border border-[#3D3935]/50 bg-transparent text-[#78716C] hover:text-[#A8A29E] hover:border-[#57534E] transition-all duration-200"
               >
@@ -126,7 +137,11 @@ export function Hero() {
               </motion.a>
             ))}
           </div>
-        </motion.div>
+
+          {/* Widgets */}
+          <HeroPanelWidgets />
+        </motion.aside>
+        </div>
 
         {/* Right column — Bio */}
         <motion.div
@@ -141,25 +156,16 @@ export function Hero() {
         >
           <div className="flex flex-col gap-7">
             <p className="font-serif text-[18px] md:text-[20px] text-[#FAFAF9] leading-[1.7] font-normal">
-              {
-                'Product-minded builder from C\u00f3rdoba, Argentina. I craft lean digital products that solve real problems, move fast, and ship with purpose.'
-              }
+              {t('intro')}
             </p>
 
-            <p className="text-[16px] text-[#A8A29E] leading-[1.8]">
-              I believe the best code is the code that creates impact &mdash; not the code that impresses other
-              developers. Every project I touch starts with a question:
-            </p>
+            <p className="text-[16px] text-[#A8A29E] leading-[1.8]">{t('beliefLead')}</p>
 
             <p className="font-serif text-[18px] md:text-[20px] text-[#FB923C] italic leading-[1.6] pl-5 border-l-2 border-[#E8742A]/30">
-              What problem are we actually solving?
+              {t('beliefQuote')}
             </p>
 
-            <p className="text-[16px] text-[#A8A29E] leading-[1.8]">
-              {
-                'I don\u2019t write code for the sake of it. I build products that people actually use \u2014 tools that feel right, work fast, and get out of the way. Less architecture, more shipping.'
-              }
-            </p>
+            <p className="text-[16px] text-[#A8A29E] leading-[1.8]">{t('beliefClose')}</p>
           </div>
 
           {/* CTAs */}
@@ -172,32 +178,32 @@ export function Hero() {
               }}
               className="group inline-flex items-center justify-center gap-2.5 font-mono text-[12px] font-semibold tracking-[0.04em] uppercase bg-[#E8742A] text-[#080706] px-5 py-3 rounded-lg hover:bg-[#D4622A] hover:shadow-glow transition-all duration-200"
             >
-              explore tegu
+              {t('ctaExplore')}
               <span className="group-hover:translate-x-0.5 transition-transform duration-200">{'\u2192'}</span>
             </a>
             <a
               href="/about"
               className="inline-flex items-center justify-center font-mono text-[12px] font-normal tracking-[0.04em] uppercase border border-[#3D3935] text-[#57534E] px-5 py-3 rounded-lg hover:text-[#A8A29E] hover:border-[#57534E] hover:bg-[#12100E] transition-all duration-200"
             >
-              about me
+              {t('ctaAbout')}
             </a>
           </div>
 
           {/* Bottom meta */}
           <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4 border-t border-[#3D3935]/40">
             <div className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">Location</span>
-              <span className="font-mono text-[12px] text-[#78716C]">{'C\u00f3rdoba, Argentina'}</span>
+              <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">{t('metaLocation')}</span>
+              <span className="font-mono text-[12px] text-[#78716C]">{t('metaLocationValue')}</span>
             </div>
             <div className="w-px h-8 bg-[#3D3935]/40 hidden sm:block" />
             <div className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">Focus</span>
-              <span className="font-mono text-[12px] text-[#78716C]">Product Engineering</span>
+              <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">{t('metaFocus')}</span>
+              <span className="font-mono text-[12px] text-[#78716C]">{t('metaFocusValue')}</span>
             </div>
             <div className="w-px h-8 bg-[#3D3935]/40 hidden sm:block" />
             <div className="flex flex-col gap-1">
-              <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">Since</span>
-              <span className="font-mono text-[12px] text-[#78716C]">2021</span>
+              <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">{t('metaSince')}</span>
+              <span className="font-mono text-[12px] text-[#78716C]">{t('metaSinceValue')}</span>
             </div>
           </div>
 

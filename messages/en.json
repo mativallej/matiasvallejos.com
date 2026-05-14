@@ -1,0 +1,79 @@
+{
+  "Locale": {
+    "language": "Language",
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "Navbar": {
+    "tagline": "building products that matter",
+    "now": "now",
+    "about": "about",
+    "products": "products",
+    "blog": "blog",
+    "books": "books"
+  },
+  "Hero": {
+    "panelSection": "Section",
+    "panelHome": "Home",
+    "role": "Product Engineer 🇦🇷",
+    "available": "Available for collaborations",
+    "intro": "Product-minded builder from Córdoba, Argentina. I craft lean digital products that solve real problems, move fast, and ship with purpose.",
+    "beliefLead": "I believe the best code is the code that creates impact — not the code that impresses other developers. Every project I touch starts with a question:",
+    "beliefQuote": "What problem are we actually solving?",
+    "beliefClose": "I don't write code for the sake of it. I build products that people actually use — tools that feel right, work fast, and get out of the way. Less architecture, more shipping.",
+    "ctaExplore": "explore tegu",
+    "ctaAbout": "about me",
+    "metaLocation": "Location",
+    "metaLocationValue": "Córdoba, Argentina",
+    "metaFocus": "Focus",
+    "metaFocusValue": "Product Engineering",
+    "metaSince": "Since",
+    "metaSinceValue": "2021"
+  },
+  "Dashboard": {
+    "section": "Section",
+    "home": "Home",
+    "metricUnit": "YRS",
+    "metricLabel": "Shipping products that solve real problems",
+    "metricBadge": "Track record",
+    "pillar1": "Projects",
+    "pillar2": "Engineering",
+    "pillar3": "Impact",
+    "pillarBadge": "How I work",
+    "insightTag": "Insights",
+    "insightTitle": "Lessons from shipping Tegu: turning a side project into a real marketplace",
+    "insightBy": "By",
+    "insightAuthor": "Matias Vallejos",
+    "shareCta": "Share this site"
+  },
+  "Now": {
+    "title": "Now",
+    "updated": "Updated {date}"
+  },
+  "Products": {
+    "title": "Products",
+    "viewAll": "view all →"
+  },
+  "Writing": {
+    "title": "Blog",
+    "viewAll": "view all →"
+  },
+  "Contact": {
+    "available": "available for collaborations",
+    "title": "Have a product idea? Let's build it together.",
+    "subtitle": "I work best with founders and small teams who care about craft and want to ship something meaningful.",
+    "cta": "get in touch →"
+  },
+  "LatestTweets": {
+    "title": "Latest Tweets",
+    "follow": "follow on X →"
+  },
+  "Footer": {
+    "quote": "\"I don't write code. I build products.\"",
+    "credit": "Made with 🧡 by Matias Vallejos",
+    "source": "Source",
+    "designSystem": "Design System",
+    "cafecito": "Cafecito",
+    "followOn": "Follow on {label}"
+  }
+}
