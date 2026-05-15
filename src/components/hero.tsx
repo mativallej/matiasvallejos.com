@@ -121,6 +121,7 @@ export function Hero() {
                     loop
                     muted
                     playsInline
+                    preload="none"
                     className="w-full h-full object-cover block"
                   />
                 </motion.div>
@@ -133,89 +134,79 @@ export function Hero() {
                   transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
                   className="absolute inset-0"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/me.png"
+                  <Image
+                    src="/images/me.webp"
                     alt="Matias Vallejos"
-                    className="w-full h-full object-cover block scale-[1.3]"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 50vw, 260px"
+                    className="object-cover block scale-[1.3]"
                   />
                 </motion.div>
               )}
             </AnimatePresence>
 
-            {/* Toggle indicator — top-left badge */}
-            <span className="pointer-events-none absolute top-2 left-2 flex items-center justify-center w-7 h-7 rounded-full bg-[#080706]/80 border border-[#3D3935] backdrop-blur-sm shadow-lg transition-transform group-hover:scale-110">
-              <span className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-[#FB923C]/40 animate-ping" />
-              <span className="relative flex items-center justify-center w-3 h-3 text-[#FB923C]">
-                {photoIsVideo ? (
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <rect x="6" y="6" width="12" height="12" rx="1" />
-                  </svg>
-                ) : (
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                )}
-              </span>
-            </span>
           </button>
+        </div>
+
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={handleCopy}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleCopy();
+            }
+          }}
+          aria-label="Matias Vallejos — Co-Founder @ Tegu — Product Engineer. Copy link to this page."
+          className={`relative text-left rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col gap-4 md:gap-3 justify-between h-full md:min-h-[260px] transition-colors group cursor-pointer ${socialHover ? '' : 'hover:border-[#57534E]'}`}
+          data-social-hover={socialHover ? 'true' : 'false'}
+        >
           <AnimatePresence initial={false} mode="wait">
             {!flagOpen ? (
               <motion.button
                 key="flag-small"
                 layoutId="ar-flag"
                 type="button"
-                onClick={() => setFlagOpen(true)}
+                onClick={(e) => { e.stopPropagation(); setFlagOpen(true); }}
                 aria-label="Play Argentina flag video"
                 title="Argentina"
-                className="absolute bottom-2 right-2 flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#080706] border border-[#3D3935] text-[16px] md:text-[20px] leading-none shadow-lg cursor-pointer hover:border-[#FB923C] transition-colors touch-manipulation"
+                className="absolute top-2 right-2 z-10 flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#080706] border border-[#3D3935] text-[16px] md:text-[20px] leading-none shadow-lg cursor-pointer hover:border-[#FB923C] transition-colors touch-manipulation"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-[#FB923C]/50 animate-ping" />
                 <span className="relative">🇦🇷</span>
               </motion.button>
             ) : (
               <>
-                <motion.div
-                  key="flag-backdrop"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  onClick={() => setFlagOpen(false)}
-                  className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] cursor-pointer"
+                <div
+                  key="flag-dismiss"
+                  onClick={(e) => { e.stopPropagation(); setFlagOpen(false); }}
+                  className="fixed inset-0 z-40 cursor-default"
                   aria-hidden="true"
                 />
                 <motion.button
                   key="flag-big"
                   layoutId="ar-flag"
                   type="button"
-                  onClick={() => setFlagOpen(false)}
+                  onClick={(e) => { e.stopPropagation(); setFlagOpen(false); }}
                   aria-label="Close Argentina flag video"
-                  className="absolute bottom-2 right-2 z-50 w-[82%] md:w-[70%] aspect-square max-w-[200px] md:max-w-[260px] rounded-full overflow-hidden border border-[#3D3935] shadow-2xl cursor-pointer"
+                  className="absolute -top-[1px] -right-[1px] md:-top-[8px] md:-right-[8px] z-50 w-[54px] h-[54px] md:w-[72px] md:h-[72px] rounded-full overflow-hidden border border-[#3D3935] shadow-2xl cursor-pointer"
                 >
-                  <video
-                    src="/argentina.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
+                <video
+                  src="/argentina.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="none"
+                  className="w-full h-full object-cover"
+                />
                 </motion.button>
               </>
             )}
           </AnimatePresence>
-        </div>
-
-        <button
-          type="button"
-          onClick={handleCopy}
-          aria-label="Copy link to this page"
-          className={`relative text-left rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col gap-4 md:gap-3 justify-between h-full md:min-h-[260px] transition-colors group cursor-pointer overflow-hidden ${socialHover ? '' : 'hover:border-[#57534E]'}`}
-          data-social-hover={socialHover ? 'true' : 'false'}
-        >
           <div className="flex flex-col gap-3">
             <h1 className="font-serif text-[26px] sm:text-[32px] md:text-[40px] font-bold text-white tracking-[-0.03em] leading-[1]">
               Matias
@@ -224,7 +215,7 @@ export function Hero() {
             </h1>
             <div className="flex flex-col gap-0.5">
               <p className="font-mono text-[12px] md:text-[15px] text-[#A8A29E] tracking-wide">{t('roleLine1')}</p>
-              <p className="font-mono text-[12px] md:text-[15px] text-[#78716C] tracking-wide">{t('roleLine2')}</p>
+              <p className="font-mono text-[12px] md:text-[15px] text-[#A8A29E] tracking-wide">{t('roleLine2')}</p>
             </div>
           </div>
           <div className="flex items-center justify-between w-full mt-auto">
@@ -257,7 +248,7 @@ export function Hero() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.18, ease: 'easeOut' }}
-                className="absolute inset-0 flex flex-col items-center justify-center bg-[#080706]/90 backdrop-blur-sm gap-2"
+                className="absolute inset-0 flex flex-col items-center justify-center bg-[#080706]/90 backdrop-blur-sm gap-2 rounded-2xl"
               >
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A3B86C" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <polyline points="20 6 9 17 4 12" />
@@ -266,7 +257,7 @@ export function Hero() {
               </motion.div>
             )}
           </AnimatePresence>
-        </button>
+        </div>
 
         <a
           href="/about"
@@ -275,7 +266,7 @@ export function Hero() {
           <p className="font-serif text-[15px] md:text-[19px] text-[#FAFAF9] leading-[1.5] tracking-[-0.01em] font-normal">
             {t('intro')}
           </p>
-          <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">
+          <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#A8A29E] uppercase tracking-[0.08em]">
             {t('ctaAbout')}
           </span>
         </a>
@@ -305,7 +296,7 @@ export function Hero() {
             height={32}
             className="absolute bottom-3 right-4 h-7 w-7 rounded-full object-cover opacity-90"
           />
-          <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">
+          <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#A8A29E] uppercase tracking-[0.08em]">
             {t('secondary.communityTag')}
           </span>
         </button>
@@ -425,7 +416,7 @@ export function Hero() {
                   <p className="text-[13px] text-[#FAFAF9] leading-snug font-medium">
                     {t('secondary.communityTitle')}
                   </p>
-                  <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">
+                  <span className="font-mono text-[10px] text-[#A8A29E] uppercase tracking-[0.08em]">
                     {t('secondary.communityTag')}
                   </span>
                 </div>
