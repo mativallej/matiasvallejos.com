@@ -1,9 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { ResultsCard, MakeItCard, PressStripCard } from './dashboard';
 
 const socialLinks = [
@@ -50,6 +52,36 @@ export function Hero() {
   const [copied, setCopied] = useState(false);
   const [socialHover, setSocialHover] = useState(false);
   const [photoIsVideo, setPhotoIsVideo] = useState(false);
+  const [aboutExpanded, setAboutExpanded] = useState(false);
+  const [aboutAnchor, setAboutAnchor] = useState<{ top: number; left: number; width: number } | null>(null);
+  const [portalReady, setPortalReady] = useState(false);
+  const bioRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    setPortalReady(true);
+  }, []);
+
+  const toggleAbout = () => {
+    if (!aboutExpanded && bioRef.current) {
+      const r = bioRef.current.getBoundingClientRect();
+      setAboutAnchor({ top: r.top, left: r.left, width: r.width });
+    }
+    setAboutExpanded((v) => !v);
+  };
+
+  useEffect(() => {
+    if (!aboutExpanded) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setAboutExpanded(false);
+    };
+    window.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [aboutExpanded]);
   const [doctaOpen, setDoctaOpen] = useState(false);
   const [doctaImageIndex, setDoctaImageIndex] = useState(0);
   const doctaImages = ['/images/projects/docta-valley/event-001.jpeg', '/images/projects/docta-valley/event-002.jpeg'];
@@ -205,17 +237,21 @@ export function Hero() {
           </AnimatePresence>
         </div>
 
-        <a
-          href="/about"
-          className="relative col-span-2 md:col-span-2 rounded-2xl border border-[#3D3935]/60 p-5 pb-9 flex flex-col gap-4 hover:border-[#57534E] transition-colors group block md:min-h-[260px]"
+        <button
+          ref={bioRef}
+          type="button"
+          onClick={toggleAbout}
+          aria-expanded={aboutExpanded}
+          aria-controls="about-extended"
+          className="relative col-span-2 md:col-span-2 w-full text-left rounded-2xl border border-[#3D3935]/60 p-5 pb-9 flex flex-col gap-4 hover:border-[#57534E] transition-colors group cursor-pointer md:min-h-[260px]"
         >
           <p className="font-serif text-[15px] md:text-[19px] text-[#FAFAF9] leading-[1.5] tracking-[-0.01em] font-normal">
             {t('intro')}
           </p>
           <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#A8A29E] uppercase tracking-[0.08em]">
-            {t('ctaAbout')}
+            {aboutExpanded ? t('ctaAboutExpanded') : t('ctaAbout')}
           </span>
-        </a>
+        </button>
 
         {/* Row 2: Results (wide, with chart) · GitHub · Community */}
         <div className="col-span-2 md:col-span-2">
@@ -383,6 +419,81 @@ export function Hero() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {portalReady &&
+        createPortal(
+          <AnimatePresence initial={false}>
+            {aboutExpanded && aboutAnchor && (
+              <>
+                <motion.div
+                  key="about-backdrop"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={() => setAboutExpanded(false)}
+                  className="fixed inset-0 z-[80] bg-[#080706]/85 backdrop-blur-md cursor-default"
+                  aria-hidden="true"
+                />
+                <motion.div
+                  id="about-extended"
+                  key="about-popup"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  style={{
+                    position: 'fixed',
+                    top: aboutAnchor.top,
+                    left: aboutAnchor.left,
+                    width: aboutAnchor.width,
+                  }}
+                  className="z-[90] overflow-hidden rounded-2xl border border-[#3D3935] bg-[#0C0A09] shadow-2xl"
+                  role="dialog"
+                  aria-modal="true"
+                  aria-label="About me"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setAboutExpanded(false)}
+                    aria-label="Close about section"
+                    className="w-full text-left p-5 pb-9 relative cursor-pointer flex flex-col gap-4 hover:bg-[#12100E] transition-colors"
+                  >
+                    <p className="font-serif text-[15px] md:text-[19px] text-[#FAFAF9] leading-[1.5] tracking-[-0.01em] font-normal">
+                      {t('intro')}
+                    </p>
+                    <p className="text-[13px] md:text-[14px] text-[#A8A29E] leading-relaxed">
+                      {t('aboutExtended')}
+                    </p>
+                    <div className="flex flex-wrap items-center justify-end gap-2 pt-1">
+                      <a
+                        href="#contact"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setAboutExpanded(false);
+                        }}
+                        className="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.04em] text-[#A8A29E] border border-[#3D3935] px-3 py-2 rounded-md hover:text-white hover:border-[#57534E] transition-colors"
+                      >
+                        {t('aboutCtaSecondary')} →
+                      </a>
+                      <Link
+                        href="/about"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.04em] bg-[#FB923C] text-[#080706] px-3 py-2 rounded-md hover:bg-[#E8742A] transition-colors"
+                      >
+                        {t('aboutCtaPrimary')} →
+                      </Link>
+                    </div>
+                    <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#A8A29E] uppercase tracking-[0.08em]">
+                      {t('ctaAboutExpanded')}
+                    </span>
+                  </button>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>,
+          document.body,
+        )}
     </section>
   );
 }
