@@ -75,11 +75,19 @@ export function Hero() {
       if (e.key === 'Escape') setAboutExpanded(false);
     };
     window.addEventListener('keydown', onKey);
-    const prev = document.body.style.overflow;
+    // Lock scroll AND reserve scrollbar width so the page doesn't jump
+    // sideways on platforms with classic (non-overlay) scrollbars.
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const prevOverflow = document.body.style.overflow;
+    const prevPaddingRight = document.body.style.paddingRight;
     document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
     return () => {
       window.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev;
+      document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPaddingRight;
     };
   }, [aboutExpanded]);
   const [doctaOpen, setDoctaOpen] = useState(false);
@@ -94,11 +102,17 @@ export function Hero() {
       if (e.key === 'ArrowLeft') setDoctaImageIndex((i) => (i - 1 + doctaImages.length) % doctaImages.length);
     };
     window.addEventListener('keydown', onKey);
-    const prev = document.body.style.overflow;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const prevOverflow = document.body.style.overflow;
+    const prevPaddingRight = document.body.style.paddingRight;
     document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
     return () => {
       window.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prev;
+      document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPaddingRight;
     };
   }, [doctaOpen, doctaImages.length]);
 
@@ -113,11 +127,8 @@ export function Hero() {
 
   return (
     <section id="about" className="px-4 lg:px-8 pt-8 pb-4 md:pt-16 md:pb-6 max-w-[1080px] mx-auto">
-      <motion.aside
+      <aside
         id="hero-panel"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="md:rounded-3xl bg-[#080706] p-0 md:p-3 grid grid-cols-2 md:grid-cols-4 gap-3"
       >
         {/* Row 1: Photo + Name+Socials + Bio (spans 2) */}
@@ -163,7 +174,7 @@ export function Hero() {
                     fill
                     priority
                     sizes="(max-width: 768px) 70vw, 340px"
-                    className="object-cover block scale-[1.3]"
+                    className="object-cover object-center block"
                   />
                 </motion.div>
               )}
@@ -287,7 +298,7 @@ export function Hero() {
         <div className="col-span-2 md:col-span-4">
           <PressStripCard />
         </div>
-      </motion.aside>
+      </aside>
 
       <AnimatePresence>
         {doctaOpen && (

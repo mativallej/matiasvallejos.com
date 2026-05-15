@@ -872,7 +872,6 @@ function PressMarquee() {
               title={p.outlet}
               width={w}
               height={h}
-              sizes="120px"
               loading="lazy"
               className="max-h-7 max-w-full w-auto object-contain grayscale brightness-200 opacity-60 hover:grayscale-0 hover:brightness-100 hover:opacity-100 transition-all"
             />

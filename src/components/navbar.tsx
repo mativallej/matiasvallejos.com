@@ -91,6 +91,7 @@ export function Navbar() {
               alt="Matias Vallejos"
               width={32}
               height={32}
+              priority
               className="rounded-full"
             />
           </a>
@@ -103,7 +104,7 @@ export function Navbar() {
                   key={link.key}
                   href={link.href}
                   onClick={(e) => handleScrollLink(e, link.href)}
-                  className="font-mono text-[13px] lowercase leading-none text-[#A8A29E] hover:text-white transition-colors duration-200 cursor-pointer py-2"
+                  className="font-mono text-[13px] lowercase leading-none text-[#A8A29E] hover:text-white transition-colors duration-200 cursor-pointer px-2 py-3"
                 >
                   {t(link.key)}
                 </a>
@@ -111,7 +112,7 @@ export function Navbar() {
                 <Link
                   key={link.key}
                   href={link.href}
-                  className="font-mono text-[13px] lowercase leading-none text-[#A8A29E] hover:text-white transition-colors duration-200 py-2"
+                  className="font-mono text-[13px] lowercase leading-none text-[#A8A29E] hover:text-white transition-colors duration-200 px-2 py-3"
                 >
                   {t(link.key)}
                 </Link>
@@ -126,7 +127,7 @@ export function Navbar() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="md:hidden font-mono text-[13px] lowercase leading-none text-[#A8A29E] hover:text-white transition-colors duration-200 cursor-pointer py-2"
+            className="md:hidden font-mono text-[13px] lowercase leading-none text-[#A8A29E] hover:text-white transition-colors duration-200 cursor-pointer px-2 py-3"
           >
             {menuOpen ? "close" : "menu"}
           </button>

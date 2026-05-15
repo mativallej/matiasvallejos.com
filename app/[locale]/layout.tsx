@@ -14,7 +14,7 @@ import "@/styles/globals.css"
 const SITE_TITLE = "Matias Vallejos — Product Engineer & Co-Founder @ Tegu"
 const SITE_DESCRIPTION =
   "Product Engineer in LatAm. Building Tegu (2,200 users), co-founded Docta Valley (240+ builders), shipping open source. I treat product and engineering as one discipline."
-const SITE_OG_IMAGE = `${SITE_URL}/opengraph-image`
+const SITE_OG_IMAGE = `${SITE_URL}/og-1200x630.png`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
         url: SITE_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Matias Vallejos — Product Engineer",
+        alt: "Matias Vallejos — Co-Founder @ Tegu, Product Engineer",
       },
     ],
   },

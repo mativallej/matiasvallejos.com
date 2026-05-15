@@ -101,7 +101,7 @@ export function blogPostingSchema(
     keywords: post.tags.join(", "),
     author: { "@id": PERSON_ID },
     publisher: { "@id": PERSON_ID },
-    image: absoluteUrl(`/opengraph-image`),
+    image: absoluteUrl(`/og-1536x1024.png`),
   }
 }
 
