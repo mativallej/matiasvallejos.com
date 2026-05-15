@@ -38,6 +38,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Matias Vallejos", url: SITE_URL }],
   creator: "Matias Vallejos",
+  icons: {
+    icon: [
+      { url: "/images/emoji.webp", type: "image/webp" },
+      { url: "/images/emoji.png", type: "image/png" },
+    ],
+    shortcut: "/images/emoji.webp",
+    apple: "/images/emoji.png",
+  },
   alternates: {
     canonical: "/",
     languages: {
