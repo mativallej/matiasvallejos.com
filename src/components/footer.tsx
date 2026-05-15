@@ -76,9 +76,9 @@ export function Footer() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="px-4 lg:px-8 pt-16 pb-8 max-w-[1080px] mx-auto border-t border-[#3D3935]"
     >
-      <div className="flex flex-col gap-8">
-        {/* Top: Social links */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:justify-end">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-8">
+        {/* Socials — top on mobile, right on desktop */}
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 order-1 md:order-2">
           {socialLinks.map((link, i) => (
             <motion.a
               key={link.label}
@@ -102,8 +102,8 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom: credit + links */}
-        <div className="flex flex-row flex-wrap items-center gap-2 font-mono text-caption text-[#57534E]">
+        {/* Credit — bottom on mobile, left on desktop */}
+        <div className="flex flex-row flex-wrap items-center gap-2 font-mono text-caption text-[#57534E] order-2 md:order-1">
           <span>{t("credit")}</span>
           <span className="flex items-center gap-2">
             <span>·</span>
