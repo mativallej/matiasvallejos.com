@@ -488,16 +488,30 @@ export function Hero() {
                       {t('aboutExtended')}
                     </p>
                     <div className="flex flex-wrap items-center justify-end gap-2 pt-1">
-                      <a
-                        href="#contact"
+                      <span
+                        role="button"
+                        tabIndex={0}
                         onClick={(e) => {
                           e.stopPropagation();
                           setAboutExpanded(false);
+                          requestAnimationFrame(() => {
+                            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          });
                         }}
-                        className="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.04em] text-[#A8A29E] border border-[#3D3935] px-3 py-2 rounded-md hover:text-white hover:border-[#57534E] transition-colors"
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setAboutExpanded(false);
+                            requestAnimationFrame(() => {
+                              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            });
+                          }
+                        }}
+                        className="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.04em] text-[#A8A29E] border border-[#3D3935] px-3 py-2 rounded-md hover:text-white hover:border-[#57534E] transition-colors cursor-pointer"
                       >
                         {t('aboutCtaSecondary')} →
-                      </a>
+                      </span>
                       <Link
                         href="/about"
                         onClick={(e) => e.stopPropagation()}
