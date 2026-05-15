@@ -168,7 +168,7 @@ export function OpenSource() {
       </div>
 
       {hasMore && (
-        <div className="flex justify-center md:justify-start mt-6">
+        <div className="flex justify-start mt-6">
           <button
             type="button"
             onClick={() => setExpanded((v) => !v)}
