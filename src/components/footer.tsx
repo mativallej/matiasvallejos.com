@@ -82,27 +82,29 @@ export function Footer() {
           <p className="text-body italic text-[#A8A29E]">
             {t("quote")}
           </p>
-          <span className="font-mono text-caption text-[#57534E]">
-            {t("credit")}
-            {" · "}
-            <a
-              href="https://github.com/mativallej/matiasvallejos.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#78716C] hover:text-white transition-colors duration-200"
-            >
-              {t("source")}
-            </a>
-            {" · "}
-            <a
-              href="https://cafecito.app/mativallej"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#78716C] hover:text-white transition-colors duration-200"
-            >
-              {t("cafecito")}
-            </a>
-          </span>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 font-mono text-caption text-[#57534E]">
+            <span>{t("credit")}</span>
+            <span className="flex items-center gap-2">
+              <span className="hidden sm:inline">·</span>
+              <a
+                href="https://github.com/mativallej/matiasvallejos.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#78716C] hover:text-white transition-colors duration-200"
+              >
+                {t("source")}
+              </a>
+              <span>·</span>
+              <a
+                href="https://cafecito.app/mativallej"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#78716C] hover:text-white transition-colors duration-200"
+              >
+                {t("cafecito")}
+              </a>
+            </span>
+          </div>
         </div>
 
         {/* Right: Social links */}

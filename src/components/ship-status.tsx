@@ -63,11 +63,28 @@ export function ShipStatus() {
   const [open, setOpen] = useState(false)
   const [index, setIndex] = useState(0)
   const [, forceTick] = useState(0)
+  const [nearBottom, setNearBottom] = useState(false)
 
   useEffect(() => {
     setMounted(true)
     const id = setInterval(() => forceTick((n) => n + 1), 60_000)
     return () => clearInterval(id)
+  }, [])
+
+  // Hide trigger when footer is in view to avoid overlap
+  useEffect(() => {
+    const onScroll = () => {
+      const distanceFromBottom =
+        document.documentElement.scrollHeight - (window.scrollY + window.innerHeight)
+      setNearBottom(distanceFromBottom < 240)
+    }
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    window.addEventListener("resize", onScroll)
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      window.removeEventListener("resize", onScroll)
+    }
   }, [])
 
   const close = useCallback(() => setOpen(false), [])
@@ -105,7 +122,9 @@ export function ShipStatus() {
     <>
       {/* Floating trigger — bottom-right pile */}
       <div
-        className="fixed bottom-6 right-6 z-30 flex items-end justify-end"
+        className={`fixed bottom-6 right-6 z-30 flex items-end justify-end transition-opacity duration-200 ${
+          nearBottom && !open ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
         style={{ width: 200, height: 200 }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
