@@ -64,7 +64,16 @@ export function Hero() {
   const toggleAbout = () => {
     if (!aboutExpanded && bioRef.current) {
       const r = bioRef.current.getBoundingClientRect();
-      setAboutAnchor({ top: r.top, left: r.left, width: r.width });
+      // On mobile the bio card is the 3rd tile and often sits below the fold.
+      // Body scroll is locked while the popup is open, so anchor it near the
+      // top of the viewport instead of the card's original position.
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
+        const margin = 16;
+        setAboutAnchor({ top: margin, left: margin, width: window.innerWidth - margin * 2 });
+      } else {
+        setAboutAnchor({ top: r.top, left: r.left, width: r.width });
+      }
     }
     setAboutExpanded((v) => !v);
   };
