@@ -53,7 +53,7 @@ export function Hero() {
   const [socialHover, setSocialHover] = useState(false);
   const [photoIsVideo, setPhotoIsVideo] = useState(false);
   const [aboutExpanded, setAboutExpanded] = useState(false);
-  const [aboutAnchor, setAboutAnchor] = useState<{ top: number; left: number; width: number } | null>(null);
+  const [aboutAnchor, setAboutAnchor] = useState<{ top: number; left: number; width: number; isMobile: boolean } | null>(null);
   const [portalReady, setPortalReady] = useState(false);
   const bioRef = useRef<HTMLButtonElement>(null);
 
@@ -64,16 +64,12 @@ export function Hero() {
   const toggleAbout = () => {
     if (!aboutExpanded && bioRef.current) {
       const r = bioRef.current.getBoundingClientRect();
-      // On mobile the bio card is the 3rd tile and often sits below the fold.
-      // Body scroll is locked while the popup is open, so anchor it near the
-      // top of the viewport instead of the card's original position.
       const isMobile = window.innerWidth < 768;
-      if (isMobile) {
-        const margin = 16;
-        setAboutAnchor({ top: margin, left: margin, width: window.innerWidth - margin * 2 });
-      } else {
-        setAboutAnchor({ top: r.top, left: r.left, width: r.width });
-      }
+      // On mobile we want the page to stay scrollable, so anchor in document
+      // coordinates (absolute positioning). Desktop stays viewport-anchored.
+      const top = isMobile ? r.top + window.scrollY : r.top;
+      const left = isMobile ? r.left + window.scrollX : r.left;
+      setAboutAnchor({ top, left, width: r.width, isMobile });
     }
     setAboutExpanded((v) => !v);
   };
@@ -84,8 +80,11 @@ export function Hero() {
       if (e.key === 'Escape') setAboutExpanded(false);
     };
     window.addEventListener('keydown', onKey);
-    // Lock scroll AND reserve scrollbar width so the page doesn't jump
-    // sideways on platforms with classic (non-overlay) scrollbars.
+    // Only lock body scroll on desktop. On mobile we want users to be able to
+    // scroll the page to see the bottom of the expanded card.
+    if (aboutAnchor?.isMobile) {
+      return () => window.removeEventListener('keydown', onKey);
+    }
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     const prevOverflow = document.body.style.overflow;
     const prevPaddingRight = document.body.style.paddingRight;
@@ -98,7 +97,7 @@ export function Hero() {
       document.body.style.overflow = prevOverflow;
       document.body.style.paddingRight = prevPaddingRight;
     };
-  }, [aboutExpanded]);
+  }, [aboutExpanded, aboutAnchor?.isMobile]);
   const [doctaOpen, setDoctaOpen] = useState(false);
   const [doctaImageIndex, setDoctaImageIndex] = useState(0);
   const doctaImages = ['/images/projects/docta-valley/event-001.jpeg', '/images/projects/docta-valley/event-002.jpeg'];
@@ -463,13 +462,15 @@ export function Hero() {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
                   style={{
-                    position: 'fixed',
+                    position: aboutAnchor.isMobile ? 'absolute' : 'fixed',
                     top: aboutAnchor.top,
                     left: aboutAnchor.left,
                     width: aboutAnchor.width,
-                    maxHeight: `calc(100vh - ${aboutAnchor.top}px - 16px)`,
+                    ...(aboutAnchor.isMobile
+                      ? {}
+                      : { maxHeight: `calc(100vh - ${aboutAnchor.top}px - 16px)` }),
                   }}
-                  className="z-[90] overflow-y-auto overflow-x-hidden overscroll-contain rounded-2xl border border-[#3D3935] bg-[#0C0A09] shadow-2xl"
+                  className={`z-[90] ${aboutAnchor.isMobile ? 'overflow-hidden' : 'overflow-y-auto overflow-x-hidden overscroll-contain'} rounded-2xl border border-[#3D3935] bg-[#0C0A09] shadow-2xl`}
                   role="dialog"
                   aria-modal="true"
                   aria-label="About me"
