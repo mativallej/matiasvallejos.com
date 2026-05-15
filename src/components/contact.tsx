@@ -23,7 +23,7 @@ export function Contact() {
       viewport={{ once: true, margin: "-100px" }}
       className="px-6 lg:px-10 py-16 max-w-[1080px] mx-auto"
     >
-      <div className="bg-[#12100E] border border-[#3D3935] rounded-lg p-8 md:p-12 flex flex-col items-center text-center gap-5">
+      <div className="bg-[#0C0A09] border border-[#3D3935]/60 rounded-2xl p-8 md:p-12 flex flex-col items-center text-center gap-5">
         <h2 className="text-heading text-white text-balance">
           {t("title")}
         </h2>

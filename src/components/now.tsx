@@ -138,7 +138,7 @@ export function Now() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="type a log entry and hit enter…"
+              placeholder={t("consolePlaceholder")}
               spellCheck={false}
               autoComplete="off"
               className="flex-1 bg-transparent border-none outline-none text-[#FAFAF9] font-mono placeholder:text-[#3D3935] caret-[#A3B86C]"

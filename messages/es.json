@@ -80,7 +80,8 @@
     "updated": "Actualizado {date}",
     "teguMetrics": "Tegu — métricas públicas",
     "buildLogs": "Build log mensual",
-    "whatNow": "Qué estoy haciendo ahora"
+    "whatNow": "Qué estoy haciendo ahora",
+    "consolePlaceholder": "escribí un log y enter…"
   },
   "Products": {
     "title": "Lo que envié",

@@ -114,7 +114,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("followOn", { label: link.label })}
-              className="inline-flex items-center gap-2 font-mono text-caption text-[#78716C] border border-[#3D3935] px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md hover:text-white hover:border-[#57534E] transition-all duration-200"
+              className="inline-flex items-center gap-2 font-mono text-caption text-[#78716C] border border-[#3D3935]/60 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md hover:text-white hover:border-[#57534E] transition-all duration-200"
             >
               {link.icon}
               <span className="hidden sm:inline">{link.label}</span>

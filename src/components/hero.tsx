@@ -85,13 +85,10 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="rounded-3xl bg-[#080706] p-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3"
+        className="rounded-3xl bg-[#080706] p-3 grid grid-cols-1 md:grid-cols-4 gap-3"
       >
         {/* Row 1: Photo + Name+Socials + Bio (spans 2) */}
-        <div
-          className="relative rounded-2xl border border-[#3D3935]/60 overflow-hidden bg-[#12100E]"
-          style={{ minHeight: 260 }}
-        >
+        <div className="relative rounded-2xl border border-[#3D3935]/60 overflow-hidden bg-[#12100E] aspect-square md:aspect-auto md:min-h-[260px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/me.png"
@@ -111,7 +108,7 @@ export function Hero() {
           type="button"
           onClick={handleCopy}
           aria-label="Copy link to this page"
-          className={`relative text-left rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col justify-between min-h-[260px] transition-colors group cursor-pointer overflow-hidden ${socialHover ? '' : 'hover:border-[#57534E]'}`}
+          className={`relative text-left rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col justify-between min-h-[200px] md:min-h-[260px] transition-colors group cursor-pointer overflow-hidden ${socialHover ? '' : 'hover:border-[#57534E]'}`}
           data-social-hover={socialHover ? 'true' : 'false'}
         >
           <div className="flex flex-col gap-3">
@@ -168,9 +165,9 @@ export function Hero() {
 
         <a
           href="/about"
-          className="relative sm:col-span-2 md:col-span-2 rounded-2xl border border-[#3D3935]/60 p-4 pb-9 flex flex-col gap-4 hover:border-[#57534E] transition-colors group block min-h-[260px]"
+          className="relative md:col-span-2 rounded-2xl border border-[#3D3935]/60 p-5 pb-9 flex flex-col gap-4 hover:border-[#57534E] transition-colors group block min-h-[200px] md:min-h-[260px]"
         >
-          <p className="font-serif text-[16px] md:text-[18px] text-[#FAFAF9] leading-[1.5] tracking-[-0.01em] font-normal">
+          <p className="font-serif text-[17px] md:text-[19px] text-[#FAFAF9] leading-[1.5] tracking-[-0.01em] font-normal">
             {t('intro')}
           </p>
           <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">
@@ -182,7 +179,9 @@ export function Hero() {
         <div className="md:col-span-2">
           <ResultsCard />
         </div>
-        <MakeItCard />
+        <div className="md:col-span-1">
+          <MakeItCard />
+        </div>
         <a
           href="https://doctavalley.com.ar"
           target="_blank"
@@ -208,7 +207,7 @@ export function Hero() {
         </a>
 
         {/* Row 3: Press strip (full width) */}
-        <div className="sm:col-span-2 md:col-span-4">
+        <div className="md:col-span-4">
           <PressStripCard />
         </div>
       </motion.aside>

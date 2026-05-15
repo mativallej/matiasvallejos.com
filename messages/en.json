@@ -80,7 +80,8 @@
     "updated": "Updated {date}",
     "teguMetrics": "Tegu — public metrics",
     "buildLogs": "Monthly build logs",
-    "whatNow": "What I'm doing now"
+    "whatNow": "What I'm doing now",
+    "consolePlaceholder": "type a log entry and hit enter…"
   },
   "Products": {
     "title": "Things I've shipped",
