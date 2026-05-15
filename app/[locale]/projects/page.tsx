@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { Navbar } from "@/components/navbar"
 import { PageHeader } from "@/components/page-header"
 import { Footer } from "@/components/footer"
@@ -29,20 +30,28 @@ const cardVariants = {
   }),
 }
 
-export default function ProductsPage() {
+const PILLAR_KEYS = ["lean", "ship", "iterate"] as const
+const PILLAR_COLORS: Record<(typeof PILLAR_KEYS)[number], string> = {
+  lean: "#A3B86C",
+  ship: "#FB923C",
+  iterate: "#7CA5C4",
+}
+
+export default function ProjectsPage() {
+  const t = useTranslations("ProjectsPage")
   return (
     <main className="min-h-screen bg-[#080706]">
       <Navbar />
       <PageHeader
-        label="Products"
-        title="Things I'm building."
-        titleAccent="And have built."
-        description="I create lean digital products that solve real problems. Every product starts with a clear purpose and ships when it's ready to make an impact -- not a moment sooner, not a moment later."
+        label={t("label")}
+        title={t("title")}
+        titleAccent={t("titleAccent")}
+        description={t("description")}
       />
 
       <section className="px-6 lg:px-10 py-8 max-w-[1080px] mx-auto">
-        {/* Bento grid: tall left + 2 stacked right */}
-        <div className="grid gap-4 md:grid-cols-2 md:grid-rows-2">
+        {/* Bento grid: tall left + 2 stacked right (1 col on mobile) */}
+        <div className="grid gap-3 md:grid-cols-2 md:grid-rows-2">
           <motion.div
             custom={0}
             variants={cardVariants}
@@ -77,37 +86,23 @@ export default function ProductsPage() {
         viewport={{ once: true, margin: "-100px" }}
         className="px-6 lg:px-10 py-16 max-w-[1080px] mx-auto"
       >
-        <div className="bg-[#12100E] border border-[#3D3935] rounded-lg p-8 md:p-12 flex flex-col gap-6">
-          <h2 className="text-heading text-white">How I build</h2>
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: "Start lean",
-                text: "Every product begins with the smallest version that delivers real value. No feature creep.",
-                color: "#A3B86C",
-              },
-              {
-                title: "Ship fast",
-                text: "Velocity matters. I aim for weekly shipping cycles, even if it's small iterations.",
-                color: "#E8742A",
-              },
-              {
-                title: "Iterate with purpose",
-                text: "Feedback drives direction. Every change is a response to something real, not a guess.",
-                color: "#7CA5C4",
-              },
-            ].map((item) => (
-              <div key={item.title} className="flex flex-col gap-2">
+        <div className="rounded-2xl border border-[#3D3935]/60 bg-[#0C0A09] p-6 md:p-8 flex flex-col gap-6">
+          <h2 className="text-heading text-white">{t("philosophy")}</h2>
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {PILLAR_KEYS.map((key) => (
+              <div key={key} className="flex flex-col gap-2">
                 <div className="flex items-center gap-2">
                   <div
-                    className="w-1.5 h-1.5 rounded-full"
-                    style={{ backgroundColor: item.color }}
+                    className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: PILLAR_COLORS[key] }}
                   />
                   <span className="font-mono text-caption text-white uppercase">
-                    {item.title}
+                    {t(`pillars.${key}.title`)}
                   </span>
                 </div>
-                <p className="text-body-sm text-[#78716C]">{item.text}</p>
+                <p className="text-body-sm text-[#78716C] leading-relaxed">
+                  {t(`pillars.${key}.text`)}
+                </p>
               </div>
             ))}
           </div>

@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { notFound } from "next/navigation"
 import { format, parseISO } from "date-fns"
+import { setRequestLocale, getTranslations } from "next-intl/server"
+import { Link } from "@/i18n/navigation"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { getAllPostSlugs, getPostBySlug } from "@/lib/blog"
@@ -43,9 +44,12 @@ export async function generateMetadata({
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: string; slug: string }>
 }) {
-  const { slug } = await params
+  const { locale, slug } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations("BlogPost")
+
   let post
   try {
     post = await getPostBySlug(slug)
@@ -57,14 +61,14 @@ export default async function BlogPostPage({
     <main className="min-h-screen bg-[#080706]">
       <Navbar />
 
-      <article className="px-6 lg:px-10 pt-20 pb-16 max-w-[1080px] mx-auto">
-        {/* Back link */}
+      <article className="px-6 lg:px-10 pt-14 pb-16 md:pt-16 max-w-[1080px] mx-auto">
+        {/* Back link — pill style for design system consistency */}
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 font-mono text-caption text-[#57534E] hover:text-[#A8A29E] transition-colors duration-200 mb-8"
+          className="inline-flex items-center gap-1.5 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1 hover:text-white hover:border-[#57534E] transition-colors duration-200 mb-8"
         >
-          <span>{"<-"}</span>
-          <span>back to blog</span>
+          <span className="text-[#57534E]">←</span>
+          <span>{t("backToBlog")}</span>
         </Link>
 
         {/* Post header */}
@@ -76,15 +80,17 @@ export default async function BlogPostPage({
             <span className="text-[#3D3935]">{"/"}</span>
             <span className="text-[#57534E]">{post.readTime}</span>
           </div>
-          <h1 className="text-display-lg text-white">{post.title}</h1>
-          <p className="text-body text-[#A8A29E] max-w-[560px]">
+          <h1 className="font-serif text-[36px] sm:text-[44px] md:text-[56px] leading-[1.05] tracking-[-0.02em] font-bold text-white">
+            {post.title}
+          </h1>
+          <p className="text-body text-[#A8A29E] max-w-[560px] leading-relaxed">
             {post.description}
           </p>
           <div className="flex items-center gap-2 flex-wrap">
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="font-mono text-caption uppercase px-3 py-1.5 rounded-md bg-[#E8742A]/15 text-[#FB923C]"
+                className="font-mono text-caption uppercase px-3 py-1.5 rounded-md bg-[#FB923C]/15 text-[#FB923C]"
               >
                 {tag}
               </span>
@@ -96,7 +102,7 @@ export default async function BlogPostPage({
                 rel="noopener noreferrer"
                 className="font-mono text-caption text-[#57534E] hover:text-[#A8A29E] transition-colors duration-200 ml-2"
               >
-                read on twitter →
+                {t("readOnTwitter")} →
               </a>
             )}
           </div>
@@ -125,7 +131,7 @@ export default async function BlogPostPage({
             >
               <path d="M18.5 3H6a4 4 0 0 0-4 4v1a4 4 0 0 0 3 3.87V17a5 5 0 0 0 5 5h4a5 5 0 0 0 5-5v-5.13A4 4 0 0 0 22 8V7a4 4 0 0 0-3.5-4zM6 5h12.5A2 2 0 0 1 20 7v1a2 2 0 0 1-2 2h-1V7a1 1 0 0 0-2 0v3H9V7a1 1 0 0 0-2 0v3H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
             </svg>
-            invitame un cafecito
+            {t("buyCafecito")}
           </a>
         </div>
       </article>

@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { format, parseISO } from "date-fns"
+import { useTranslations } from "next-intl"
+import { Link } from "@/i18n/navigation"
 
 type BlogPostMeta = {
   slug: string
@@ -31,6 +32,7 @@ export function BlogList({
   posts: BlogPostMeta[]
   tags: string[]
 }) {
+  const t = useTranslations("BlogPage")
   const [activeTag, setActiveTag] = useState("all")
 
   const filtered =
@@ -48,11 +50,11 @@ export function BlogList({
             onClick={() => setActiveTag("all")}
             className={`font-mono text-caption uppercase px-3 py-1.5 rounded-md transition-all duration-200 ${
               activeTag === "all"
-                ? "bg-[#E8742A]/15 text-[#FB923C]"
+                ? "bg-[#FB923C]/15 text-[#FB923C]"
                 : "text-[#57534E] hover:text-[#A8A29E]"
             }`}
           >
-            all
+            {t("filterAll")}
           </button>
           {tags.map((tag) => (
             <button
@@ -61,7 +63,7 @@ export function BlogList({
               onClick={() => setActiveTag(tag)}
               className={`font-mono text-caption uppercase px-3 py-1.5 rounded-md transition-all duration-200 ${
                 activeTag === tag
-                  ? "bg-[#E8742A]/15 text-[#FB923C]"
+                  ? "bg-[#FB923C]/15 text-[#FB923C]"
                   : "text-[#57534E] hover:text-[#A8A29E]"
               }`}
             >
@@ -69,7 +71,7 @@ export function BlogList({
             </button>
           ))}
           <span className="font-mono text-caption text-[#3D3935] ml-auto">
-            {filtered.length} {filtered.length === 1 ? "post" : "posts"}
+            {filtered.length} {filtered.length === 1 ? t("post") : t("posts")}
           </span>
         </div>
       </section>
@@ -121,7 +123,7 @@ export function BlogList({
                     </div>
                   </div>
                   <span className="text-[#57534E] text-body group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0 mt-1 md:mt-0">
-                    {"->"}
+                    {"→"}
                   </span>
                 </Link>
               </motion.div>

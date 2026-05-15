@@ -160,6 +160,56 @@
     "tagBlog": "blog",
     "tagUpdate": "tegu updates"
   },
+  "PageHeader": {
+    "backHome": "back home"
+  },
+  "BlogPage": {
+    "label": "Blog",
+    "title": "Thinking out loud.",
+    "titleAccent": "In long form.",
+    "description": "Essays on product building, design craft, and life as an independent maker in Argentina. No filler, no thought leadership — just honest reflections from the work.",
+    "filterAll": "all",
+    "post": "post",
+    "posts": "posts"
+  },
+  "BlogPost": {
+    "backToBlog": "back to blog",
+    "readOnTwitter": "read on twitter",
+    "buyCafecito": "invitame un cafecito"
+  },
+  "BooksPage": {
+    "label": "Books",
+    "titleSuffix": "books.",
+    "titleAccent": "Most won't change your life. These might.",
+    "description": "What I read and what I actually kept. Verdicts are honest — if a book wasn't worth your time, I say so. Sorted by how much they shaped my thinking, not by when I read them.",
+    "book": "book",
+    "books": "books",
+    "readPrefix": "read"
+  },
+  "ProjectsPage": {
+    "label": "Projects",
+    "title": "Things I've shipped.",
+    "titleAccent": "And what's next.",
+    "description": "Lean digital products that solve real problems. Each one started small, shipped fast, and earned its place by the impact it created — not by the features it had.",
+    "philosophy": "How I build",
+    "pillars": {
+      "lean": {
+        "title": "Start lean",
+        "text": "Every product begins with the smallest version that delivers real value. No feature creep."
+      },
+      "ship": {
+        "title": "Ship fast",
+        "text": "Velocity matters. I aim for weekly shipping cycles, even if it's small iterations."
+      },
+      "iterate": {
+        "title": "Iterate with purpose",
+        "text": "Feedback drives direction. Every change is a response to something real, not a guess."
+      }
+    }
+  },
+  "ProjectCard": {
+    "explore": "Explore"
+  },
   "AboutWIP": {
     "tag": "About",
     "title": "We're working on it.",

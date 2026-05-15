@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import { useTranslations } from "next-intl"
 import { motion, AnimatePresence } from "framer-motion"
 import { Navbar } from "@/components/navbar"
 import { PageHeader } from "@/components/page-header"
@@ -38,6 +39,7 @@ function VerdictPill({ verdict }: { verdict: Verdict }) {
 type VerdictFilter = "all" | Verdict
 
 export default function BooksPage() {
+  const t = useTranslations("BooksPage")
   const [activeCategory, setActiveCategory] = useState("all")
   const [activeVerdict, setActiveVerdict] = useState<VerdictFilter>("must-read")
 
@@ -84,10 +86,10 @@ export default function BooksPage() {
     <main className="min-h-screen bg-[#080706]">
       <Navbar />
       <PageHeader
-        label="Books"
-        title={`${books.length} books.`}
-        titleAccent="Most won't change your life. These might."
-        description="What I read and what I actually kept. Verdicts are honest — if a book wasn't worth your time, I say so. Sorted by how much they shaped my thinking, not by when I read them."
+        label={t("label")}
+        title={`${books.length} ${t("titleSuffix")}`}
+        titleAccent={t("titleAccent")}
+        description={t("description")}
       />
 
       {/* Filters */}
@@ -101,7 +103,7 @@ export default function BooksPage() {
               onClick={() => setActiveVerdict(f.key)}
               className={`font-mono text-caption uppercase px-3 py-1.5 rounded-md transition-all duration-200 ${
                 activeVerdict === f.key
-                  ? "bg-[#E8742A]/15 text-[#FB923C]"
+                  ? "bg-[#FB923C]/15 text-[#FB923C]"
                   : "text-[#57534E] hover:text-[#A8A29E]"
               }`}
             >
@@ -129,7 +131,7 @@ export default function BooksPage() {
               </button>
             ))}
           <span className="font-mono text-caption text-[#3D3935] ml-auto">
-            {filtered.length} {filtered.length === 1 ? "book" : "books"}
+            {filtered.length} {filtered.length === 1 ? t("book") : t("books")}
           </span>
         </div>
       </section>
@@ -185,7 +187,7 @@ export default function BooksPage() {
                     )}
                     <div className="flex items-center gap-2 mt-1">
                       <span className="font-mono text-micro text-[#3D3935]">
-                        read {book.year}
+                        {t("readPrefix")} {book.year}
                       </span>
                       <span
                         className="font-mono text-micro px-1.5 py-0.5 rounded-sm"

@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useEffect } from "react"
 import useEmblaCarousel from "embla-carousel-react"
+import { useTranslations } from "next-intl"
 
 import { Product } from "@/data/products"
 
@@ -55,6 +56,7 @@ export default function ProjectCard({
   project: Product
   variant?: "default" | "tall" | "wide"
 }) {
+  const t = useTranslations("ProjectCard")
   const { title, subtitle, logo, emoji, logoBg, slug, description, tags, link, github, video, videoFit, image, images, caseStudy, date, metrics, instagram, tiktok, twitter, linkedin } = project
 
   const aspectClass =
@@ -221,7 +223,7 @@ export default function ProjectCard({
             <polyline points="15 3 21 3 21 9" />
             <line x1="10" x2="21" y1="14" y2="3" />
           </svg>
-          Explore
+          {t("explore")}
         </Link>
       </div>
     </div>

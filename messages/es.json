@@ -160,6 +160,56 @@
     "tagBlog": "blog",
     "tagUpdate": "tegu updates"
   },
+  "PageHeader": {
+    "backHome": "volver al inicio"
+  },
+  "BlogPage": {
+    "label": "Blog",
+    "title": "Pensando en voz alta.",
+    "titleAccent": "En formato largo.",
+    "description": "Ensayos sobre construir producto, craft de diseño y vida como maker independiente en Argentina. Sin relleno, sin thought leadership — sólo reflexiones honestas del trabajo.",
+    "filterAll": "todos",
+    "post": "post",
+    "posts": "posts"
+  },
+  "BlogPost": {
+    "backToBlog": "volver al blog",
+    "readOnTwitter": "leer en twitter",
+    "buyCafecito": "invitame un cafecito"
+  },
+  "BooksPage": {
+    "label": "Libros",
+    "titleSuffix": "libros.",
+    "titleAccent": "La mayoría no te van a cambiar la vida. Estos quizás sí.",
+    "description": "Lo que leí y lo que realmente me quedó. Los veredictos son honestos — si un libro no valía tu tiempo, lo digo. Ordenados por cuánto moldearon mi pensamiento, no por cuándo los leí.",
+    "book": "libro",
+    "books": "libros",
+    "readPrefix": "leído"
+  },
+  "ProjectsPage": {
+    "label": "Proyectos",
+    "title": "Lo que envié.",
+    "titleAccent": "Y lo que viene.",
+    "description": "Productos digitales lean que resuelven problemas reales. Cada uno empezó chico, se envió rápido, y se ganó su lugar por el impacto que generó — no por los features que tenía.",
+    "philosophy": "Cómo construyo",
+    "pillars": {
+      "lean": {
+        "title": "Empezar lean",
+        "text": "Todo producto empieza con la versión más chica que entregue valor real. Nada de feature creep."
+      },
+      "ship": {
+        "title": "Enviar rápido",
+        "text": "La velocidad importa. Apunto a ciclos semanales de release, aunque sean iteraciones chicas."
+      },
+      "iterate": {
+        "title": "Iterar con propósito",
+        "text": "El feedback marca la dirección. Cada cambio responde a algo real, no a una suposición."
+      }
+    }
+  },
+  "ProjectCard": {
+    "explore": "Explorar"
+  },
   "AboutWIP": {
     "tag": "Sobre mí",
     "title": "Estamos trabajando en esto.",
