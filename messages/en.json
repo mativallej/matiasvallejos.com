@@ -94,7 +94,9 @@
   "Press": {
     "title": "Press",
     "feature": "feature",
-    "features": "features"
+    "features": "features",
+    "viewMore": "view {count} more",
+    "viewLess": "view less"
   },
   "About": {
     "label": "About",
@@ -234,7 +236,9 @@
     "title": "Free for builders",
     "viewAll": "view on GitHub →",
     "featured": "Featured",
-    "archived": "Archived"
+    "archived": "Archived",
+    "viewMore": "view {count} more",
+    "viewLess": "view less"
   },
   "Contact": {
     "available": "available for collaborations",

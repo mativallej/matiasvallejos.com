@@ -94,7 +94,9 @@
   "Press": {
     "title": "Prensa",
     "feature": "aparición",
-    "features": "apariciones"
+    "features": "apariciones",
+    "viewMore": "ver {count} más",
+    "viewLess": "ver menos"
   },
   "About": {
     "label": "Sobre mí",
@@ -234,7 +236,9 @@
     "title": "Gratis para builders",
     "viewAll": "ver en GitHub →",
     "featured": "Destacado",
-    "archived": "Archivado"
+    "archived": "Archivado",
+    "viewMore": "ver {count} más",
+    "viewLess": "ver menos"
   },
   "Contact": {
     "available": "disponible para colaboraciones",

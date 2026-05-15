@@ -25,7 +25,7 @@ export function LocaleSwitcher() {
   }
 
   return (
-    <div className="flex items-center gap-1 font-mono text-[13px] lowercase leading-none">
+    <div className="flex items-center gap-1 font-mono text-[12px] sm:text-[13px] lowercase leading-none">
       {routing.locales.map((l, i) => (
         <span key={l} className="flex items-center">
           {i > 0 && <span className="text-[#3D3935] mx-1">/</span>}

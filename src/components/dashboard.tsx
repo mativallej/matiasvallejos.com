@@ -176,7 +176,7 @@ export function ResultsCard() {
       transition={{ duration: 0.5, delay: 0.05 }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      className="relative rounded-2xl border border-[#3D3935]/60 hover:border-[#57534E] p-4 min-h-[170px] overflow-hidden transition-colors duration-300 block cursor-pointer"
+      className="relative h-full rounded-2xl border border-[#3D3935]/60 hover:border-[#57534E] p-4 min-h-[170px] overflow-hidden transition-colors duration-300 block cursor-pointer"
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -188,7 +188,7 @@ export function ResultsCard() {
           className="flex flex-col gap-2"
         >
           <span
-            className="font-serif text-[44px] leading-none tracking-tight"
+            className="font-serif text-[34px] md:text-[44px] leading-none tracking-tight"
             style={{ color: current.accent }}
           >
             {current.value}
@@ -212,7 +212,7 @@ export function ResultsCard() {
 
       {!current.series && current.key === "tegu" && (
         <Image
-          src="/images/tegu.png"
+          src="/images/projects/tegu/logo.png"
           alt="Tegu"
           width={128}
           height={40}
@@ -221,7 +221,7 @@ export function ResultsCard() {
       )}
       {current.key === "community" && (
         <Image
-          src="/images/docta-valley.jpg"
+          src="/images/projects/docta-valley/logo.jpg"
           alt="Docta Valley"
           width={32}
           height={32}
@@ -266,13 +266,16 @@ export function MakeItCard() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.12 }}
-      className="relative rounded-2xl border border-[#3D3935]/60 p-4 pb-9 min-h-[170px] flex flex-col items-start gap-2 overflow-hidden hover:border-[#57534E] transition-colors group"
+      className="relative h-full rounded-2xl border border-[#3D3935]/60 p-4 pb-9 min-h-[170px] flex flex-col items-start gap-1 overflow-hidden hover:border-[#57534E] transition-colors group"
     >
-      <span className="font-serif text-[44px] leading-none tracking-tight text-[#FAFAF9]">
+      <span className="font-serif text-[34px] md:text-[44px] leading-none tracking-tight text-[#FAFAF9]">
         +{totalStars}
       </span>
       <p className="text-[13px] text-[#FAFAF9] leading-snug font-medium">
-        Stars on GitHub · {totalForks} forks · {totalRepos} repos
+        Stars on GitHub
+      </p>
+      <p className="text-[12px] text-[#78716C] leading-snug">
+        {totalForks} forks · {totalRepos} repos
       </p>
       <span className="absolute bottom-3 right-4 font-mono text-[10px] text-[#A8A29E] inline-flex items-center gap-1">
         @mativallej <span className="text-[#57534E] group-hover:translate-x-0.5 transition-transform">↗</span>
@@ -293,7 +296,7 @@ function PressMarquee() {
 
   return (
     <div className="relative overflow-hidden w-full h-10 flex items-center">
-      <div className="flex items-center gap-12 animate-marquee whitespace-nowrap">
+      <div className="flex items-center gap-12 animate-marquee [animation-duration:30s] md:[animation-duration:12s] whitespace-nowrap">
         {loop.map((p, i) => (
           <div
             key={`${p.outlet}-${i}`}

@@ -93,7 +93,7 @@ export default function BooksPage() {
       />
 
       {/* Filters */}
-      <section className="px-6 lg:px-10 max-w-[1080px] mx-auto">
+      <section className="px-4 lg:px-8 max-w-[1080px] mx-auto">
         {/* Verdict filter */}
         <div className="flex flex-wrap items-center gap-2 pb-4">
           {verdictFilters.map((f) => (
@@ -137,7 +137,7 @@ export default function BooksPage() {
       </section>
 
       {/* Book grid */}
-      <section className="px-6 lg:px-10 py-8 max-w-[1080px] mx-auto">
+      <section className="px-4 lg:px-8 py-8 max-w-[1080px] mx-auto">
         <AnimatePresence mode="wait">
           <motion.div
             key={`${activeCategory}-${activeVerdict}`}

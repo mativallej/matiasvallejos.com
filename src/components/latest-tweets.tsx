@@ -14,7 +14,7 @@ const tweetIds = [
 export function LatestTweets() {
   const t = useTranslations("LatestTweets")
   return (
-    <section className="px-6 lg:px-10 py-20 max-w-[1080px] mx-auto">
+    <section className="px-4 lg:px-8 py-20 max-w-[1080px] mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

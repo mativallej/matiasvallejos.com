@@ -74,7 +74,7 @@ export function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="px-6 lg:px-10 py-16 max-w-[1080px] mx-auto border-t border-[#3D3935]"
+      className="px-4 lg:px-8 py-16 max-w-[1080px] mx-auto border-t border-[#3D3935]"
     >
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
         {/* Left: Quote + location */}

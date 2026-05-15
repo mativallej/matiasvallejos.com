@@ -43,7 +43,7 @@ export function BlogList({
   return (
     <>
       {/* Filters */}
-      <section className="px-6 lg:px-10 max-w-[1080px] mx-auto">
+      <section className="px-4 lg:px-8 max-w-[1080px] mx-auto">
         <div className="flex flex-wrap items-center gap-2 pb-8 border-b border-[#3D3935]">
           <button
             type="button"
@@ -77,7 +77,7 @@ export function BlogList({
       </section>
 
       {/* Post list */}
-      <section className="px-6 lg:px-10 py-4 max-w-[1080px] mx-auto">
+      <section className="px-4 lg:px-8 py-4 max-w-[1080px] mx-auto">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTag}

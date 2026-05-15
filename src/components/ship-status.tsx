@@ -105,7 +105,7 @@ export function ShipStatus() {
     <>
       {/* Floating trigger — bottom-right pile */}
       <div
-        className="fixed bottom-6 right-6 z-40 flex items-end justify-end"
+        className="fixed bottom-6 right-6 z-30 flex items-end justify-end"
         style={{ width: 200, height: 200 }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}

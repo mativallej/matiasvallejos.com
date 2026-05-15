@@ -1,9 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { useTranslations } from "next-intl"
 import { press, type PressItem } from "@/data/press"
+
+const INITIAL_VISIBLE = 3
 
 const rowVariants = {
   hidden: { opacity: 0, y: 10 },
@@ -121,13 +123,16 @@ function PressRow({ item, locale, index }: { item: PressItem; locale: string; in
 
 export function Press({ locale }: { locale: string }) {
   const t = useTranslations("Press")
+  const [expanded, setExpanded] = useState(false)
 
   const visible = press.filter((p) => !p.logoOnly)
   const featuredVideo = visible.find((p) => p.type === "video")
   const articles = visible.filter((p) => p.id !== featuredVideo?.id)
+  const shownArticles = expanded ? articles : articles.slice(0, INITIAL_VISIBLE)
+  const hasMore = articles.length > INITIAL_VISIBLE
 
   return (
-    <section id="press" className="px-6 lg:px-10 py-20 max-w-[1080px] mx-auto">
+    <section id="press" className="px-4 lg:px-8 py-20 max-w-[1080px] mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -138,9 +143,6 @@ export function Press({ locale }: { locale: string }) {
           <h2 className="font-mono text-caption text-[#57534E] uppercase">
             {t("title")}
           </h2>
-          <span className="inline-flex items-center gap-1.5 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1">
-            {press.length} {press.length === 1 ? t("feature") : t("features")}
-          </span>
         </div>
       </motion.div>
 
@@ -159,9 +161,35 @@ export function Press({ locale }: { locale: string }) {
 
         {/* Right: press list */}
         <div className="flex flex-col">
-          {articles.map((item, i) => (
+          {shownArticles.map((item, i) => (
             <PressRow key={item.id} item={item} locale={locale} index={i} />
           ))}
+
+          <AnimatePresence>
+            {expanded && articles.slice(INITIAL_VISIBLE).map((item, i) => (
+              <motion.div
+                key={`extra-${item.id}`}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.25, ease: "easeOut", delay: i * 0.04 }}
+                className="overflow-hidden"
+              >
+                <PressRow item={item} locale={locale} index={INITIAL_VISIBLE + i} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+
+          {hasMore && (
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              className="mt-6 inline-flex items-center justify-center gap-1.5 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1.5 hover:text-white hover:border-[#57534E] transition-colors duration-200 self-start"
+            >
+              {expanded ? t("viewLess") : t("viewMore", { count: articles.length - INITIAL_VISIBLE })}
+              <span className="text-[#57534E]">{expanded ? "↑" : "↓"}</span>
+            </button>
+          )}
         </div>
       </div>
     </section>

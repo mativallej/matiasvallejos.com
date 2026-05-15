@@ -24,7 +24,7 @@ const cardVariants = {
 export function Products() {
   const t = useTranslations("Products")
   return (
-    <section id="products" className="px-6 lg:px-10 py-20 max-w-[1080px] mx-auto">
+    <section id="products" className="px-4 lg:px-8 py-20 max-w-[1080px] mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

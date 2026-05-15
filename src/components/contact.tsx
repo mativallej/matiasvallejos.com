@@ -21,10 +21,10 @@ export function Contact() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="px-6 lg:px-10 py-16 max-w-[1080px] mx-auto"
+      className="px-4 lg:px-8 pt-16 pb-32 md:pb-40 max-w-[1080px] mx-auto"
     >
       <div className="bg-[#0C0A09] border border-[#3D3935]/60 rounded-2xl p-8 md:p-12 flex flex-col items-center text-center gap-5">
-        <h2 className="text-heading text-white text-balance">
+        <h2 className="font-serif text-[22px] md:text-[24px] font-semibold leading-[1.3] tracking-[-0.02em] text-white text-balance">
           {t("title")}
         </h2>
         <a

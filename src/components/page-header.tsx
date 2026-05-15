@@ -18,7 +18,7 @@ export function PageHeader({ label, title, titleAccent, description }: PageHeade
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="px-6 lg:px-10 pt-14 pb-10 md:pt-16 md:pb-12 max-w-[1080px] mx-auto"
+      className="px-4 lg:px-8 pt-6 pb-6 md:pt-12 md:pb-10 max-w-[1080px] mx-auto"
     >
       <Link
         href="/"

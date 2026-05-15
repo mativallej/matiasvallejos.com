@@ -79,26 +79,26 @@ export function Hero() {
   };
 
   return (
-    <section id="about" className="px-6 lg:px-10 pt-14 pb-8 max-w-[1080px] mx-auto">
+    <section id="about" className="px-4 lg:px-8 pt-4 pb-4 md:pt-10 md:pb-6 max-w-[1080px] mx-auto">
       <motion.aside
         id="hero-panel"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="rounded-3xl bg-[#080706] p-3 grid grid-cols-1 md:grid-cols-4 gap-3"
+        className="md:rounded-3xl bg-[#080706] p-0 md:p-3 grid grid-cols-2 md:grid-cols-4 gap-3"
       >
         {/* Row 1: Photo + Name+Socials + Bio (spans 2) */}
         <div className="relative rounded-2xl border border-[#3D3935]/60 overflow-hidden bg-[#12100E] aspect-square md:aspect-auto md:min-h-[260px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/me.png"
+            src="/images/me.png"
             alt="Matias Vallejos"
             className="w-full h-full object-cover block scale-[1.3]"
           />
           <span
             aria-label="Argentina"
             title="Argentina"
-            className="absolute bottom-2 right-2 flex items-center justify-center w-10 h-10 rounded-full bg-[#080706] border border-[#3D3935] text-[20px] leading-none shadow-lg"
+            className="absolute bottom-2 right-2 flex items-center justify-center w-7 h-7 md:w-10 md:h-10 rounded-full bg-[#080706] border border-[#3D3935] text-[14px] md:text-[20px] leading-none shadow-lg"
           >
             🇦🇷
           </span>
@@ -108,18 +108,18 @@ export function Hero() {
           type="button"
           onClick={handleCopy}
           aria-label="Copy link to this page"
-          className={`relative text-left rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col justify-between min-h-[200px] md:min-h-[260px] transition-colors group cursor-pointer overflow-hidden ${socialHover ? '' : 'hover:border-[#57534E]'}`}
+          className={`relative text-left rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col gap-4 md:gap-3 md:justify-between md:min-h-[260px] transition-colors group cursor-pointer overflow-hidden ${socialHover ? '' : 'hover:border-[#57534E]'}`}
           data-social-hover={socialHover ? 'true' : 'false'}
         >
           <div className="flex flex-col gap-3">
-            <h1 className="font-serif text-[36px] md:text-[40px] font-bold text-white tracking-[-0.03em] leading-[1]">
+            <h1 className="font-serif text-[26px] sm:text-[32px] md:text-[40px] font-bold text-white tracking-[-0.03em] leading-[1]">
               Matias
               <br />
               <span className="text-[#FB923C]">Vallejos</span>
             </h1>
             <div className="flex flex-col gap-0.5">
-              <p className="font-mono text-[15px] text-[#A8A29E] tracking-wide">{t('roleLine1')}</p>
-              <p className="font-mono text-[15px] text-[#78716C] tracking-wide">{t('roleLine2')}</p>
+              <p className="font-mono text-[12px] md:text-[15px] text-[#A8A29E] tracking-wide">{t('roleLine1')}</p>
+              <p className="font-mono text-[12px] md:text-[15px] text-[#78716C] tracking-wide">{t('roleLine2')}</p>
             </div>
           </div>
           <div className="flex items-center justify-between w-full">
@@ -165,9 +165,9 @@ export function Hero() {
 
         <a
           href="/about"
-          className="relative md:col-span-2 rounded-2xl border border-[#3D3935]/60 p-5 pb-9 flex flex-col gap-4 hover:border-[#57534E] transition-colors group block min-h-[200px] md:min-h-[260px]"
+          className="relative col-span-2 md:col-span-2 rounded-2xl border border-[#3D3935]/60 p-5 pb-9 flex flex-col gap-4 hover:border-[#57534E] transition-colors group block md:min-h-[260px]"
         >
-          <p className="font-serif text-[17px] md:text-[19px] text-[#FAFAF9] leading-[1.5] tracking-[-0.01em] font-normal">
+          <p className="font-serif text-[15px] md:text-[19px] text-[#FAFAF9] leading-[1.5] tracking-[-0.01em] font-normal">
             {t('intro')}
           </p>
           <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">
@@ -176,10 +176,10 @@ export function Hero() {
         </a>
 
         {/* Row 2: Results (wide, with chart) · GitHub · Community */}
-        <div className="md:col-span-2">
+        <div className="col-span-2 md:col-span-2">
           <ResultsCard />
         </div>
-        <div className="md:col-span-1">
+        <div className="col-span-1 md:col-span-1">
           <MakeItCard />
         </div>
         <a
@@ -188,14 +188,14 @@ export function Hero() {
           rel="noopener noreferrer"
           className="relative rounded-2xl border border-[#3D3935]/60 p-4 pb-9 hover:border-[#57534E] transition-colors group flex flex-col items-start gap-2 min-h-[170px] overflow-hidden"
         >
-          <span className="font-serif text-[44px] leading-none tracking-tight text-[#F5E6B0]">
+          <span className="font-serif text-[34px] md:text-[44px] leading-none tracking-tight text-[#F5E6B0]">
             +240
           </span>
           <p className="text-[13px] text-[#FAFAF9] leading-snug font-medium">
             {t('secondary.communityTitle')}
           </p>
           <Image
-            src="/images/docta-valley.jpg"
+            src="/images/projects/docta-valley/logo.jpg"
             alt="Docta Valley"
             width={32}
             height={32}
@@ -207,7 +207,7 @@ export function Hero() {
         </a>
 
         {/* Row 3: Press strip (full width) */}
-        <div className="md:col-span-4">
+        <div className="col-span-2 md:col-span-4">
           <PressStripCard />
         </div>
       </motion.aside>

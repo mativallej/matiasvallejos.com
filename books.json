@@ -1,0 +1,310 @@
+[
+  {
+    "title": "12 reglas para vivir",
+    "author": "Jordan Peterson",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Como ganar amigos e influir en las personas",
+    "author": "Dale Carnegie",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Personal Development"
+  },
+  {
+    "title": "El Principito",
+    "author": "Antoine de Saint Exupéry",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Personal Development"
+  },
+  {
+    "title": "El arte de empezar",
+    "author": "Guy Kawasaki",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Startup"
+  },
+  {
+    "title": "El club de las 5 am",
+    "author": "Robin Sharma",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Personal Development"
+  },
+  {
+    "title": "El hombre en busca de sentido",
+    "author": "Viktor Frankl",
+    "stars": 5,
+    "tags": [
+      "psycologhy",
+      "book"
+    ],
+    "folder": "Library/Psycholoy"
+  },
+  {
+    "title": "El monje que vendió su Ferrari",
+    "author": "Robin Sharma",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "El obstáculo es el camino",
+    "author": "Ryan Holiday",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "From Zero to One",
+    "author": "Peter Thiel",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Startup"
+  },
+  {
+    "title": "Inquebrantables",
+    "author": "Daniel Habif",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Personal Development"
+  },
+  {
+    "title": "La vía rápida del millonario",
+    "author": "MJ DeMarco",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Las meditaciones",
+    "author": "Marco Aurelio",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Lean Startup",
+    "author": "Eric Ries",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Startup"
+  },
+  {
+    "title": "Los 5 arrepentimientos antes de morir",
+    "author": "Bronnie Ware",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Un pequeño paso puede cambiar tu vida",
+    "author": "Robert Maurer",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Vendes o vendes",
+    "author": "Grant Cardone",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Ama tu Soledad",
+    "author": "Borja Vilaseca",
+    "stars": 4,
+    "tags": [
+      "psycologhy",
+      "book"
+    ],
+    "folder": "Library/Psycholoy"
+  },
+  {
+    "title": "Diseñando el modelo de negocio",
+    "author": "Alexander Osterwalder",
+    "stars": 4,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Diseñando la propuesta de valor",
+    "author": "Alexander Osterwalder",
+    "stars": 4,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "El poder de los hábitos",
+    "author": "Charles Duhigg",
+    "stars": 4,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Frankenstein",
+    "author": "Mary Shelley",
+    "stars": 4,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "La bolsa o la vida",
+    "author": "Vicki Robin",
+    "stars": 4,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "La vaca púrpura",
+    "author": "Seth Godin",
+    "stars": 4,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Tiende tu cama",
+    "author": "William H. McRaven",
+    "stars": 4,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Tus zonas erróneas",
+    "author": "Wayne Dyer",
+    "stars": 4,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Despertando al gigante que llevas dentro",
+    "author": "Anthony Robbins",
+    "stars": 3,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Personal Development"
+  },
+  {
+    "title": "Educar en el asombro",
+    "author": "Catherine L'Ecuyer",
+    "stars": 3,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "El sutil arte de que todo te importe un carajo",
+    "author": "Mark Manson",
+    "stars": 3,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Organízate con eficacia",
+    "author": "David Allen",
+    "stars": 3,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "The Importance of Being Earnest",
+    "author": "Oscar Wilde",
+    "stars": 3,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Vivir la vida con sentido",
+    "author": "Victor Küppers",
+    "stars": 3,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "365 dias estoico",
+    "author": "Ryan Holiday",
+    "stars": 2,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Personal Development"
+  },
+  {
+    "title": "English Grammar in Use",
+    "author": "Raymond Murphy",
+    "stars": 0,
+    "tags": [
+      "book"
+    ],
+    "folder": "Archive"
+  },
+  {
+    "title": "La actitud del éxito",
+    "author": "Carol Dweck",
+    "stars": 0,
+    "tags": [
+      "book"
+    ],
+    "folder": "Archive"
+  }
+]
