@@ -41,10 +41,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/images/emoji.webp", type: "image/webp" },
-      { url: "/images/emoji.png", type: "image/png" },
     ],
     shortcut: "/images/emoji.webp",
-    apple: "/images/emoji.png",
+    apple: "/images/apple-touch-icon.png",
   },
   alternates: {
     canonical: "/",

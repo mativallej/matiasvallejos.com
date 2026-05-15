@@ -2,22 +2,45 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import { useTranslations } from "next-intl"
 
 import { Product } from "@/data/products"
 
 function Video({ src, className }: { src: string; className?: string }) {
+  const ref = useRef<HTMLVideoElement | null>(null)
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            setInView(true)
+            io.disconnect()
+            break
+          }
+        }
+      },
+      { rootMargin: "200px" },
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
   return (
     <video
-      src={src}
+      ref={ref}
+      src={inView ? src : undefined}
       className={className}
       autoPlay
       loop
       muted
       playsInline
-      preload="metadata"
+      preload="none"
     />
   )
 }

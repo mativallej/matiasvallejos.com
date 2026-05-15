@@ -40,3 +40,6 @@ next-env.d.ts
 .contentlayer
 portfolio-website-build
 not/
+
+# Private working notes (audits, drafts, planning)
+.docs/
