@@ -43,32 +43,42 @@ const socialLinks = [
       </svg>
     ),
   },
-  {
-    label: 'Email',
-    href: 'mailto:mativallej@outlook.com',
-    icon: (
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <rect width="20" height="16" x="2" y="4" rx="2" />
-        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-      </svg>
-    ),
-  },
 ];
 
 export function Hero() {
   const t = useTranslations('Hero');
   const [copied, setCopied] = useState(false);
   const [socialHover, setSocialHover] = useState(false);
+  const [flagOpen, setFlagOpen] = useState(false);
+  const [photoIsVideo, setPhotoIsVideo] = useState(false);
+  const [doctaOpen, setDoctaOpen] = useState(false);
+  const [doctaImageIndex, setDoctaImageIndex] = useState(0);
+  const doctaImages = ['/images/projects/docta-valley/event-001.jpeg', '/images/projects/docta-valley/event-002.jpeg'];
+
+  useEffect(() => {
+    if (!doctaOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setDoctaOpen(false);
+      if (e.key === 'ArrowRight') setDoctaImageIndex((i) => (i + 1) % doctaImages.length);
+      if (e.key === 'ArrowLeft') setDoctaImageIndex((i) => (i - 1 + doctaImages.length) % doctaImages.length);
+    };
+    window.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [doctaOpen, doctaImages.length]);
+
+  useEffect(() => {
+    if (!flagOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setFlagOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [flagOpen]);
 
   const handleCopy = () => {
     if (typeof window === 'undefined') return;
@@ -88,27 +98,122 @@ export function Hero() {
         className="md:rounded-3xl bg-[#080706] p-0 md:p-3 grid grid-cols-2 md:grid-cols-4 gap-3"
       >
         {/* Row 1: Photo + Name+Socials + Bio (spans 2) */}
-        <div className="relative rounded-2xl border border-[#3D3935]/60 overflow-hidden bg-[#12100E] aspect-square md:aspect-auto md:min-h-[260px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/me.png"
-            alt="Matias Vallejos"
-            className="w-full h-full object-cover block scale-[1.3]"
-          />
-          <span
-            aria-label="Argentina"
-            title="Argentina"
-            className="absolute bottom-2 right-2 flex items-center justify-center w-7 h-7 md:w-10 md:h-10 rounded-full bg-[#080706] border border-[#3D3935] text-[14px] md:text-[20px] leading-none shadow-lg"
+        <div className="relative rounded-2xl border border-[#3D3935]/60 overflow-hidden bg-[#12100E] h-full min-h-[200px] md:min-h-[260px]">
+          <button
+            type="button"
+            onClick={() => setPhotoIsVideo((v) => !v)}
+            aria-label={photoIsVideo ? 'Show photo' : 'Play video'}
+            className="absolute inset-0 w-full h-full cursor-pointer group"
           >
-            🇦🇷
-          </span>
+            <AnimatePresence initial={false} mode="sync">
+              {photoIsVideo ? (
+                <motion.div
+                  key="me-video"
+                  initial={{ opacity: 0, scale: 1.04 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.04 }}
+                  transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="absolute inset-0"
+                >
+                  <video
+                    src="/me.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover block"
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="me-photo"
+                  initial={{ opacity: 0, scale: 1.04 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.04 }}
+                  transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="absolute inset-0"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/me.png"
+                    alt="Matias Vallejos"
+                    className="w-full h-full object-cover block scale-[1.3]"
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Toggle indicator — top-left badge */}
+            <span className="pointer-events-none absolute top-2 left-2 flex items-center justify-center w-7 h-7 rounded-full bg-[#080706]/80 border border-[#3D3935] backdrop-blur-sm shadow-lg transition-transform group-hover:scale-110">
+              <span className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-[#FB923C]/40 animate-ping" />
+              <span className="relative flex items-center justify-center w-3 h-3 text-[#FB923C]">
+                {photoIsVideo ? (
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <rect x="6" y="6" width="12" height="12" rx="1" />
+                  </svg>
+                ) : (
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                )}
+              </span>
+            </span>
+          </button>
+          <AnimatePresence initial={false} mode="wait">
+            {!flagOpen ? (
+              <motion.button
+                key="flag-small"
+                layoutId="ar-flag"
+                type="button"
+                onClick={() => setFlagOpen(true)}
+                aria-label="Play Argentina flag video"
+                title="Argentina"
+                className="absolute bottom-2 right-2 flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#080706] border border-[#3D3935] text-[16px] md:text-[20px] leading-none shadow-lg cursor-pointer hover:border-[#FB923C] transition-colors touch-manipulation"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-[#FB923C]/50 animate-ping" />
+                <span className="relative">🇦🇷</span>
+              </motion.button>
+            ) : (
+              <>
+                <motion.div
+                  key="flag-backdrop"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={() => setFlagOpen(false)}
+                  className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px] cursor-pointer"
+                  aria-hidden="true"
+                />
+                <motion.button
+                  key="flag-big"
+                  layoutId="ar-flag"
+                  type="button"
+                  onClick={() => setFlagOpen(false)}
+                  aria-label="Close Argentina flag video"
+                  className="absolute bottom-2 right-2 z-50 w-[82%] md:w-[70%] aspect-square max-w-[200px] md:max-w-[260px] rounded-full overflow-hidden border border-[#3D3935] shadow-2xl cursor-pointer"
+                >
+                  <video
+                    src="/argentina.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                </motion.button>
+              </>
+            )}
+          </AnimatePresence>
         </div>
 
         <button
           type="button"
           onClick={handleCopy}
           aria-label="Copy link to this page"
-          className={`relative text-left rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col gap-4 md:gap-3 md:justify-between md:min-h-[260px] transition-colors group cursor-pointer overflow-hidden ${socialHover ? '' : 'hover:border-[#57534E]'}`}
+          className={`relative text-left rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col gap-4 md:gap-3 justify-between h-full md:min-h-[260px] transition-colors group cursor-pointer overflow-hidden ${socialHover ? '' : 'hover:border-[#57534E]'}`}
           data-social-hover={socialHover ? 'true' : 'false'}
         >
           <div className="flex flex-col gap-3">
@@ -122,7 +227,7 @@ export function Hero() {
               <p className="font-mono text-[12px] md:text-[15px] text-[#78716C] tracking-wide">{t('roleLine2')}</p>
             </div>
           </div>
-          <div className="flex items-center justify-between w-full">
+          <div className="flex items-center justify-between w-full mt-auto">
             {socialLinks.map((social, i) => (
               <motion.a
                 key={social.label}
@@ -182,11 +287,10 @@ export function Hero() {
         <div className="col-span-1 md:col-span-1">
           <MakeItCard />
         </div>
-        <a
-          href="https://doctavalley.com.ar"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative rounded-2xl border border-[#3D3935]/60 p-4 pb-9 hover:border-[#57534E] transition-colors group flex flex-col items-start gap-2 min-h-[170px] overflow-hidden"
+        <button
+          type="button"
+          onClick={() => { setDoctaImageIndex(0); setDoctaOpen(true); }}
+          className="relative w-full text-left rounded-2xl border border-[#3D3935]/60 p-4 pb-9 hover:border-[#57534E] transition-colors group flex flex-col items-start gap-2 min-h-[170px] overflow-hidden cursor-pointer"
         >
           <span className="font-serif text-[34px] md:text-[44px] leading-none tracking-tight text-[#F5E6B0]">
             +240
@@ -204,13 +308,144 @@ export function Hero() {
           <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">
             {t('secondary.communityTag')}
           </span>
-        </a>
+        </button>
 
         {/* Row 3: Press strip (full width) */}
         <div className="col-span-2 md:col-span-4">
           <PressStripCard />
         </div>
       </motion.aside>
+
+      <AnimatePresence>
+        {doctaOpen && (
+          <motion.div
+            key="docta-modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setDoctaOpen(false)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Docta Valley"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 8 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 8 }}
+              transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-[720px] rounded-2xl border border-[#3D3935] bg-[#0C0A09] overflow-hidden shadow-2xl"
+            >
+              <button
+                type="button"
+                onClick={() => setDoctaOpen(false)}
+                aria-label="Close"
+                className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center text-[#FAFAF9] bg-[#080706]/70 hover:bg-[#080706] transition-colors cursor-pointer"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+
+              {/* Main image */}
+              <div className="relative aspect-[16/10] bg-[#080706]">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={doctaImages[doctaImageIndex]}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={doctaImages[doctaImageIndex]}
+                      alt={`Docta Valley event ${doctaImageIndex + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 720px"
+                      className="object-cover"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+
+                {doctaImages.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => setDoctaImageIndex((i) => (i - 1 + doctaImages.length) % doctaImages.length)}
+                      aria-label="Previous image"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#080706]/60 hover:bg-[#080706] text-[#FAFAF9] flex items-center justify-center transition-colors cursor-pointer"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <polyline points="15 18 9 12 15 6" />
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setDoctaImageIndex((i) => (i + 1) % doctaImages.length)}
+                      aria-label="Next image"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#080706]/60 hover:bg-[#080706] text-[#FAFAF9] flex items-center justify-center transition-colors cursor-pointer"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </button>
+                  </>
+                )}
+              </div>
+
+              {/* Thumbnails */}
+              {doctaImages.length > 1 && (
+                <div className="flex items-center gap-2 px-5 pt-4">
+                  {doctaImages.map((src, i) => (
+                    <button
+                      key={src}
+                      type="button"
+                      onClick={() => setDoctaImageIndex(i)}
+                      aria-label={`Image ${i + 1}`}
+                      className={`relative w-14 h-14 rounded-md overflow-hidden border transition-colors cursor-pointer ${
+                        i === doctaImageIndex ? 'border-[#F5E6B0]' : 'border-[#3D3935] hover:border-[#57534E]'
+                      }`}
+                    >
+                      <Image src={src} alt="" fill sizes="56px" className="object-cover" />
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Footer: copy + CTA */}
+              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 p-5">
+                <div className="flex flex-col gap-1">
+                  <span className="font-serif text-[28px] md:text-[32px] leading-none tracking-tight text-[#F5E6B0]">
+                    +240
+                  </span>
+                  <p className="text-[13px] text-[#FAFAF9] leading-snug font-medium">
+                    {t('secondary.communityTitle')}
+                  </p>
+                  <span className="font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">
+                    {t('secondary.communityTag')}
+                  </span>
+                </div>
+                <a
+                  href="https://doctavalley.com.ar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 font-mono text-[12px] font-semibold uppercase tracking-[0.04em] bg-[#F5E6B0] text-[#080706] px-4 py-2.5 rounded-md hover:bg-[#E8D89E] transition-colors duration-200 self-start sm:self-end"
+                >
+                  doctavalley.com.ar
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

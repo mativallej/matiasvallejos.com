@@ -45,7 +45,33 @@
   "Impact": {
     "title": "Resultados",
     "updated": "En vivo",
-    "tegu": { "label": "Usuarios en Tegu" },
+    "tegu": {
+      "label": "Tegu updates",
+      "tagline": "Highlights del mes · últimos 30 días",
+      "deltaMonth": "+800 mes",
+      "deltaWeek": "+65 semana",
+      "chartLabel": "Usuarios totales (acumulado)",
+      "tldr": [
+        "2.110 usuarios · 1.000 activos esta semana",
+        "8 pros pagaron en 4 días · 1 churn",
+        "Pico: 21 tareas en un solo día · 13K visitas SEO"
+      ],
+      "pages": [
+        [
+          "1 mes monetizando. Sólo en Córdoba. Suscripción desde el día 1: la comisión no funciona en Argentina, la historia del vertical lo mostraba. Implementamos la primera versión: 8 pros pagaron en menos de 4 días. 1 churn.",
+          "Mientras escribo esto, un pro acaba de verificar su cuenta. Cinco horas después del último release ya eran 8.",
+          "Hablando con los pros uno por uno iteramos la estructura: bajar la barrera, autoregular supply y demanda, mantener la liquidez. Pico de 21 tareas, VEINTIUNO, en un solo día. SEO trabajando solo: 13K visitas.",
+          "Recién empezamos."
+        ],
+        [
+          "Y la mejor validación del mes no es una métrica.",
+          "Un pro con 25 años en oficios, cuando le pregunté la experiencia, me dijo: \"Está muy buena la app.\" \"Suma, estamos agradecidos porque salen más trabajos.\"",
+          "Natalia consigue 1 trabajo nuevo cada 15 días. David llegó a Córdoba sin contactos, hoy trabaja con nosotros. Damián y Agustina volvieron a contratar.",
+          "La app resuelve problemas reales. Los pros pagan. Los clientes vuelven.",
+          "Nos falta mucho. Retention al mes 2. Escalar pros sin romper la liquidez. CABA. Pero la dirección está clara."
+        ]
+      ]
+    },
     "community": { "label": "Builders en la comunidad Docta Valley" },
     "openSource": { "label": "Stars en GitHub en 6 repos públicos" },
     "press": { "label": "Apariciones en prensa sobre Tegu" },
@@ -73,7 +99,20 @@
     "pressStrip": {
       "tag": "Aparecido en",
       "features": "apariciones"
-    }
+    },
+    "scales": {
+      "monthly": "Mensual",
+      "weekly": "Semanal",
+      "historical": "Histórico"
+    },
+    "views": {
+      "metrics": "Usuarios",
+      "updates": "Updates"
+    },
+    "download": "Descargar CSV",
+    "downloadReport": "Descargar reporte",
+    "visit": "Leer Reporte",
+    "noData": "Sin datos aún para esta vista"
   },
   "Now": {
     "title": "Ahora",
@@ -81,7 +120,24 @@
     "teguMetrics": "Tegu — métricas públicas",
     "buildLogs": "Build log mensual",
     "whatNow": "Qué estoy haciendo ahora",
-    "consolePlaceholder": "escribí un log y enter…"
+    "consolePlaceholder": "escribí un log y enter…",
+    "buildLog": {
+      "2026-05": [
+        "Lanzamos suscripción: 8 pros pagaron en 4 días, 1 churn",
+        "Pico de 21 tareas en un solo día",
+        "Iteramos estructura hablando uno por uno con los pros"
+      ],
+      "2026-04": [
+        "De 843 a 2.110 usuarios en un mes",
+        "1.000 activos en una semana",
+        "13K visitas con SEO trabajando solo"
+      ],
+      "2026-03": [
+        "Lanzamiento de Tegu",
+        "De 0 a 100 usuarios",
+        "De 100 a 600 usuarios"
+      ]
+    }
   },
   "Products": {
     "title": "Lo que envié",
@@ -161,7 +217,24 @@
     "tagMilestone": "hito",
     "tagPress": "prensa",
     "tagBlog": "blog",
-    "tagUpdate": "tegu updates"
+    "tagUpdate": "tegu updates",
+    "ships": {
+      "shipstats": {
+        "target": "shipstats",
+        "description": "Métricas semanales → poster de marca para X. JSON entra, HTML listo para screenshot sale."
+      },
+      "tegu-update-2026-05": {
+        "target": "Tegu updates",
+        "description": "Mensual de Tegu — milestones del último mes.",
+        "bullets": [
+          "2.110 usuarios · 1.000 activos esta semana",
+          "8 pros pagaron en 4 días",
+          "Pico de 21 tareas en un solo día",
+          "13K visitas SEO",
+          "1 mes monetizando · sólo Córdoba"
+        ]
+      }
+    }
   },
   "PageHeader": {
     "backHome": "volver al inicio"
@@ -252,7 +325,6 @@
     "follow": "seguime en X →"
   },
   "Footer": {
-    "quote": "Hecho desde Córdoba 🇦🇷 con mate y side projects.",
     "credit": "Hecho con 🧡 por Matias Vallejos",
     "source": "Código",
     "cafecito": "Cafecito",

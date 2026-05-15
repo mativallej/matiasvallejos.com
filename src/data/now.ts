@@ -15,6 +15,8 @@ export interface TeguMetric {
 export interface BuildLog {
   month: string // "May 2026"
   highlights: string[]
+  /** Day of month (1-31) for each highlight, parallel to `highlights`. */
+  days?: number[]
 }
 
 export interface NowData {
@@ -61,6 +63,7 @@ export const now: NowData = {
   buildLogs: [
     {
       month: "May 2026",
+      days: [4, 11, 13],
       highlights: [
         "Lanzamos suscripción: 8 pros pagaron en 4 días, 1 churn",
         "Pico de 21 tareas en un solo día",
@@ -69,6 +72,7 @@ export const now: NowData = {
     },
     {
       month: "April 2026",
+      days: [10, 18, 27],
       highlights: [
         "De 843 a 2.110 usuarios en un mes",
         "1.000 activos en una semana",
@@ -77,6 +81,7 @@ export const now: NowData = {
     },
     {
       month: "March 2026",
+      days: [6, 14, 24],
       highlights: [
         "Lanzamiento de Tegu",
         "De 0 a 100 usuarios",

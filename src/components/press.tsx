@@ -114,8 +114,11 @@ function PressRow({ item, locale, index }: { item: PressItem; locale: string; in
           {item.product && <span className="text-[#FB923C]">{item.product}</span>}
         </div>
       </div>
-      <span className="text-[#57534E] text-body group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0 ml-4">
-        {"↗"}
+      <span className="text-[#57534E] group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0 ml-4 inline-flex">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <line x1="7" y1="17" x2="17" y2="7" />
+          <polyline points="7 7 17 7 17 17" />
+        </svg>
       </span>
     </motion.a>
   )

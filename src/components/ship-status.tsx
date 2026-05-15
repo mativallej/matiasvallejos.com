@@ -5,35 +5,27 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useTranslations } from "next-intl"
 
 type Ship = {
+  id: string
   shippedAt: string
-  target: string
   link: string
-  description: string
-  bullets?: string[]
+  hasBullets?: boolean
   tagKey?: "tagOpenSource" | "tagMilestone" | "tagPress" | "tagBlog" | "tagUpdate"
 }
 
 // Most recent ships first. Bump the list when something new ships.
+// Copy (target, description, bullets) lives in messages/{locale}.json under Ship.ships.<id>.
 const SHIPS: Ship[] = [
   {
+    id: "shipstats",
     shippedAt: "2026-05-13T22:00:00-03:00",
-    target: "shipstats",
     link: "https://github.com/mativallej/shipstats",
-    description: "Weekly metrics → brand poster for X. JSON in, screenshot-ready HTML out.",
     tagKey: "tagOpenSource",
   },
   {
+    id: "tegu-update-2026-05",
     shippedAt: "2026-05-04T10:00:00-03:00",
-    target: "Tegu updates",
     link: "https://x.com/mativallej_/status/2053943751014555800",
-    description: "Mensual de Tegu — milestones del último mes.",
-    bullets: [
-      "2.110 usuarios · 1.000 activos esta semana",
-      "8 pros pagaron en 4 días",
-      "Pico de 21 tareas en un solo día",
-      "13K visitas SEO",
-      "1 mes monetizando · sólo Córdoba",
-    ],
+    hasBullets: true,
     tagKey: "tagUpdate",
   },
 ]
@@ -115,8 +107,15 @@ export function ShipStatus() {
 
   const featured = SHIPS[0]
   const featuredAgo = timeAgo(featured.shippedAt)
+  const featuredTarget = t(`ships.${featured.id}.target` as const)
+  const featuredDescription = t(`ships.${featured.id}.description` as const)
   const current = SHIPS[index]
   const currentAgo = timeAgo(current.shippedAt)
+  const currentTarget = t(`ships.${current.id}.target` as const)
+  const currentDescription = t(`ships.${current.id}.description` as const)
+  const currentBullets = current.hasBullets
+    ? (t.raw(`ships.${current.id}.bullets`) as string[])
+    : undefined
 
   return (
     <>
@@ -132,7 +131,7 @@ export function ShipStatus() {
         <motion.button
           type="button"
           onClick={() => { setIndex(0); setOpen(true) }}
-          aria-label={`${t("lastShip")} ${featuredAgo} → ${featured.target}`}
+          aria-label={`${t("lastShip")} ${featuredAgo} → ${featuredTarget}`}
           animate={{
             width: hovered ? 200 : 112,
             height: hovered ? 200 : 112,
@@ -152,10 +151,10 @@ export function ShipStatus() {
               {t("shipped")}
             </span>
             <span className="font-mono text-[12px] text-white font-semibold truncate">
-              {featured.target}
+              {featuredTarget}
             </span>
             <span className="font-mono text-[8px] text-[#78716C] leading-snug line-clamp-3">
-              {featured.description}
+              {featuredDescription}
             </span>
 
             <AnimatePresence>
@@ -228,7 +227,7 @@ export function ShipStatus() {
               )}
             <AnimatePresence mode="wait" custom={1}>
               <motion.div
-                key={current.target}
+                key={current.id}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.4}
@@ -254,13 +253,13 @@ export function ShipStatus() {
 
                 {/* Title */}
                 <h2 className="font-serif text-[20px] text-white leading-[1.2] tracking-tight mb-3">
-                  {current.target}
+                  {currentTarget}
                 </h2>
 
                 {/* Description or bullets */}
-                {current.bullets && current.bullets.length > 0 ? (
+                {currentBullets && currentBullets.length > 0 ? (
                   <ul className="flex flex-col gap-1">
-                    {current.bullets.map((b, i) => (
+                    {currentBullets.map((b, i) => (
                       <li
                         key={i}
                         className="font-mono text-[11px] text-[#A8A29E] leading-snug flex items-baseline gap-2"
@@ -272,7 +271,7 @@ export function ShipStatus() {
                   </ul>
                 ) : (
                   <p className="font-mono text-[11px] text-[#A8A29E] leading-relaxed line-clamp-4">
-                    {current.description}
+                    {currentDescription}
                   </p>
                 )}
 

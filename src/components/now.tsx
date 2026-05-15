@@ -47,9 +47,7 @@ function nowTag(): string {
   const y = d.getFullYear()
   const m = String(d.getMonth() + 1).padStart(2, "0")
   const day = String(d.getDate()).padStart(2, "0")
-  const hh = String(d.getHours()).padStart(2, "0")
-  const mm = String(d.getMinutes()).padStart(2, "0")
-  return `${y}-${m}-${day} ${hh}:${mm}`
+  return `${y}-${m}-${day}`
 }
 
 type LocalEntry = { id: number; tag: string; text: string }
@@ -97,9 +95,13 @@ export function Now() {
         <div className="rounded-2xl border border-[#3D3935]/60 bg-[#0C0A09] p-4 overflow-x-auto">
           <pre className="font-mono text-[12px] leading-[1.7] whitespace-pre">
             {now.buildLogs.flatMap((log, i) => {
-              const tag = monthTag(log.month)
-              return log.highlights.map((h, j) => {
+              const monthOnly = monthTag(log.month)
+              const translated = t.raw(`buildLog.${monthOnly}`)
+              const highlights = Array.isArray(translated) ? (translated as string[]) : log.highlights
+              return highlights.map((h, j) => {
                 const idx = i * 100 + j
+                const day = log.days?.[j]
+                const tag = day ? `${monthOnly}-${String(day).padStart(2, "0")}` : monthOnly
                 return (
                   <motion.span
                     key={`${log.month}-${j}`}
@@ -174,9 +176,13 @@ export function Now() {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#FB923C] hover:underline transition-colors duration-200"
+                    className="text-[#FB923C] hover:underline transition-colors duration-200 inline-flex items-center gap-1"
                   >
-                    {item.linkLabel} ↗
+                    {item.linkLabel}
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
                   </a>
                 </>
               )}

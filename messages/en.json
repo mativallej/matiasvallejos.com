@@ -45,7 +45,33 @@
   "Impact": {
     "title": "Results",
     "updated": "Live",
-    "tegu": { "label": "Users on Tegu" },
+    "tegu": {
+      "label": "Tegu updates",
+      "tagline": "Monthly highlights · last 30 days",
+      "deltaMonth": "+800 month",
+      "deltaWeek": "+65 week",
+      "chartLabel": "Total users (cumulative)",
+      "tldr": [
+        "2,110 users · 1,000 active this week",
+        "8 pros paid in 4 days · 1 churn",
+        "Peak: 21 tasks in one day · 13K SEO visits"
+      ],
+      "pages": [
+        [
+          "1 month monetizing — Córdoba only. Subscription from day 1: commission doesn't work in Argentina, the history of the vertical showed it. We shipped v1: 8 pros paid in under 4 days. 1 churn.",
+          "While I write this, a pro just verified their account. Five hours after the last release we were already at 8.",
+          "Talking to pros one by one we iterated the structure: lower the barrier, self-regulate supply and demand, hold the liquidity. Peak of 21 tasks — VEINTIUNO — in a single day. SEO running on its own: 13K visits.",
+          "Recién empezamos."
+        ],
+        [
+          "And the best validation of the month isn't a metric.",
+          "A pro with 25 years in trades, when I asked about his experience, told me: \"The app is really good.\" \"It adds up — we're grateful because more jobs come through.\"",
+          "Natalia gets 1 new job every 15 days. David arrived in Córdoba without contacts and today works with us. Damián and Agustina hired again.",
+          "The app solves real problems. Pros pay. Clients come back.",
+          "We have a lot ahead. Month-2 retention. Scaling pros without breaking liquidity. CABA. But the direction is clear."
+        ]
+      ]
+    },
     "community": { "label": "Builders in the Docta Valley community" },
     "openSource": { "label": "GitHub stars across 6 public repos" },
     "press": { "label": "Press features on Tegu" },
@@ -73,7 +99,20 @@
     "pressStrip": {
       "tag": "As featured in",
       "features": "features"
-    }
+    },
+    "scales": {
+      "monthly": "Monthly",
+      "weekly": "Weekly",
+      "historical": "Historical"
+    },
+    "views": {
+      "metrics": "Users",
+      "updates": "Updates"
+    },
+    "download": "Download CSV",
+    "downloadReport": "Download report",
+    "visit": "Read report",
+    "noData": "No data yet for this view"
   },
   "Now": {
     "title": "Now",
@@ -81,7 +120,24 @@
     "teguMetrics": "Tegu — public metrics",
     "buildLogs": "Monthly build logs",
     "whatNow": "What I'm doing now",
-    "consolePlaceholder": "type a log entry and hit enter…"
+    "consolePlaceholder": "type a log entry and hit enter…",
+    "buildLog": {
+      "2026-05": [
+        "Launched subscription: 8 pros paid in 4 days, 1 churn",
+        "Peak of 21 tasks in a single day",
+        "Iterated structure by talking to pros one by one"
+      ],
+      "2026-04": [
+        "Grew from 843 to 2,110 users in a month",
+        "1,000 active in a single week",
+        "13K visits with SEO working on its own"
+      ],
+      "2026-03": [
+        "Tegu launch",
+        "From 0 to 100 users",
+        "From 100 to 600 users"
+      ]
+    }
   },
   "Products": {
     "title": "Things I've shipped",
@@ -161,7 +217,24 @@
     "tagMilestone": "milestone",
     "tagPress": "press",
     "tagBlog": "blog",
-    "tagUpdate": "tegu updates"
+    "tagUpdate": "tegu updates",
+    "ships": {
+      "shipstats": {
+        "target": "shipstats",
+        "description": "Weekly metrics → brand poster for X. JSON in, screenshot-ready HTML out."
+      },
+      "tegu-update-2026-05": {
+        "target": "Tegu updates",
+        "description": "Tegu monthly — milestones from the last month.",
+        "bullets": [
+          "2,110 users · 1,000 active this week",
+          "8 pros paid in 4 days",
+          "Peak of 21 tasks in a single day",
+          "13K SEO visits",
+          "1 month monetizing · Córdoba only"
+        ]
+      }
+    }
   },
   "PageHeader": {
     "backHome": "back home"
@@ -252,7 +325,6 @@
     "follow": "follow on X →"
   },
   "Footer": {
-    "quote": "Made from Córdoba 🇦🇷 with mate and side projects.",
     "credit": "Made with 🧡 by Matias Vallejos",
     "source": "Source",
     "cafecito": "Cafecito",

@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useTranslations } from "next-intl"
 import { repos, githubUrl } from "@/data/opensource"
 
-const INITIAL_VISIBLE = 4
 
 const languageColor: Record<string, string> = {
   TypeScript: "#7CA5C4",
@@ -50,14 +49,19 @@ function RepoCard({ repo, t, index }: { repo: typeof repos[number]; t: ReturnTyp
       variants={cardVariants}
       initial="hidden"
       animate="visible"
-      className="group flex flex-col gap-3 p-4 rounded-2xl border border-[#3D3935]/60 bg-[#0C0A09] hover:border-[#57534E] transition-colors duration-200"
+      className="group flex flex-col gap-3 p-4 rounded-2xl border border-[#3D3935]/60 bg-[#0C0A09] hover:border-[#57534E] transition-colors duration-200 h-full"
     >
       {/* Top row: name + status badges */}
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2 min-w-0 flex-wrap">
           <span className="font-mono text-body-sm font-semibold text-white group-hover:text-[#FB923C] transition-colors duration-200 inline-flex items-center gap-1.5">
             {repo.name}
-            <span className="text-[#57534E] group-hover:translate-x-0.5 transition-transform duration-200">↗</span>
+            <span className="text-[#57534E] group-hover:translate-x-0.5 transition-transform duration-200 inline-flex">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </span>
           </span>
           {repo.featured && (
             <span className="font-mono text-micro text-[#FB923C] uppercase tracking-[0.08em] px-1.5 py-0.5 rounded-sm bg-[#FB923C]/15">
@@ -118,8 +122,8 @@ export function OpenSource() {
   const t = useTranslations("OpenSource")
   const [expanded, setExpanded] = useState(false)
 
-  const shown = repos.slice(0, INITIAL_VISIBLE)
-  const extra = repos.slice(INITIAL_VISIBLE)
+  const shown = repos.filter((r) => r.featured)
+  const extra = repos.filter((r) => !r.featured)
   const hasMore = extra.length > 0
 
   return (
@@ -141,7 +145,12 @@ export function OpenSource() {
             className="inline-flex items-center gap-1.5 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1 hover:text-white hover:border-[#57534E] transition-colors duration-200"
           >
             github
-            <span className="text-[#57534E]">↗</span>
+            <span className="text-[#57534E] inline-flex">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </span>
           </a>
         </div>
       </motion.div>
@@ -161,7 +170,7 @@ export function OpenSource() {
               transition={{ duration: 0.25, ease: "easeOut", delay: i * 0.04 }}
               className="overflow-hidden"
             >
-              <RepoCard repo={repo} t={t} index={INITIAL_VISIBLE + i} />
+              <RepoCard repo={repo} t={t} index={shown.length + i} />
             </motion.div>
           ))}
         </AnimatePresence>

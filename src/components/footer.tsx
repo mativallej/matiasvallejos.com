@@ -74,54 +74,57 @@ export function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="px-4 lg:px-8 py-16 max-w-[1080px] mx-auto border-t border-[#3D3935]"
+      className="px-4 lg:px-8 pt-16 pb-8 max-w-[1080px] mx-auto border-t border-[#3D3935]"
     >
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-        {/* Left: Quote + location */}
-        <div className="flex flex-col gap-2">
-          <p className="text-body italic text-[#A8A29E]">
-            {t("quote")}
-          </p>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2 font-mono text-caption text-[#57534E]">
-            <span>{t("credit")}</span>
-            <span className="flex items-center gap-2">
-              <span className="hidden sm:inline">·</span>
-              <a
-                href="https://github.com/mativallej/matiasvallejos.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#78716C] hover:text-white transition-colors duration-200"
-              >
-                {t("source")}
-              </a>
-              <span>·</span>
-              <a
-                href="https://cafecito.app/mativallej"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#78716C] hover:text-white transition-colors duration-200"
-              >
-                {t("cafecito")}
-              </a>
-            </span>
-          </div>
-        </div>
-
-        {/* Right: Social links */}
-        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-          {socialLinks.map((link) => (
-            <a
+      <div className="flex flex-col gap-8">
+        {/* Top: Social links */}
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:justify-end">
+          {socialLinks.map((link, i) => (
+            <motion.a
               key={link.label}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("followOn", { label: link.label })}
-              className="inline-flex items-center gap-2 font-mono text-caption text-[#78716C] border border-[#3D3935]/60 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md hover:text-white hover:border-[#57534E] transition-all duration-200"
+              className="group inline-flex items-center gap-2 font-mono text-caption text-[#78716C] border border-[#3D3935]/60 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md hover:text-white hover:border-[#57534E] transition-colors duration-200"
+              animate={{ opacity: [0.55, 1, 0.55] }}
+              transition={{
+                duration: 1.6,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.2,
+              }}
+              whileHover={{ opacity: 1, scale: 1.05 }}
             >
               {link.icon}
               <span className="hidden sm:inline">{link.label}</span>
-            </a>
+            </motion.a>
           ))}
+        </div>
+
+        {/* Bottom: credit + links */}
+        <div className="flex flex-row flex-wrap items-center gap-2 font-mono text-caption text-[#57534E]">
+          <span>{t("credit")}</span>
+          <span className="flex items-center gap-2">
+            <span>·</span>
+            <a
+              href="https://github.com/mativallej/matiasvallejos.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#78716C] hover:text-white transition-colors duration-200"
+            >
+              {t("source")}
+            </a>
+            <span>·</span>
+            <a
+              href="https://cafecito.app/mativallej"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#78716C] hover:text-white transition-colors duration-200"
+            >
+              {t("cafecito")}
+            </a>
+          </span>
         </div>
       </div>
     </motion.footer>

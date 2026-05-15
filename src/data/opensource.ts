@@ -79,6 +79,7 @@ export const repos: Repo[] = [
     stars: 90,
     forks: 38,
     archived: true,
+    featured: true,
     tags: ["Unity", "C#", "Game"],
   },
 ]
