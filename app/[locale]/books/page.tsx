@@ -28,7 +28,7 @@ function VerdictPill({ verdict }: { verdict: Verdict }) {
   const colors = verdictColors[verdict]
   return (
     <span
-      className="font-mono text-micro uppercase tracking-[0.08em] px-2 py-0.5 rounded-sm"
+      className="font-mono text-micro uppercase tracking-[0.08em] px-2 py-0.5 rounded-sm whitespace-nowrap flex-shrink-0"
       style={{ color: colors.fg, backgroundColor: colors.bg }}
     >
       {verdictLabels[verdict]}
