@@ -118,7 +118,7 @@ export function Skills() {
             key={`${skill.name}-${i}`}
             className="flex flex-col items-center justify-center gap-3 px-8 md:px-12"
           >
-            <div className="text-[#57534E] hover:text-[#A8A29E] transition-colors duration-300">
+            <div className="text-[#A8A29E] hover:text-[#A8A29E] transition-colors duration-300">
               {skill.icon}
             </div>
             <span className="font-mono text-[11px] text-[#3D3935] tracking-[0.04em] whitespace-nowrap">

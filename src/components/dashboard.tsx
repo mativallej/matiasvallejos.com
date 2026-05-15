@@ -128,7 +128,7 @@ function Sparkline({
           {yTicks.map((tick, i) => (
             <span
               key={i}
-              className="absolute right-2 font-mono text-[10px] text-[#57534E] tabular-nums"
+              className="absolute right-2 font-mono text-[10px] text-[#A8A29E] tabular-nums"
               style={{
                 top: `calc(${tick.yFrac * 100}% - 6px)`,
               }}
@@ -234,7 +234,7 @@ function Sparkline({
             return (
               <span
                 key={idx}
-                className="absolute font-mono text-[10px] text-[#57534E] whitespace-nowrap"
+                className="absolute font-mono text-[10px] text-[#A8A29E] whitespace-nowrap"
                 style={{
                   left: `${xFrac * 100}%`,
                   top: 4,
@@ -399,7 +399,6 @@ export function ResultsCard() {
           setPageIndex(0)
           setModalOpen(true)
         }}
-        aria-label={current.label}
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -442,7 +441,7 @@ export function ResultsCard() {
 
         {!previewSeries && current.key === "tegu" && (
           <Image
-            src="/images/projects/tegu/logo.png"
+            src="/images/projects/tegu/logo.webp"
             alt="Tegu"
             width={128}
             height={40}
@@ -460,7 +459,7 @@ export function ResultsCard() {
         )}
         {!previewSeries && (
           <div className="absolute bottom-3 left-4 right-4">
-            <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#57534E]">
+            <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#A8A29E]">
               {t("title")}
             </span>
           </div>
@@ -495,7 +494,7 @@ export function ResultsCard() {
                 type="button"
                 onClick={() => setModalOpen(false)}
                 aria-label="Close"
-                className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-[#78716C] hover:text-white hover:bg-[#3D3935]/40 transition-colors cursor-pointer"
+                className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-[#A8A29E] hover:text-white hover:bg-[#3D3935]/40 transition-colors cursor-pointer"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <line x1="18" y1="6" x2="6" y2="18" />
@@ -513,7 +512,7 @@ export function ResultsCard() {
                 </span>
                 <p className="text-[14px] text-[#FAFAF9] font-medium">{current.label}</p>
                 {current.tagline && (
-                  <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#57534E] mt-0.5">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#A8A29E] mt-0.5">
                     {current.tagline}
                   </p>
                 )}
@@ -535,7 +534,7 @@ export function ResultsCard() {
                       type="button"
                       onClick={() => setView(v)}
                       className={`relative font-mono text-[11px] uppercase tracking-[0.08em] px-3 py-2 transition-colors cursor-pointer ${
-                        active ? "text-white" : "text-[#78716C] hover:text-[#A8A29E]"
+                        active ? "text-white" : "text-[#A8A29E] hover:text-[#A8A29E]"
                       }`}
                     >
                       {t(`views.${v}`)}
@@ -567,7 +566,7 @@ export function ResultsCard() {
                       const totalPages = (hasTldr ? 1 : 0) + narrativePages.length
                       if (totalPages === 0) {
                         return (
-                          <div className="h-[200px] flex items-center justify-center font-mono text-[12px] text-[#57534E]">
+                          <div className="h-[200px] flex items-center justify-center font-mono text-[12px] text-[#A8A29E]">
                             {t("noData")}
                           </div>
                         )
@@ -624,7 +623,7 @@ export function ResultsCard() {
                                 onClick={() => setPageIndex((i) => Math.max(0, i - 1))}
                                 disabled={safePage === 0}
                                 aria-label="Previous page"
-                                className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.08em] px-2 py-1 rounded text-[#78716C] hover:text-white disabled:text-[#3D3935] disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.08em] px-2 py-1 rounded text-[#A8A29E] hover:text-white disabled:text-[#3D3935] disabled:cursor-not-allowed transition-colors cursor-pointer"
                               >
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                                   <polyline points="15 18 9 12 15 6" />
@@ -661,7 +660,7 @@ export function ResultsCard() {
                                 onClick={() => setPageIndex((i) => Math.min(totalPages - 1, i + 1))}
                                 disabled={safePage === totalPages - 1}
                                 aria-label="Next page"
-                                className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.08em] px-2 py-1 rounded text-[#78716C] hover:text-white disabled:text-[#3D3935] disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.08em] px-2 py-1 rounded text-[#A8A29E] hover:text-white disabled:text-[#3D3935] disabled:cursor-not-allowed transition-colors cursor-pointer"
                               >
                                 next
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -684,7 +683,7 @@ export function ResultsCard() {
                     className="h-[240px] flex flex-col"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 mb-2">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#57534E]">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#A8A29E]">
                         {current.key === "tegu" ? t("tegu.chartLabel") : current.label}
                       </p>
                       <div className="flex items-center gap-1 flex-wrap">
@@ -698,7 +697,7 @@ export function ResultsCard() {
                               type="button"
                               onClick={() => setScale(s)}
                               className={`font-mono text-[10px] uppercase tracking-[0.08em] px-2 py-1 rounded transition-colors cursor-pointer whitespace-nowrap ${
-                                isActive ? "text-white bg-[#12100E]" : "text-[#78716C] hover:text-[#A8A29E]"
+                                isActive ? "text-white bg-[#12100E]" : "text-[#A8A29E] hover:text-[#A8A29E]"
                               }`}
                             >
                               {t(`scales.${s}`)}
@@ -722,7 +721,7 @@ export function ResultsCard() {
                         showAxes
                       />
                     ) : (
-                      <div className="h-[200px] flex items-center justify-center font-mono text-[12px] text-[#57534E]">
+                      <div className="h-[200px] flex items-center justify-center font-mono text-[12px] text-[#A8A29E]">
                         {t("noData")}
                       </div>
                     )}
@@ -737,7 +736,7 @@ export function ResultsCard() {
                     <button
                       type="button"
                       onClick={handleDownload}
-                      className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.04em] px-3 py-2 rounded-md text-[#78716C] hover:text-white transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.04em] px-3 py-2 rounded-md text-[#A8A29E] hover:text-white transition-colors cursor-pointer"
                     >
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -751,7 +750,7 @@ export function ResultsCard() {
                     <a
                       href="/tegu-updates/tegu-updates-008.md"
                       download
-                      className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.04em] px-3 py-2 rounded-md text-[#78716C] hover:text-white transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.04em] px-3 py-2 rounded-md text-[#A8A29E] hover:text-white transition-colors cursor-pointer"
                     >
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -818,18 +817,18 @@ export function MakeItCard() {
       <p className="text-[13px] text-[#FAFAF9] leading-snug font-medium">
         Stars on GitHub
       </p>
-      <p className="text-[12px] text-[#78716C] leading-snug">
+      <p className="text-[12px] text-[#A8A29E] leading-snug">
         {totalForks} forks · {totalRepos} repos
       </p>
       <span className="absolute bottom-3 right-4 font-mono text-[10px] text-[#A8A29E] inline-flex items-center gap-1">
-        @mativallej <span className="text-[#57534E] group-hover:translate-x-0.5 transition-transform inline-flex">
+        @mativallej <span className="text-[#A8A29E] group-hover:translate-x-0.5 transition-transform inline-flex">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <line x1="7" y1="17" x2="17" y2="7" />
             <polyline points="7 7 17 7 17 17" />
           </svg>
         </span>
       </span>
-      <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">
+      <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#A8A29E] uppercase tracking-[0.08em]">
         GitHub
       </span>
     </motion.a>
@@ -837,6 +836,20 @@ export function MakeItCard() {
 }
 
 function PressMarquee() {
+  // Intrinsic dimensions of each WebP (height 56 across the board, widths from sips).
+  const dims: Record<string, { w: number; h: number }> = {
+    "cadena-3": { w: 241, h: 56 },
+    "canal-10": { w: 51, h: 56 },
+    "continental-cordoba": { w: 182, h: 56 },
+    "el-canciller": { w: 398, h: 56 },
+    "iproup": { w: 172, h: 56 },
+    "perfil": { w: 245, h: 56 },
+  }
+  const logoDims = (src: string) => {
+    const key = src.split("/").pop()?.replace(".webp", "") ?? ""
+    return dims[key] ?? { w: 240, h: 56 }
+  }
+
   const logos = press
     .filter((p) => p.logo)
     .filter((p, i, arr) => arr.findIndex((x) => x.outlet === p.outlet) === i)
@@ -846,20 +859,26 @@ function PressMarquee() {
   return (
     <div className="relative overflow-hidden w-full h-10 flex items-center">
       <div className="flex items-center gap-12 animate-marquee [animation-duration:30s] md:[animation-duration:12s] whitespace-nowrap">
-        {loop.map((p, i) => (
+        {loop.map((p, i) => {
+          const { w, h } = logoDims(p.logo!)
+          return (
           <div
             key={`${p.outlet}-${i}`}
             className="flex items-center justify-center shrink-0 w-[120px] h-10"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={p.logo}
+            <Image
+              src={p.logo!}
               alt={p.outlet}
               title={p.outlet}
+              width={w}
+              height={h}
+              sizes="120px"
+              loading="lazy"
               className="max-h-7 max-w-full w-auto object-contain grayscale brightness-200 opacity-60 hover:grayscale-0 hover:brightness-100 hover:opacity-100 transition-all"
             />
           </div>
-        ))}
+          )
+        })}
       </div>
       <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#080706] to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#080706] to-transparent" />
@@ -882,7 +901,7 @@ export function PressStripCard() {
       <div className="flex-1 flex items-center">
         <PressMarquee />
       </div>
-      <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#57534E] uppercase tracking-[0.08em]">
+      <span className="absolute bottom-3 left-4 font-mono text-[10px] text-[#A8A29E] uppercase tracking-[0.08em]">
         {t("pressStrip.tag")}
       </span>
     </motion.a>

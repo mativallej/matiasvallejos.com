@@ -17,6 +17,7 @@ function Video({ src, className }: { src: string; className?: string }) {
       loop
       muted
       playsInline
+      preload="metadata"
     />
   )
 }

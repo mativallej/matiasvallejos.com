@@ -87,7 +87,7 @@ export function Navbar() {
             className="hover:opacity-80 transition-opacity cursor-pointer"
           >
             <Image
-              src="/images/emoji.png"
+              src="/images/emoji.webp"
               alt="Matias Vallejos"
               width={32}
               height={32}
@@ -103,7 +103,7 @@ export function Navbar() {
                   key={link.key}
                   href={link.href}
                   onClick={(e) => handleScrollLink(e, link.href)}
-                  className="font-mono text-[13px] lowercase leading-none text-[#78716C] hover:text-white transition-colors duration-200 cursor-pointer"
+                  className="font-mono text-[13px] lowercase leading-none text-[#A8A29E] hover:text-white transition-colors duration-200 cursor-pointer py-2"
                 >
                   {t(link.key)}
                 </a>
@@ -111,7 +111,7 @@ export function Navbar() {
                 <Link
                   key={link.key}
                   href={link.href}
-                  className="font-mono text-[13px] lowercase leading-none text-[#78716C] hover:text-white transition-colors duration-200"
+                  className="font-mono text-[13px] lowercase leading-none text-[#A8A29E] hover:text-white transition-colors duration-200 py-2"
                 >
                   {t(link.key)}
                 </Link>
@@ -126,7 +126,7 @@ export function Navbar() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="md:hidden font-mono text-[13px] lowercase leading-none text-[#A8A29E] hover:text-white transition-colors duration-200 cursor-pointer"
+            className="md:hidden font-mono text-[13px] lowercase leading-none text-[#A8A29E] hover:text-white transition-colors duration-200 cursor-pointer py-2"
           >
             {menuOpen ? "close" : "menu"}
           </button>
@@ -154,7 +154,7 @@ export function Navbar() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Section label — same pattern as section headers across the site */}
-              <span className="font-mono text-caption text-[#57534E] uppercase tracking-[0.08em] mb-4">
+              <span className="font-mono text-caption text-[#A8A29E] uppercase tracking-[0.08em] mb-4">
                 Navigate
               </span>
 
@@ -202,7 +202,7 @@ export function Navbar() {
               </div>
 
               {/* Language switcher — also follows the section pattern */}
-              <span className="font-mono text-caption text-[#57534E] uppercase tracking-[0.08em] mt-8 mb-4">
+              <span className="font-mono text-caption text-[#A8A29E] uppercase tracking-[0.08em] mt-8 mb-4">
                 Language
               </span>
               <div className="py-2">

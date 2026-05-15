@@ -78,10 +78,10 @@ export function Now() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="flex items-center justify-between mb-8">
-          <h2 className="font-mono text-caption text-[#57534E] uppercase">
+          <h2 className="font-mono text-caption text-[#A8A29E] uppercase">
             {t("title")}
           </h2>
-          <span className="font-mono text-caption text-[#57534E]">
+          <span className="font-mono text-caption text-[#A8A29E]">
             {t("updated", { date: now.updatedAt })}
           </span>
         </div>
@@ -112,7 +112,7 @@ export function Now() {
                     viewport={{ once: true, margin: "0px" }}
                     className="block"
                   >
-                    <span className="text-[#57534E]">[{tag}]</span>
+                    <span className="text-[#A8A29E]">[{tag}]</span>
                     <span className="text-[#A3B86C]"> ✓ </span>
                     <span className="text-[#FAFAF9]">{h}</span>
                   </motion.span>
@@ -121,7 +121,7 @@ export function Now() {
             })}
             {localEntries.map((entry) => (
               <span key={entry.id} className="block">
-                <span className="text-[#57534E]">[{entry.tag}]</span>
+                <span className="text-[#A8A29E]">[{entry.tag}]</span>
                 <span className="text-[#7CA5C4]"> » </span>
                 <span className="text-[#FAFAF9]">{entry.text}</span>
               </span>
@@ -164,7 +164,7 @@ export function Now() {
             viewport={{ once: true, margin: "0px" }}
             className="flex items-baseline gap-3 py-4 border-b border-[#3D3935]"
           >
-            <span className="font-mono text-body text-[#57534E] flex-shrink-0">
+            <span className="font-mono text-body text-[#A8A29E] flex-shrink-0">
               --
             </span>
             <span className="text-body text-white">

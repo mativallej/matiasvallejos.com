@@ -22,14 +22,14 @@ export function LatestTweets() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="flex items-center justify-between mb-8">
-          <h2 className="font-mono text-caption text-[#57534E] uppercase">
+          <h2 className="font-mono text-caption text-[#A8A29E] uppercase">
             {t("title")}
           </h2>
           <a
             href="https://x.com/mativallej_"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-caption text-[#57534E] hover:text-[#FB923C] transition-colors duration-200"
+            className="font-mono text-caption text-[#A8A29E] hover:text-[#FB923C] transition-colors duration-200"
           >
             {t("follow")}
           </a>

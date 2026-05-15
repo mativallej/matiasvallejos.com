@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { useTranslations } from "next-intl"
+import { Link } from "@/i18n/navigation"
 import { press, type PressItem } from "@/data/press"
 
 const INITIAL_VISIBLE = 3
@@ -101,7 +102,7 @@ function PressRow({ item, locale, index }: { item: PressItem; locale: string; in
       className="group flex items-center justify-between py-4 border-b border-[#3D3935] cursor-pointer gap-4"
     >
       <div className="flex flex-col gap-1 min-w-0 flex-1">
-        <span className="font-mono text-micro text-[#57534E] uppercase tracking-[0.08em]">
+        <span className="font-mono text-micro text-[#A8A29E] uppercase tracking-[0.08em]">
           {typeLabel[item.type]}
         </span>
         <span className="text-body font-semibold text-white group-hover:text-[#FB923C] transition-colors duration-200 line-clamp-2">
@@ -109,12 +110,12 @@ function PressRow({ item, locale, index }: { item: PressItem; locale: string; in
         </span>
         <div className="flex flex-wrap items-center gap-3 font-mono text-caption">
           <span className="text-[#A8A29E]">{item.outlet}</span>
-          {item.program && <span className="text-[#57534E]">· {item.program}</span>}
-          <span className="text-[#57534E]">{formatDate(item.date, locale)}</span>
+          {item.program && <span className="text-[#A8A29E]">· {item.program}</span>}
+          <span className="text-[#A8A29E]">{formatDate(item.date, locale)}</span>
           {item.product && <span className="text-[#FB923C]">{item.product}</span>}
         </div>
       </div>
-      <span className="text-[#57534E] group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0 ml-4 inline-flex">
+      <span className="text-[#A8A29E] group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0 ml-4 inline-flex">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <line x1="7" y1="17" x2="17" y2="7" />
           <polyline points="7 7 17 7 17 17" />
@@ -126,12 +127,11 @@ function PressRow({ item, locale, index }: { item: PressItem; locale: string; in
 
 export function Press({ locale }: { locale: string }) {
   const t = useTranslations("Press")
-  const [expanded, setExpanded] = useState(false)
 
   const visible = press.filter((p) => !p.logoOnly)
   const featuredVideo = visible.find((p) => p.type === "video")
   const articles = visible.filter((p) => p.id !== featuredVideo?.id)
-  const shownArticles = expanded ? articles : articles.slice(0, INITIAL_VISIBLE)
+  const shownArticles = articles.slice(0, INITIAL_VISIBLE)
   const hasMore = articles.length > INITIAL_VISIBLE
 
   return (
@@ -143,7 +143,7 @@ export function Press({ locale }: { locale: string }) {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="flex items-center justify-between mb-8">
-          <h2 className="font-mono text-caption text-[#57534E] uppercase">
+          <h2 className="font-mono text-caption text-[#A8A29E] uppercase">
             {t("title")}
           </h2>
         </div>
@@ -168,30 +168,13 @@ export function Press({ locale }: { locale: string }) {
             <PressRow key={item.id} item={item} locale={locale} index={i} />
           ))}
 
-          <AnimatePresence>
-            {expanded && articles.slice(INITIAL_VISIBLE).map((item, i) => (
-              <motion.div
-                key={`extra-${item.id}`}
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.25, ease: "easeOut", delay: i * 0.04 }}
-                className="overflow-hidden"
-              >
-                <PressRow item={item} locale={locale} index={INITIAL_VISIBLE + i} />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-
           {hasMore && (
-            <button
-              type="button"
-              onClick={() => setExpanded((v) => !v)}
+            <Link
+              href="/press"
               className="mt-6 inline-flex items-center justify-center gap-1.5 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1.5 hover:text-white hover:border-[#57534E] transition-colors duration-200 self-start"
             >
-              {expanded ? t("viewLess") : t("viewMore", { count: articles.length - INITIAL_VISIBLE })}
-              <span className="text-[#57534E]">{expanded ? "↑" : "↓"}</span>
-            </button>
+              {t("viewAllPress")}
+            </Link>
           )}
         </div>
       </div>

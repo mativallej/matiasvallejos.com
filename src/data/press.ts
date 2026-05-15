@@ -28,7 +28,7 @@ export const press: PressItem[] = [
     language: "es",
     quote: "Cuando te mudás, no sabés a quién escribir. Necesitás plomería o electricidad y nunca sabés a quién estás metiendo en tu casa.",
     product: "Tegu",
-    logo: "/images/press/cadena-3.png",
+    logo: "/images/press/cadena-3.webp",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ export const press: PressItem[] = [
     language: "es",
     quote: "Muchos estudiantes, principalmente en Nueva Córdoba, no tienen a quién llamar ni cómo validar a quien entra a su casa.",
     product: "Tegu",
-    logo: "/images/press/continental-cordoba.png",
+    logo: "/images/press/continental-cordoba.webp",
   },
   {
     id: 3,
@@ -52,7 +52,7 @@ export const press: PressItem[] = [
     language: "es",
     quote: "Queremos cambiar la industria de servicios.",
     product: "Tegu",
-    logo: "/images/press/el-canciller.png",
+    logo: "/images/press/el-canciller.webp",
   },
   {
     id: 4,
@@ -73,7 +73,7 @@ export const press: PressItem[] = [
     type: "video",
     language: "es",
     product: "Tegu",
-    logo: "/images/press/canal-10.png",
+    logo: "/images/press/canal-10.webp",
     logoOnly: true,
   },
   {
@@ -85,7 +85,7 @@ export const press: PressItem[] = [
     type: "article",
     language: "es",
     product: "Tegu",
-    logo: "/images/press/iproup.png",
+    logo: "/images/press/iproup.webp",
   },
   {
     id: 7,
@@ -96,6 +96,6 @@ export const press: PressItem[] = [
     type: "article",
     language: "es",
     product: "Tegu",
-    logo: "/images/press/perfil.png",
+    logo: "/images/press/perfil.webp",
   },
 ]

@@ -37,7 +37,7 @@ export function LocaleSwitcher() {
             className={
               l === locale
                 ? "text-white"
-                : "text-[#78716C] hover:text-white transition-colors duration-200 cursor-pointer"
+                : "text-[#A8A29E] hover:text-white transition-colors duration-200 cursor-pointer"
             }
           >
             {l}

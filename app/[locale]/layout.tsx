@@ -3,14 +3,18 @@ import type { Metadata, Viewport } from "next"
 import { notFound } from "next/navigation"
 import { NextIntlClientProvider, hasLocale } from "next-intl"
 import { setRequestLocale } from "next-intl/server"
-import { routing } from "@/i18n/routing"
+import { Analytics } from "@vercel/analytics/next"
+import { routing, type Locale } from "@/i18n/routing"
+import { SITE_URL, LOCALE_HTML_LANG } from "@/lib/seo"
+import { JsonLd } from "@/components/json-ld"
+import { DraggableFlag } from "@/components/draggable-flag"
+import { rootGraph } from "@/lib/schema"
 import "@/styles/globals.css"
 
-const SITE_URL = "https://matiasvallejos.com"
 const SITE_TITLE = "Matias Vallejos — Product Engineer & Co-Founder @ Tegu"
 const SITE_DESCRIPTION =
   "Product Engineer in LatAm. Building Tegu (2,200 users), co-founded Docta Valley (240+ builders), shipping open source. I treat product and engineering as one discipline."
-const SITE_IMAGE = `${SITE_URL}/me.png`
+const SITE_OG_IMAGE = `${SITE_URL}/opengraph-image`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -34,14 +38,12 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Matias Vallejos", url: SITE_URL }],
   creator: "Matias Vallejos",
-  icons: {
-    icon: "/images/emoji.png",
-  },
   alternates: {
     canonical: "/",
     languages: {
-      en: "/",
-      es: "/es",
+      "en-US": "/",
+      "es-AR": "/es",
+      "x-default": "/",
     },
   },
   openGraph: {
@@ -54,9 +56,9 @@ export const metadata: Metadata = {
     alternateLocale: ["es_AR"],
     images: [
       {
-        url: SITE_IMAGE,
-        width: 1086,
-        height: 1448,
+        url: SITE_OG_IMAGE,
+        width: 1200,
+        height: 630,
         alt: "Matias Vallejos — Product Engineer",
       },
     ],
@@ -66,7 +68,7 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     creator: "@mativallej_",
-    images: [SITE_IMAGE],
+    images: [SITE_OG_IMAGE],
   },
   robots: {
     index: true,
@@ -102,10 +104,15 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale)
 
+  const htmlLang = LOCALE_HTML_LANG[locale as Locale]
+
   return (
-    <html lang={locale} className="dark">
+    <html lang={htmlLang} className="dark">
       <body className="font-sans antialiased bg-[#080706] text-white">
+        <JsonLd data={rootGraph()} />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <DraggableFlag />
+        <Analytics />
       </body>
     </html>
   )

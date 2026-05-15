@@ -33,7 +33,7 @@ export function Contact() {
         >
           {t("cta")}
         </a>
-        <p className="font-mono text-caption text-[#57534E]">
+        <p className="font-mono text-caption text-[#A8A29E]">
           {t("openFor")}
         </p>
       </div>

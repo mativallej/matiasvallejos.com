@@ -5,7 +5,12 @@ import { setRequestLocale, getTranslations } from "next-intl/server"
 import { Link } from "@/i18n/navigation"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { AuthorBio } from "@/components/author-bio"
+import { JsonLd } from "@/components/json-ld"
 import { getAllPostSlugs, getPostBySlug } from "@/lib/blog"
+import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema"
+import { buildAlternates, absoluteUrl, SITE_URL, buildBreadcrumbs } from "@/lib/seo"
+import { type Locale } from "@/i18n/routing"
 
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs()
@@ -15,25 +20,33 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
-  const { slug } = await params
+  const { locale, slug } = await params
   try {
     const post = await getPostBySlug(slug)
+    const url = absoluteUrl(`/${slug}`)
+    const ogImage = `${SITE_URL}/${locale}/opengraph-image`
     return {
-      title: `${post.title} - Matias Vallejos`,
+      title: post.title,
       description: post.description,
+      authors: [{ name: "Matias Vallejos", url: SITE_URL }],
+      alternates: buildAlternates(`/${slug}`, locale as Locale),
       openGraph: {
         title: post.title,
         description: post.description,
+        url,
         type: "article",
         publishedTime: post.date,
         tags: post.tags,
+        authors: ["Matias Vallejos"],
+        images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
       },
       twitter: {
         card: "summary_large_image",
         title: post.title,
         description: post.description,
+        images: [ogImage],
       },
     }
   } catch {
@@ -57,8 +70,17 @@ export default async function BlogPostPage({
     notFound()
   }
 
+  const breadcrumbs = breadcrumbSchema(
+    buildBreadcrumbs(locale as Locale, [
+      { key: "blog", path: "/blog" },
+      { key: "blog", path: `/${post.slug}`, nameOverride: post.title },
+    ]),
+  )
+
   return (
     <main className="min-h-screen bg-[#080706]">
+      <JsonLd data={blogPostingSchema(post, locale)} />
+      <JsonLd data={breadcrumbs} />
       <Navbar />
 
       <article className="px-4 lg:px-8 pt-14 pb-16 md:pt-16 max-w-[1080px] mx-auto">
@@ -113,6 +135,8 @@ export default async function BlogPostPage({
           className="prose prose-invert prose-custom max-w-[720px]"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+
+        <AuthorBio locale={locale} />
 
         {/* Support link */}
         <div className="max-w-[720px] mt-16 pt-8 border-t border-[#3D3935]">

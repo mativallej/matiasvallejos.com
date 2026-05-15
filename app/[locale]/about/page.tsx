@@ -1,7 +1,28 @@
+import type { Metadata } from "next"
 import { setRequestLocale, getTranslations } from "next-intl/server"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Link } from "@/i18n/navigation"
+import { JsonLd } from "@/components/json-ld"
+import { breadcrumbSchema } from "@/lib/schema"
+import { buildAlternates, buildBreadcrumbs } from "@/lib/seo"
+import { type Locale } from "@/i18n/routing"
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const isEs = locale === "es"
+  return {
+    title: isEs ? "Sobre mí" : "About",
+    description: isEs
+      ? "Matías Vallejos — Product Engineer y Co-Founder de Tegu. Construyo productos digitales desde Córdoba, Argentina."
+      : "Matias Vallejos — Product Engineer & Co-Founder @ Tegu. Building lean digital products from Córdoba, Argentina.",
+    alternates: buildAlternates("/about", locale as Locale),
+  }
+}
 
 export default async function AboutPage({
   params,
@@ -11,9 +32,13 @@ export default async function AboutPage({
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations("AboutWIP")
+  const breadcrumbs = breadcrumbSchema(
+    buildBreadcrumbs(locale as Locale, [{ key: "about", path: "/about" }]),
+  )
 
   return (
     <main className="min-h-screen bg-[#080706] flex flex-col">
+      <JsonLd data={breadcrumbs} />
       <Navbar />
 
       <section className="flex-1 flex items-center justify-center px-4 lg:px-8 py-24 max-w-[720px] mx-auto w-full">

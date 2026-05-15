@@ -4,18 +4,33 @@ import { Navbar } from "@/components/navbar"
 import { PageHeader } from "@/components/page-header"
 import { Footer } from "@/components/footer"
 import { BlogList } from "@/components/blog-list"
+import { JsonLd } from "@/components/json-ld"
+import { breadcrumbSchema } from "@/lib/schema"
 import { getAllPosts, getAllTags } from "@/lib/blog"
+import { buildAlternates, buildBreadcrumbs } from "@/lib/seo"
+import { type Locale } from "@/i18n/routing"
 
-export const metadata: Metadata = {
-  title: "Blog - Matias Vallejos",
-  description:
-    "Essays on product building, design craft, and life as an independent maker. Honest reflections from the work.",
-  openGraph: {
-    title: "Blog - Matias Vallejos",
-    description:
-      "Essays on product building, design craft, and life as an independent maker.",
-    type: "website",
-  },
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const isEs = locale === "es"
+  const title = isEs ? "Blog" : "Blog"
+  const description = isEs
+    ? "Ensayos sobre product building, craft de diseño y vida como maker independiente. Reflexiones honestas desde el trabajo."
+    : "Essays on product building, design craft, and life as an independent maker. Honest reflections from the work."
+  return {
+    title,
+    description,
+    alternates: buildAlternates("/blog", locale as Locale),
+    openGraph: {
+      title,
+      description,
+      type: "website",
+    },
+  }
 }
 
 function calculateReadTime(content: string): string {
@@ -45,8 +60,13 @@ export default async function BlogPage({
     readTime: calculateReadTime(post.content),
   }))
 
+  const breadcrumbs = breadcrumbSchema(
+    buildBreadcrumbs(locale as Locale, [{ key: "blog", path: "/blog" }]),
+  )
+
   return (
     <main className="min-h-screen bg-[#080706]">
+      <JsonLd data={breadcrumbs} />
       <Navbar />
       <PageHeader
         label={t("label")}

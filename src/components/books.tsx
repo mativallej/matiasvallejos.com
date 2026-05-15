@@ -29,10 +29,10 @@ export function Books() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="flex items-center justify-between mb-8">
-          <h2 className="font-mono text-caption text-[#57534E] uppercase">
+          <h2 className="font-mono text-caption text-[#A8A29E] uppercase">
             Books
           </h2>
-          <Link href="/books" className="font-mono text-caption text-[#57534E] hover:text-[#FB923C] transition-colors duration-200">
+          <Link href="/books" className="font-mono text-caption text-[#A8A29E] hover:text-[#FB923C] transition-colors duration-200">
             view all →
           </Link>
         </div>
@@ -51,10 +51,10 @@ export function Books() {
           >
             <div className="flex flex-col gap-1.5 min-w-0">
               <h3 className="text-body font-semibold text-white">{book.title}</h3>
-              <span className="font-mono text-caption text-[#57534E]">
+              <span className="font-mono text-caption text-[#A8A29E]">
                 {book.author}
               </span>
-              <p className="text-body-sm text-[#78716C]">{book.note}</p>
+              <p className="text-body-sm text-[#A8A29E]">{book.note}</p>
             </div>
           </motion.article>
         ))}

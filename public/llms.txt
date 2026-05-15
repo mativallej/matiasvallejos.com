@@ -1,0 +1,46 @@
+# Matias Vallejos
+
+> Product Engineer & Co-Founder. Builds lean digital products from Córdoba, Argentina. Co-founder of Tegu (AI-powered home-services marketplace) and Docta Valley (240+ tech-builder community in Córdoba). Writes about product, AI workflows, and indie building in English and Spanish.
+
+## About
+- [Home](https://www.matiasvallejos.com/): Overview, current focus, products, press
+- [About](https://www.matiasvallejos.com/about): Background, beliefs, timeline
+- [Inicio (ES)](https://www.matiasvallejos.com/es): Versión en español
+- [Sobre mí (ES)](https://www.matiasvallejos.com/es/about): Versión en español
+
+## Products
+- [Projects](https://www.matiasvallejos.com/projects): Tegu, Docta Valley, AI Expense Tracker
+- [Tegu](https://tegu.ar): AI-powered marketplace connecting Argentine homeowners with verified pros — pay-per-lead + subscription
+- [Docta Valley](https://doctavalley.com.ar): Community for tech founders and builders in Córdoba (240+ members)
+
+## Writing
+- [Blog](https://www.matiasvallejos.com/blog): Essays on product building, AI workflows, indie making
+- [No le pidas respuestas a la AI, pedile preguntas](https://www.matiasvallejos.com/no-le-pidas-respuestas-a-la-ai): Prompt patterns — Flipped Interaction, Cognitive Verifier, Iterative Refinement
+- [Para recibir, primero tenés que dar](https://www.matiasvallejos.com/para-recibir-primero-tenes-que-dar): On reciprocity in indie building
+
+## Reading
+- [Books](https://www.matiasvallejos.com/books): Curated reading list with verdicts (must-read, worth-it, skim, skip)
+
+## Press
+- [Press page](https://www.matiasvallejos.com/press): Full list of press coverage with quotes
+- Cadena 3 — "Crearon una app que conecta a plomeros y electricistas verificados con vecinos" (2026-05-04)
+- Continental Córdoba — "Córdoba estrena una plataforma para conectar hogares con profesionales verificados" (2026-03-26)
+- Perfil — "Tegu, la app cordobesa que conecta plomeros y electricistas verificados con vecinos" (2026-03-22)
+- iProUP — "El Uber de los servicios: así funciona la app para contratar desde fletes hasta plomeros" (2026-03-20)
+- El Canciller — "Matías Vallejos, creador de TEGU: Queremos cambiar la industria de servicios" (2026-03-25)
+- Canal 10 — Tegu en televisión cordobesa (2026-03-15)
+- YouTube — "Innovación cordobesa: así funciona TEGU" (2026-03-01)
+
+## Key facts
+- Based in Córdoba, Argentina
+- Building digital products since 2021
+- Co-founded Docta Valley in 2025
+- Co-founded and currently building Tegu (2026)
+- Writes in English and Spanish (es-AR primary)
+- Treats product and engineering as one discipline
+
+## Links
+- X / Twitter: https://x.com/mativallej_
+- GitHub: https://github.com/mativallej
+- LinkedIn: https://www.linkedin.com/in/mativallej/
+- Instagram: https://instagram.com/mativallej_

@@ -152,7 +152,8 @@
     "feature": "feature",
     "features": "features",
     "viewMore": "view {count} more",
-    "viewLess": "view less"
+    "viewLess": "view less",
+    "viewAllPress": "see all press →"
   },
   "About": {
     "label": "About",
@@ -247,6 +248,19 @@
     "filterAll": "all",
     "post": "post",
     "posts": "posts"
+  },
+  "PressPage": {
+    "label": "Press",
+    "title": "In the news.",
+    "titleAccent": "No PR firm involved.",
+    "description": "Press coverage of Tegu and my work as a product engineer in Córdoba. Every outlet picked the story up on its own — no agency, no payola.",
+    "filterAll": "all",
+    "item": "story",
+    "items": "stories",
+    "typeArticle": "Article",
+    "typeRadio": "Radio",
+    "typeVideo": "Video",
+    "typePodcast": "Podcast"
   },
   "BlogPost": {
     "backToBlog": "back to blog",

@@ -131,7 +131,6 @@ export function ShipStatus() {
         <motion.button
           type="button"
           onClick={() => { setIndex(0); setOpen(true) }}
-          aria-label={`${t("lastShip")} ${featuredAgo} → ${featuredTarget}`}
           animate={{
             width: hovered ? 200 : 112,
             height: hovered ? 200 : 112,
@@ -153,7 +152,7 @@ export function ShipStatus() {
             <span className="font-mono text-[12px] text-white font-semibold truncate">
               {featuredTarget}
             </span>
-            <span className="font-mono text-[8px] text-[#78716C] leading-snug line-clamp-3">
+            <span className="font-mono text-[8px] text-[#A8A29E] leading-snug line-clamp-3">
               {featuredDescription}
             </span>
 
@@ -168,7 +167,7 @@ export function ShipStatus() {
                   className="mt-auto pt-2 border-t border-[#3D3935]/60"
                 >
                   <span className="font-mono text-[10px] tracking-tight whitespace-nowrap">
-                    <span className="text-[#57534E]">{t("lastShip")}</span>{" "}
+                    <span className="text-[#A8A29E]">{t("lastShip")}</span>{" "}
                     <span className="text-white">{featuredAgo}</span>
                   </span>
                 </motion.div>
@@ -201,7 +200,7 @@ export function ShipStatus() {
               type="button"
               onClick={close}
               aria-label="Close"
-              className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center text-[#78716C] hover:text-white hover:bg-[#3D3935]/40 transition-colors duration-200 cursor-pointer"
+              className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center text-[#A8A29E] hover:text-white hover:bg-[#3D3935]/40 transition-colors duration-200 cursor-pointer"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -264,7 +263,7 @@ export function ShipStatus() {
                         key={i}
                         className="font-mono text-[11px] text-[#A8A29E] leading-snug flex items-baseline gap-2"
                       >
-                        <span className="text-[#57534E] flex-shrink-0">→</span>
+                        <span className="text-[#A8A29E] flex-shrink-0">→</span>
                         <span>{b}</span>
                       </li>
                     ))}
@@ -278,7 +277,7 @@ export function ShipStatus() {
                 {/* Bottom: time + CTA */}
                 <div className="mt-auto flex flex-col gap-4">
                   <span className="font-mono text-[11px] tracking-tight">
-                    <span className="text-[#57534E]">{t("shippedAgo")}</span>{" "}
+                    <span className="text-[#A8A29E]">{t("shippedAgo")}</span>{" "}
                     <span className="text-white">{currentAgo}</span>
                   </span>
                   <a

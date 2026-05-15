@@ -56,7 +56,7 @@ function RepoCard({ repo, t, index }: { repo: typeof repos[number]; t: ReturnTyp
         <div className="flex items-center gap-2 min-w-0 flex-wrap">
           <span className="font-mono text-body-sm font-semibold text-white group-hover:text-[#FB923C] transition-colors duration-200 inline-flex items-center gap-1.5">
             {repo.name}
-            <span className="text-[#57534E] group-hover:translate-x-0.5 transition-transform duration-200 inline-flex">
+            <span className="text-[#A8A29E] group-hover:translate-x-0.5 transition-transform duration-200 inline-flex">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="7" y1="17" x2="17" y2="7" />
                 <polyline points="7 7 17 7 17 17" />
@@ -69,12 +69,12 @@ function RepoCard({ repo, t, index }: { repo: typeof repos[number]; t: ReturnTyp
             </span>
           )}
           {repo.archived && (
-            <span className="font-mono text-micro text-[#78716C] uppercase tracking-[0.08em] px-1.5 py-0.5 rounded-sm bg-[#3D3935]/50">
+            <span className="font-mono text-micro text-[#A8A29E] uppercase tracking-[0.08em] px-1.5 py-0.5 rounded-sm bg-[#3D3935]/50">
               {t("archived")}
             </span>
           )}
         </div>
-        <span className="flex items-center gap-3 flex-shrink-0 text-[#78716C]">
+        <span className="flex items-center gap-3 flex-shrink-0 text-[#A8A29E]">
           <span className="flex items-center gap-1 font-mono text-caption text-[#FB923C]">
             <StarIcon />
             {repo.stars}
@@ -100,12 +100,12 @@ function RepoCard({ repo, t, index }: { repo: typeof repos[number]; t: ReturnTyp
           {repo.tags.map((tag) => (
             <span
               key={tag}
-              className="font-mono text-micro px-2 py-0.5 rounded-sm border border-[#3D3935]/70 text-[#78716C] bg-[#12100E]"
+              className="font-mono text-micro px-2 py-0.5 rounded-sm border border-[#3D3935]/70 text-[#A8A29E] bg-[#12100E]"
             >
               {tag}
             </span>
           ))}
-          <span className="ml-auto flex items-center gap-1.5 font-mono text-micro text-[#78716C]">
+          <span className="ml-auto flex items-center gap-1.5 font-mono text-micro text-[#A8A29E]">
             <span
               className="w-1.5 h-1.5 rounded-full"
               style={{ backgroundColor: languageColor[repo.language] ?? "#57534E" }}
@@ -135,7 +135,7 @@ export function OpenSource() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="flex items-center justify-between mb-8">
-          <h2 className="font-mono text-caption text-[#57534E] uppercase">
+          <h2 className="font-mono text-caption text-[#A8A29E] uppercase">
             {t("title")}
           </h2>
           <a
@@ -145,7 +145,7 @@ export function OpenSource() {
             className="inline-flex items-center gap-1.5 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1 hover:text-white hover:border-[#57534E] transition-colors duration-200"
           >
             github
-            <span className="text-[#57534E] inline-flex">
+            <span className="text-[#A8A29E] inline-flex">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="7" y1="17" x2="17" y2="7" />
                 <polyline points="7 7 17 7 17 17" />
@@ -184,7 +184,7 @@ export function OpenSource() {
             className="inline-flex items-center justify-center gap-1.5 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1.5 hover:text-white hover:border-[#57534E] transition-colors duration-200"
           >
             {expanded ? t("viewLess") : t("viewMore", { count: extra.length })}
-            <span className="text-[#57534E]">{expanded ? "↑" : "↓"}</span>
+            <span className="text-[#A8A29E]">{expanded ? "↑" : "↓"}</span>
           </button>
         </div>
       )}

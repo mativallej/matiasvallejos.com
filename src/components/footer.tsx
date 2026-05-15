@@ -86,7 +86,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("followOn", { label: link.label })}
-              className="group inline-flex items-center gap-2 font-mono text-caption text-[#78716C] border border-[#3D3935]/60 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md hover:text-white hover:border-[#57534E] transition-colors duration-200"
+              className="group inline-flex items-center gap-2 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md hover:text-white hover:border-[#57534E] transition-colors duration-200"
               animate={{ opacity: [0.55, 1, 0.55] }}
               transition={{
                 duration: 1.6,
@@ -103,7 +103,7 @@ export function Footer() {
         </div>
 
         {/* Credit — bottom on mobile, left on desktop */}
-        <div className="flex flex-row flex-wrap items-center gap-2 font-mono text-caption text-[#57534E] order-2 md:order-1">
+        <div className="flex flex-row flex-wrap items-center gap-2 font-mono text-caption text-[#A8A29E] order-2 md:order-1">
           <span>{t("credit")}</span>
           <span className="flex items-center gap-2">
             <span>·</span>
@@ -111,7 +111,7 @@ export function Footer() {
               href="https://github.com/mativallej/matiasvallejos.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#78716C] hover:text-white transition-colors duration-200"
+              className="text-[#A8A29E] hover:text-white transition-colors duration-200"
             >
               {t("source")}
             </a>
@@ -120,7 +120,7 @@ export function Footer() {
               href="https://cafecito.app/mativallej"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#78716C] hover:text-white transition-colors duration-200"
+              className="text-[#A8A29E] hover:text-white transition-colors duration-200"
             >
               {t("cafecito")}
             </a>

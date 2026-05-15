@@ -49,7 +49,6 @@ export function Hero() {
   const t = useTranslations('Hero');
   const [copied, setCopied] = useState(false);
   const [socialHover, setSocialHover] = useState(false);
-  const [flagOpen, setFlagOpen] = useState(false);
   const [photoIsVideo, setPhotoIsVideo] = useState(false);
   const [doctaOpen, setDoctaOpen] = useState(false);
   const [doctaImageIndex, setDoctaImageIndex] = useState(0);
@@ -71,14 +70,6 @@ export function Hero() {
     };
   }, [doctaOpen, doctaImages.length]);
 
-  useEffect(() => {
-    if (!flagOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setFlagOpen(false);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [flagOpen]);
 
   const handleCopy = () => {
     if (typeof window === 'undefined') return;
@@ -89,7 +80,7 @@ export function Hero() {
   };
 
   return (
-    <section id="about" className="px-4 lg:px-8 pt-4 pb-4 md:pt-10 md:pb-6 max-w-[1080px] mx-auto">
+    <section id="about" className="px-4 lg:px-8 pt-8 pb-4 md:pt-16 md:pb-6 max-w-[1080px] mx-auto">
       <motion.aside
         id="hero-panel"
         initial={{ opacity: 0, y: 20 }}
@@ -139,7 +130,7 @@ export function Hero() {
                     alt="Matias Vallejos"
                     fill
                     priority
-                    sizes="(max-width: 768px) 50vw, 260px"
+                    sizes="(max-width: 768px) 70vw, 340px"
                     className="object-cover block scale-[1.3]"
                   />
                 </motion.div>
@@ -159,54 +150,9 @@ export function Hero() {
               handleCopy();
             }
           }}
-          aria-label="Matias Vallejos — Co-Founder @ Tegu — Product Engineer. Copy link to this page."
           className={`relative text-left rounded-2xl border border-[#3D3935]/60 p-4 flex flex-col gap-4 md:gap-3 justify-between h-full md:min-h-[260px] transition-colors group cursor-pointer ${socialHover ? '' : 'hover:border-[#57534E]'}`}
           data-social-hover={socialHover ? 'true' : 'false'}
         >
-          <AnimatePresence initial={false} mode="wait">
-            {!flagOpen ? (
-              <motion.button
-                key="flag-small"
-                layoutId="ar-flag"
-                type="button"
-                onClick={(e) => { e.stopPropagation(); setFlagOpen(true); }}
-                aria-label="Play Argentina flag video"
-                title="Argentina"
-                className="absolute top-2 right-2 z-10 flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#080706] border border-[#3D3935] text-[16px] md:text-[20px] leading-none shadow-lg cursor-pointer hover:border-[#FB923C] transition-colors touch-manipulation"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="relative">🇦🇷</span>
-              </motion.button>
-            ) : (
-              <>
-                <div
-                  key="flag-dismiss"
-                  onClick={(e) => { e.stopPropagation(); setFlagOpen(false); }}
-                  className="fixed inset-0 z-40 cursor-default"
-                  aria-hidden="true"
-                />
-                <motion.button
-                  key="flag-big"
-                  layoutId="ar-flag"
-                  type="button"
-                  onClick={(e) => { e.stopPropagation(); setFlagOpen(false); }}
-                  aria-label="Close Argentina flag video"
-                  className="absolute -top-[1px] -right-[1px] md:-top-[8px] md:-right-[8px] z-50 w-[54px] h-[54px] md:w-[72px] md:h-[72px] rounded-full overflow-hidden border border-[#3D3935] shadow-2xl cursor-pointer"
-                >
-                <video
-                  src="/argentina.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="none"
-                  className="w-full h-full object-cover"
-                />
-                </motion.button>
-              </>
-            )}
-          </AnimatePresence>
           <div className="flex flex-col gap-3">
             <h1 className="font-serif text-[26px] sm:text-[32px] md:text-[40px] font-bold text-white tracking-[-0.03em] leading-[1]">
               Matias
@@ -232,7 +178,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 + i * 0.06 }}
-                className="flex items-center justify-center w-8 h-8 rounded-lg border border-[#3D3935]/50 bg-transparent text-[#78716C] hover:text-[#A8A29E] hover:border-[#57534E] transition-all duration-200"
+                className="flex items-center justify-center w-8 h-8 rounded-lg border border-[#3D3935]/50 bg-transparent text-[#A8A29E] hover:text-[#A8A29E] hover:border-[#57534E] transition-all duration-200"
               >
                 {social.icon}
               </motion.a>

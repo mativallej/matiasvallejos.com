@@ -24,11 +24,11 @@ export function PageHeader({ label, title, titleAccent, description }: PageHeade
         href="/"
         className="inline-flex items-center gap-1.5 font-mono text-caption text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1 hover:text-white hover:border-[#57534E] transition-colors duration-200 mb-8"
       >
-        <span className="text-[#57534E]">←</span>
+        <span className="text-[#A8A29E]">←</span>
         <span>{t("backHome")}</span>
       </Link>
       <div className="flex flex-col gap-4">
-        <span className="font-mono text-caption text-[#57534E] uppercase">
+        <span className="font-mono text-caption text-[#A8A29E] uppercase">
           {label}
         </span>
         <h1 className="font-serif text-[36px] sm:text-[44px] md:text-[56px] leading-[1.05] tracking-[-0.02em] font-bold text-balance">

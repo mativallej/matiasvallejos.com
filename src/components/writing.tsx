@@ -35,7 +35,7 @@ export function Writing({ posts }: { posts: FeaturedPost[] }) {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="flex items-center justify-between mb-8">
-          <h2 className="font-mono text-caption text-[#57534E] uppercase">
+          <h2 className="font-mono text-caption text-[#A8A29E] uppercase">
             {t("title")}
           </h2>
           <Link
@@ -66,7 +66,7 @@ export function Writing({ posts }: { posts: FeaturedPost[] }) {
                   {post.title}
                 </span>
                 <div className="flex flex-wrap items-center gap-3 font-mono text-caption">
-                  <span className="text-[#57534E]">{post.date}</span>
+                  <span className="text-[#A8A29E]">{post.date}</span>
                   {post.tags.map((tag) => (
                     <span key={tag} className="text-[#FB923C]">
                       {tag}
@@ -74,7 +74,7 @@ export function Writing({ posts }: { posts: FeaturedPost[] }) {
                   ))}
                 </div>
               </div>
-              <span className="text-[#57534E] text-body group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0 ml-4">
+              <span className="text-[#A8A29E] text-body group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0 ml-4">
                 {"→"}
               </span>
             </Link>

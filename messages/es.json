@@ -152,7 +152,8 @@
     "feature": "aparición",
     "features": "apariciones",
     "viewMore": "ver {count} más",
-    "viewLess": "ver menos"
+    "viewLess": "ver menos",
+    "viewAllPress": "ver toda la prensa →"
   },
   "About": {
     "label": "Sobre mí",
@@ -247,6 +248,19 @@
     "filterAll": "todos",
     "post": "post",
     "posts": "posts"
+  },
+  "PressPage": {
+    "label": "Prensa",
+    "title": "En los medios.",
+    "titleAccent": "Sin agencia de PR.",
+    "description": "Cobertura de prensa de Tegu y mi trabajo como product engineer en Córdoba. Cada outlet tomó la historia por su cuenta — sin agencia, sin canje.",
+    "filterAll": "todas",
+    "item": "nota",
+    "items": "notas",
+    "typeArticle": "Artículo",
+    "typeRadio": "Radio",
+    "typeVideo": "Video",
+    "typePodcast": "Podcast"
   },
   "BlogPost": {
     "backToBlog": "volver al blog",
