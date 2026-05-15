@@ -458,8 +458,9 @@ export function Hero() {
                     top: aboutAnchor.top,
                     left: aboutAnchor.left,
                     width: aboutAnchor.width,
+                    maxHeight: `calc(100vh - ${aboutAnchor.top}px - 16px)`,
                   }}
-                  className="z-[90] overflow-hidden rounded-2xl border border-[#3D3935] bg-[#0C0A09] shadow-2xl"
+                  className="z-[90] overflow-y-auto overflow-x-hidden overscroll-contain rounded-2xl border border-[#3D3935] bg-[#0C0A09] shadow-2xl"
                   role="dialog"
                   aria-modal="true"
                   aria-label="About me"

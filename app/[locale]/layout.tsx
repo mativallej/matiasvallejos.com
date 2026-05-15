@@ -119,7 +119,7 @@ export default async function LocaleLayout({
         <JsonLd data={rootGraph()} />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <DraggableFlag />
-        <Analytics />
+        {process.env.VERCEL && <Analytics />}
       </body>
     </html>
   )
