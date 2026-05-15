@@ -835,20 +835,22 @@ export function MakeItCard() {
   )
 }
 
+// Intrinsic dimensions of each WebP (height 56 across the board, widths from sips).
+const PRESS_LOGO_DIMS: Record<string, { w: number; h: number }> = {
+  "cadena-3": { w: 241, h: 56 },
+  "canal-10": { w: 51, h: 56 },
+  "continental-cordoba": { w: 182, h: 56 },
+  "el-canciller": { w: 398, h: 56 },
+  "iproup": { w: 172, h: 56 },
+  "perfil": { w: 245, h: 56 },
+}
+
+function logoDims(src: string) {
+  const key = src.split("/").pop()?.replace(".webp", "") ?? ""
+  return PRESS_LOGO_DIMS[key] ?? { w: 240, h: 56 }
+}
+
 function PressMarquee() {
-  // Intrinsic dimensions of each WebP (height 56 across the board, widths from sips).
-  const dims: Record<string, { w: number; h: number }> = {
-    "cadena-3": { w: 241, h: 56 },
-    "canal-10": { w: 51, h: 56 },
-    "continental-cordoba": { w: 182, h: 56 },
-    "el-canciller": { w: 398, h: 56 },
-    "iproup": { w: 172, h: 56 },
-    "perfil": { w: 245, h: 56 },
-  }
-  const logoDims = (src: string) => {
-    const key = src.split("/").pop()?.replace(".webp", "") ?? ""
-    return dims[key] ?? { w: 240, h: 56 }
-  }
 
   const logos = press
     .filter((p) => p.logo)

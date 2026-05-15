@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import dynamic from "next/dynamic"
 import { setRequestLocale } from "next-intl/server"
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
@@ -7,9 +8,12 @@ import { Products } from "@/components/products"
 import { Writing } from "@/components/writing"
 import { Press } from "@/components/press"
 import { OpenSource } from "@/components/open-source"
-import { ShipStatus } from "@/components/ship-status"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+
+const ShipStatus = dynamic(() =>
+  import("@/components/ship-status").then((m) => m.ShipStatus),
+)
 import { JsonLd } from "@/components/json-ld"
 import { pressItemListSchema } from "@/lib/schema"
 import { buildAlternates } from "@/lib/seo"

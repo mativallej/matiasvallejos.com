@@ -15,17 +15,25 @@ const OPEN_SIZE = 77
 const EDGE_PADDING = 24 // distance from the actual viewport edge
 const EDGE_BAND = 80 // how thick the spawn band is from the edge
 const MOBILE_BREAKPOINT = 768
+// Reserve the bottom band entirely — the ShipStatus widget (bottom-6 right-6,
+// ~200×200) lives there and the flag should never sit on top of it.
+const BOTTOM_RESERVED = 240
 
-type Edge = "top" | "right" | "bottom" | "left"
+type Edge = "top" | "right" | "left"
 
 function pickEdgePosition(): { x: number; y: number } {
   const w = window.innerWidth
   const h = window.innerHeight
-  const edges: Edge[] = ["top", "right", "bottom", "left"]
+  const edges: Edge[] = ["top", "right", "left"]
   const edge = edges[Math.floor(Math.random() * edges.length)]
 
   const innerBandStart = EDGE_PADDING
   const innerBandEnd = EDGE_PADDING + EDGE_BAND
+  // Vertical range for side edges: avoid the bottom band reserved for ShipStatus.
+  const sideYRange = Math.max(
+    0,
+    h - COLLAPSED_SIZE - EDGE_PADDING - BOTTOM_RESERVED,
+  )
 
   switch (edge) {
     case "top":
@@ -36,17 +44,12 @@ function pickEdgePosition(): { x: number; y: number } {
     case "right":
       return {
         x: w - COLLAPSED_SIZE - innerBandEnd + Math.random() * EDGE_BAND,
-        y: EDGE_PADDING + Math.random() * (h - COLLAPSED_SIZE - EDGE_PADDING * 2),
-      }
-    case "bottom":
-      return {
-        x: EDGE_PADDING + Math.random() * (w - COLLAPSED_SIZE - EDGE_PADDING * 2),
-        y: h - COLLAPSED_SIZE - innerBandEnd + Math.random() * EDGE_BAND,
+        y: EDGE_PADDING + Math.random() * sideYRange,
       }
     case "left":
       return {
         x: innerBandStart + Math.random() * EDGE_BAND,
-        y: EDGE_PADDING + Math.random() * (h - COLLAPSED_SIZE - EDGE_PADDING * 2),
+        y: EDGE_PADDING + Math.random() * sideYRange,
       }
   }
 }

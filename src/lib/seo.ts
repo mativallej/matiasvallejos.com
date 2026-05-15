@@ -1,6 +1,7 @@
 import { routing, type Locale } from "@/i18n/routing"
 
-export const SITE_URL = "https://www.matiasvallejos.com"
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.matiasvallejos.com"
 
 export const LOCALE_HTML_LANG: Record<Locale, string> = {
   en: "en-US",

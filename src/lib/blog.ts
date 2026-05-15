@@ -1,5 +1,6 @@
 import fs from "fs"
 import path from "path"
+import { cache } from "react"
 import matter from "gray-matter"
 import { unified } from "unified"
 import remarkParse from "remark-parse"
@@ -35,14 +36,14 @@ function calculateReadTime(content: string): string {
   return `${minutes} min read`
 }
 
-export function getAllPostSlugs(): string[] {
+export const getAllPostSlugs = cache((): string[] => {
   const files = fs.readdirSync(BLOG_DIR)
   return files
     .filter((file) => file.endsWith(".md"))
     .map((file) => file.replace(/\.md$/, ""))
-}
+})
 
-export function getAllPosts(): BlogPost[] {
+export const getAllPosts = cache((): BlogPost[] => {
   const slugs = getAllPostSlugs()
   const posts = slugs.map((slug) => {
     const filePath = path.join(BLOG_DIR, `${slug}.md`)
@@ -63,20 +64,20 @@ export function getAllPosts(): BlogPost[] {
   })
 
   return posts.sort((a, b) => (a.date > b.date ? -1 : 1))
-}
+})
 
-export function getFeaturedPosts(): BlogPost[] {
+export const getFeaturedPosts = cache((): BlogPost[] => {
   return getAllPosts().filter((post) => post.featured)
-}
+})
 
-export function getAllTags(): string[] {
+export const getAllTags = cache((): string[] => {
   const posts = getAllPosts()
   const tagSet = new Set<string>()
   posts.forEach((post) => post.tags.forEach((tag) => tagSet.add(tag)))
   return Array.from(tagSet).sort()
-}
+})
 
-export async function getPostBySlug(slug: string): Promise<BlogPostWithHtml> {
+export const getPostBySlug = cache(async (slug: string): Promise<BlogPostWithHtml> => {
   const filePath = path.join(BLOG_DIR, `${slug}.md`)
   const fileContent = fs.readFileSync(filePath, "utf-8")
   const { data, content } = matter(fileContent)
@@ -103,4 +104,4 @@ export async function getPostBySlug(slug: string): Promise<BlogPostWithHtml> {
     html: String(result),
     readTime: calculateReadTime(content),
   }
-}
+})

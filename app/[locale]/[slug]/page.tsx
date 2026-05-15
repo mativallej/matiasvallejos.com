@@ -26,7 +26,7 @@ export async function generateMetadata({
   try {
     const post = await getPostBySlug(slug)
     const url = absoluteUrl(`/${slug}`)
-    const ogImage = `${SITE_URL}/og-1200x630.png`
+    const ogImage = `${SITE_URL}/og-1200x630.jpg`
     return {
       title: post.title,
       description: post.description,

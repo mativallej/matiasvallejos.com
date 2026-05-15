@@ -14,7 +14,7 @@ import "@/styles/globals.css"
 const SITE_TITLE = "Matias Vallejos — Product Engineer & Co-Founder @ Tegu"
 const SITE_DESCRIPTION =
   "Product Engineer in LatAm. Building Tegu (2,200 users), co-founded Docta Valley (240+ builders), shipping open source. I treat product and engineering as one discipline."
-const SITE_OG_IMAGE = `${SITE_URL}/og-1200x630.png`
+const SITE_OG_IMAGE = `${SITE_URL}/og-1200x630.jpg`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
