@@ -8,6 +8,7 @@ import { routing, type Locale } from "@/i18n/routing"
 import { SITE_URL, LOCALE_HTML_LANG } from "@/lib/seo"
 import { JsonLd } from "@/components/json-ld"
 import { DraggableFlag } from "@/components/draggable-flag"
+import { CursorDot } from "@/components/cursor-dot"
 import { rootGraph } from "@/lib/schema"
 import "@/styles/globals.css"
 
@@ -119,6 +120,7 @@ export default async function LocaleLayout({
         <JsonLd data={rootGraph()} />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <DraggableFlag />
+        <CursorDot />
         {process.env.VERCEL && <Analytics />}
       </body>
     </html>

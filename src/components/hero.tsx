@@ -134,7 +134,7 @@ export function Hero() {
   };
 
   return (
-    <section id="about" className="px-4 lg:px-8 pt-8 pb-4 md:pt-16 md:pb-6 max-w-[1080px] mx-auto">
+    <section id="about" className="px-4 lg:px-8 pt-4 pb-4 md:pt-16 md:pb-6 max-w-[1080px] mx-auto">
       <aside
         id="hero-panel"
         className="md:rounded-3xl bg-[#080706] p-0 md:p-3 grid grid-cols-2 md:grid-cols-4 gap-3"
