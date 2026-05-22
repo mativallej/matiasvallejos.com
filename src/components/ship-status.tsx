@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState, useCallback, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useTranslations } from "next-intl"
 
@@ -82,6 +82,8 @@ export function ShipStatus() {
   const close = useCallback(() => setOpen(false), [])
   const next = useCallback(() => setIndex((i) => (i + 1) % SHIPS.length), [])
   const prev = useCallback(() => setIndex((i) => (i - 1 + SHIPS.length) % SHIPS.length), [])
+  const draggedRef = useRef(false)
+  const [cardHovered, setCardHovered] = useState(false)
 
   // Keyboard nav when story open
   useEffect(() => {
@@ -210,7 +212,7 @@ export function ShipStatus() {
 
             {/* Story pile — current card on top, others stacked behind */}
             <div
-              className="relative w-[340px] h-[340px]"
+              className="relative w-[306px] h-[306px]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Single back card — the next ship, peeking from behind */}
@@ -230,17 +232,47 @@ export function ShipStatus() {
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.4}
+                onDragStart={() => {
+                  draggedRef.current = true
+                }}
                 onDragEnd={(_, info) => {
                   const threshold = 70
                   if (info.offset.x < -threshold || info.velocity.x < -300) next()
                   else if (info.offset.x > threshold || info.velocity.x > 300) prev()
+                  // Keep flag until the synthetic click that follows drag is suppressed
+                  setTimeout(() => {
+                    draggedRef.current = false
+                  }, 50)
                 }}
                 whileDrag={{ scale: 0.98, cursor: "grabbing" }}
+                onHoverStart={() => setCardHovered(true)}
+                onHoverEnd={() => setCardHovered(false)}
                 initial={{ opacity: 0, scale: 0.92, x: 14, y: 14, rotate: 4 }}
-                animate={{ opacity: 1, scale: 1, x: 0, y: 0, rotate: 0 }}
+                animate={{ opacity: 1, scale: cardHovered ? 1.03 : 1, x: 0, y: 0, rotate: 0 }}
                 exit={{ opacity: 0, scale: 0.86, y: 24, rotate: -3 }}
                 transition={{ duration: 0.32, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="absolute inset-0 rounded-3xl overflow-hidden border-2 border-[#A3B86C]/40 bg-gradient-to-br from-[#1C1917] via-[#0C0A09] to-[#080706] shadow-2xl shadow-[#080706]/80 flex flex-col p-6 cursor-grab touch-none select-none"
+                onClick={() => {
+                  if (draggedRef.current) return
+                  if (current.link.startsWith("http")) {
+                    window.open(current.link, "_blank", "noopener,noreferrer")
+                  } else {
+                    window.location.href = current.link
+                  }
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault()
+                    if (current.link.startsWith("http")) {
+                      window.open(current.link, "_blank", "noopener,noreferrer")
+                    } else {
+                      window.location.href = current.link
+                    }
+                  }
+                }}
+                role="link"
+                tabIndex={0}
+                aria-label={`${currentTarget} — ${t("open")}`}
+                className="absolute inset-0 rounded-3xl overflow-hidden border-2 border-[#A3B86C]/40 hover:border-[#A3B86C]/80 bg-gradient-to-br from-[#1C1917] via-[#0C0A09] to-[#080706] shadow-2xl shadow-[#080706]/80 flex flex-col p-6 cursor-pointer touch-none select-none transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#A3B86C]/60"
                 style={{ zIndex: SHIPS.length + 1 }}
               >
                 {/* Tag */}
@@ -274,20 +306,15 @@ export function ShipStatus() {
                   </p>
                 )}
 
-                {/* Bottom: time + CTA */}
-                <div className="mt-auto flex flex-col gap-4">
+                {/* Bottom: time */}
+                <div className="mt-auto flex items-center justify-between gap-3">
                   <span className="font-mono text-[11px] tracking-tight">
                     <span className="text-[#A8A29E]">{t("shippedAgo")}</span>{" "}
                     <span className="text-white">{currentAgo}</span>
                   </span>
-                  <a
-                    href={current.link}
-                    target={current.link.startsWith("http") ? "_blank" : undefined}
-                    rel={current.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="inline-flex items-center justify-center gap-2 font-mono text-[12px] font-semibold uppercase tracking-[0.04em] bg-[#E8742A] text-[#080706] px-4 py-2.5 rounded-md hover:bg-[#D4622A] transition-colors duration-200 self-start"
-                  >
+                  <span className="font-mono text-[11px] text-[#E8742A] tracking-tight">
                     {t("open")} →
-                  </a>
+                  </span>
                 </div>
               </motion.div>
             </AnimatePresence>
