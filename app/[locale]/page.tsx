@@ -14,6 +14,7 @@ import { Footer } from "@/components/footer"
 const ShipStatus = dynamic(() =>
   import("@/components/ship-status").then((m) => m.ShipStatus),
 )
+import CharacterScene from "../components/CharacterScene"
 import { JsonLd } from "@/components/json-ld"
 import { pressItemListSchema } from "@/lib/schema"
 import { buildAlternates } from "@/lib/seo"
@@ -61,6 +62,7 @@ export default async function Page({
       <Contact />
       <Footer />
       <ShipStatus />
+      <CharacterScene />
     </main>
   )
 }
