@@ -43,3 +43,6 @@ not/
 
 # Private working notes (audits, drafts, planning)
 .docs/
+
+# Original sprite PNG backups (replaced by WebP in public/ch/)
+public/ch/_originals/

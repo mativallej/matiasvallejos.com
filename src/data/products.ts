@@ -28,7 +28,7 @@ export const products: Product[] = [
     id: 1,
     title: "Tegu",
     subtitle: "AI home services marketplace",
-    logo: "/images/projects/tegu/logo.png",
+    logo: "/images/projects/tegu/logo.webp",
     logoBg: "#FB923C",
     slug: "tegu",
     description: "Marketplace connecting homeowners with verified professionals for home services in Argentina. AI-powered matching, WhatsApp integration, with a pay-per-lead model for pros.",
