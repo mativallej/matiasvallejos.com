@@ -18,7 +18,13 @@ Nos equivocamos.
 
 Rediseñamos la app. Iteramos la landing cuatro veces. Cambiamos el logo. Y en el medio de todo eso entendimos algo que ahora me parece obvio y que en su momento no lo era: **la marca no es cómo se ve. Es si te dejan entrar a tu casa.**
 
-![App de Tegu antes y después del rediseño: mismo producto, otra confianza](/images/blog/la-marca-es-producto/app-antes-despues.png)
+![Home de la app de Tegu antes del rediseño](/images/blog/la-marca-es-producto/app-antes.jpeg)
+
+*Antes: más color, más gradiente, más "diseño".*
+
+![Home de la app de Tegu después del rediseño](/images/blog/la-marca-es-producto/app-despues.jpeg)
+
+*Después: el mismo producto, con menos ruido y más confianza.*
 
 ## Un mercado que funciona a confianza
 
@@ -40,7 +46,7 @@ Building in public significa mostrar los números aunque sean chicos, y sobre to
 - **76 prestadores registrados**, **17 pagando** una suscripción, revenue **+126% en semanas**.
 - Y detrás de todo: **2.000 dólares nuestros**, **cero** inversores externos, **tres** personas, **cuatro** meses.
 
-![Dashboard de Google Search Console: impresiones y clics orgánicos en los últimos tres meses](/images/blog/la-marca-es-producto/search-console.png)
+![Dashboard de Google Search Console: impresiones y clics orgánicos en los últimos tres meses](/images/blog/la-marca-es-producto/search-console.jpg)
 
 Leélo de nuevo: crecimiento orgánico con CAC cero. Eso no es suerte. Eso es la marca haciendo el trabajo que en otros mercados hace la plata. La gente llega, entiende qué es, confía, y entra. Sin que le paguemos a nadie para empujarla.
 
@@ -58,7 +64,9 @@ La gente no quiere diseño. La gente quiere trabajar y quiere resolver. Quiere u
 
 Entonces la marca no se construye agregando diseño. Se construye sacando todo lo que se interpone entre una persona y su próximo trabajo. La marca es lo que queda cuando sacás el ruido: una promesa cumplida, repetida, barrio por barrio.
 
-![Nuevo logo y nueva landing de Tegu](/images/blog/la-marca-es-producto/logo-landing.png)
+![Nuevo logo de Tegu](/images/blog/la-marca-es-producto/logo-nuevo.png)
+
+![Nueva landing de Tegu en tegu.ar](/images/blog/la-marca-es-producto/landing.jpg)
 
 ## Ella es Natalia
 
