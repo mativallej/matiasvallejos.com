@@ -7,19 +7,24 @@ import { motion, useMotionValue } from "framer-motion"
  * Floating Argentina flag. Mounted globally in the locale layout. Spawns at a
  * random position along one of the four viewport edges (never in the middle
  * "dashboard" zone), can be dragged anywhere afterwards, and toggles between
- * a 44px emoji pill and a 110px video disc that expands in place.
- * Disabled on mobile (<768px) — no DOM at all.
+ * a 44px emoji pill and a 77px video disc that expands in place.
+ * Enabled on every viewport size, including touch/mobile.
  */
 const COLLAPSED_SIZE = 44
 const OPEN_SIZE = 77
 const EDGE_PADDING = 24 // distance from the actual viewport edge
 const EDGE_BAND = 80 // how thick the spawn band is from the edge
-const MOBILE_BREAKPOINT = 768
+// The navbar is sticky at z-50 and 48px tall, so it paints over the flag.
+// Keep the spawn point clear of it or the flag lands invisible.
+const TOP_RESERVED = 56
 // Reserve the bottom band entirely — the ShipStatus widget (bottom-6 right-6,
 // ~200×200) lives there and the flag should never sit on top of it.
 const BOTTOM_RESERVED = 240
 
 type Edge = "top" | "right" | "left"
+
+const clamp = (v: number, min: number, max: number) =>
+  Math.min(Math.max(v, min), max)
 
 function pickEdgePosition(): { x: number; y: number } {
   const w = window.innerWidth
@@ -29,36 +34,41 @@ function pickEdgePosition(): { x: number; y: number } {
 
   const innerBandStart = EDGE_PADDING
   const innerBandEnd = EDGE_PADDING + EDGE_BAND
-  // Vertical range for side edges: avoid the bottom band reserved for ShipStatus.
+  // Horizontal range for the top edge — never negative on narrow phones.
+  const topXRange = Math.max(0, w - COLLAPSED_SIZE - EDGE_PADDING * 2)
+  // Vertical range for side edges: below the navbar, above the ShipStatus band.
   const sideYRange = Math.max(
     0,
-    h - COLLAPSED_SIZE - EDGE_PADDING - BOTTOM_RESERVED,
+    h - COLLAPSED_SIZE - TOP_RESERVED - BOTTOM_RESERVED,
   )
 
   switch (edge) {
     case "top":
       return {
-        x: EDGE_PADDING + Math.random() * (w - COLLAPSED_SIZE - EDGE_PADDING * 2),
-        y: innerBandStart + Math.random() * EDGE_BAND,
+        x: EDGE_PADDING + Math.random() * topXRange,
+        y: TOP_RESERVED + Math.random() * EDGE_BAND,
       }
     case "right":
       return {
-        x: w - COLLAPSED_SIZE - innerBandEnd + Math.random() * EDGE_BAND,
-        y: EDGE_PADDING + Math.random() * sideYRange,
+        x: Math.max(
+          EDGE_PADDING,
+          w - COLLAPSED_SIZE - innerBandEnd + Math.random() * EDGE_BAND,
+        ),
+        y: TOP_RESERVED + Math.random() * sideYRange,
       }
     case "left":
       return {
         x: innerBandStart + Math.random() * EDGE_BAND,
-        y: EDGE_PADDING + Math.random() * sideYRange,
+        y: TOP_RESERVED + Math.random() * sideYRange,
       }
   }
 }
 
 export function DraggableFlag() {
   const [open, setOpen] = useState(false)
-  // null = not yet decided (SSR + first paint). false = mobile, skip render.
-  // true = desktop, render after random spawn point is picked.
-  const [enabled, setEnabled] = useState<boolean | null>(null)
+  // false during SSR + first paint (no viewport to measure yet), true once the
+  // random spawn point is picked on the client.
+  const [ready, setReady] = useState(false)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   // Distinguish tap from drag: framer's onTap already filters small moves, but
@@ -66,21 +76,20 @@ export function DraggableFlag() {
   const dragged = useRef(false)
 
   useEffect(() => {
-    const mq = window.matchMedia(`(min-width: ${MOBILE_BREAKPOINT}px)`)
-    const apply = (matches: boolean) => {
-      if (matches) {
-        const pos = pickEdgePosition()
-        x.set(pos.x)
-        y.set(pos.y)
-        setEnabled(true)
-      } else {
-        setEnabled(false)
-      }
+    const pos = pickEdgePosition()
+    x.set(pos.x)
+    y.set(pos.y)
+    setReady(true)
+
+    // Rotating a phone or resizing can leave the flag off-screen; pull it back.
+    const onResize = () => {
+      const maxX = Math.max(0, window.innerWidth - OPEN_SIZE - EDGE_PADDING)
+      const maxY = Math.max(0, window.innerHeight - OPEN_SIZE - EDGE_PADDING)
+      x.set(clamp(x.get(), EDGE_PADDING, maxX))
+      y.set(clamp(y.get(), TOP_RESERVED, maxY))
     }
-    apply(mq.matches)
-    const onChange = (e: MediaQueryListEvent) => apply(e.matches)
-    mq.addEventListener("change", onChange)
-    return () => mq.removeEventListener("change", onChange)
+    window.addEventListener("resize", onResize)
+    return () => window.removeEventListener("resize", onResize)
   }, [x, y])
 
   useEffect(() => {
@@ -92,7 +101,7 @@ export function DraggableFlag() {
     return () => window.removeEventListener("keydown", onKey)
   }, [open])
 
-  if (!enabled) return null
+  if (!ready) return null
 
   return (
     <motion.button
@@ -105,6 +114,11 @@ export function DraggableFlag() {
         dragged.current = true
       }}
       onDragEnd={() => {
+        // Keep it inside the viewport — a flick on a small screen can otherwise
+        // park the flag past the edge with no way to drag it back.
+        const size = open ? OPEN_SIZE : COLLAPSED_SIZE
+        x.set(clamp(x.get(), 0, Math.max(0, window.innerWidth - size)))
+        y.set(clamp(y.get(), 0, Math.max(0, window.innerHeight - size)))
         window.setTimeout(() => {
           dragged.current = false
         }, 50)
