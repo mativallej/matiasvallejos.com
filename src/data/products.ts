@@ -32,6 +32,7 @@ export const products: Product[] = [
     logo: "/images/projects/tegu/logo-green.webp",
     logoBg: "#4F9A69",
     slug: "tegu",
+    caseStudy: "/case-study/tegu",
     description: "Marketplace connecting homeowners with verified professionals for home services in Argentina. AI-powered matching, WhatsApp integration, with a pay-per-lead model for pros.",
     tags: ["Marketplace", "Homeservices", "Mobile", "Web", "AI", "WhatsApp"],
     link: "https://tegu.ar",
@@ -59,6 +60,7 @@ export const products: Product[] = [
     logo: "/images/projects/docta-valley/logo.jpg",
     logoBg: "#F5E6B0",
     slug: "docta-valley",
+    caseStudy: "/case-study/docta-valley",
     description: "Community connecting tech founders and builders in Córdoba. We create the space to spread ideas, make connections, and launch Córdoba-based startups.",
     tags: ["Community", "Startups", "Networking", "Córdoba"],
     link: "https://doctavalley.com.ar",
@@ -111,5 +113,10 @@ export const moreProjects: MoreProject[] = [
     title: "building-in-public-template",
     subtitle: "Open-source template + Claude Code skills",
     link: "https://github.com/mativallej/building-in-public-template",
+  },
+  {
+    title: "incident-ops",
+    subtitle: "Open-source incident-ops toolkit",
+    link: "https://github.com/mativallej/incident-ops",
   },
 ]

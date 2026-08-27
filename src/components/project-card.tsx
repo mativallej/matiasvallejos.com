@@ -95,7 +95,7 @@ export default function ProjectCard({
         ? "aspect-square sm:aspect-[5/2]"
         : "aspect-square md:aspect-[3/2]"
 
-  const caseStudyHref = `/projects/${slug}`
+  const caseStudyHref = caseStudy ?? `/projects/${slug}`
 
   return (
     <div className="bg-[#0C0A09] border border-[#3D3935]/60 rounded-2xl overflow-hidden transition-colors duration-200 h-full flex flex-col relative">
