@@ -10,6 +10,7 @@ import { products } from "@/data/products"
 import { breadcrumbSchema, creativeWorkSchema } from "@/lib/schema"
 import { buildAlternates, buildBreadcrumbs } from "@/lib/seo"
 import { type Locale } from "@/i18n/routing"
+import { CaseMetrics } from "@/components/case-metrics"
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }))
@@ -98,17 +99,6 @@ export default async function ProjectCaseStudyPage({
           {project.description}
         </p>
 
-        {project.metrics && project.metrics.length > 0 && (
-          <div className="flex flex-wrap gap-x-10 gap-y-4 mt-8">
-            {project.metrics.map((m) => (
-              <div key={m.label} className="flex flex-col">
-                <span className="font-serif text-[32px] leading-none tracking-tight text-white">{m.value}</span>
-                <span className="font-mono text-micro uppercase tracking-[0.06em] text-[#57534E] mt-1">{m.label}</span>
-              </div>
-            ))}
-          </div>
-        )}
-
         {project.tags && project.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mt-8">
             {project.tags.map((tag) => (
@@ -142,6 +132,9 @@ export default async function ProjectCaseStudyPage({
           )}
         </div>
       </header>
+
+      {/* Metrics — shared cards */}
+      {project.metrics && project.metrics.length > 0 && <CaseMetrics metrics={project.metrics} />}
 
       {/* Gallery — video + images */}
       {(project.video || gallery.length > 0) && (
