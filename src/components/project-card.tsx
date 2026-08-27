@@ -45,7 +45,7 @@ function Video({ src, className }: { src: string; className?: string }) {
   )
 }
 
-function ImageCarousel({ images, title }: { images: string[]; title: string }) {
+function ImageCarousel({ images, title, fit = "cover" }: { images: string[]; title: string; fit?: "cover" | "contain" }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
 
   useEffect(() => {
@@ -55,7 +55,10 @@ function ImageCarousel({ images, title }: { images: string[]; title: string }) {
   }, [emblaApi, images.length])
 
   return (
-    <div ref={emblaRef} className="absolute inset-0 overflow-hidden">
+    <div
+      ref={emblaRef}
+      className="absolute inset-0 overflow-hidden bg-[#0C0A09]"
+    >
       <div className="flex h-full">
         {images.map((src, index) => (
           <div key={src} className="relative min-w-0 shrink-0 grow-0 basis-full h-full">
@@ -64,7 +67,7 @@ function ImageCarousel({ images, title }: { images: string[]; title: string }) {
               alt={`${title} — ${index + 1}`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              className={fit === "contain" ? "object-contain" : "object-cover"}
             />
           </div>
         ))}
@@ -81,7 +84,7 @@ export default function ProjectCard({
   variant?: "default" | "tall" | "wide"
 }) {
   const t = useTranslations("ProjectCard")
-  const { title, subtitle, logo, emoji, logoBg, slug, description, tags, link, github, video, videoFit, image, images, caseStudy, date, metrics, instagram, tiktok, twitter, linkedin } = project
+  const { title, subtitle, logo, emoji, logoBg, slug, description, tags, link, github, video, videoFit, imagesFit, image, images, caseStudy, date, metrics, instagram, tiktok, twitter, linkedin } = project
 
   // Tall variant (used by Tegu — vertical phone video) gets portrait aspect on mobile.
   // Other variants stay square on mobile for visual consistency.
@@ -101,36 +104,31 @@ export default function ProjectCard({
         <Link
           href={caseStudyHref}
           aria-label={`${title} case study`}
-          className="relative block w-full h-full rounded-lg overflow-hidden border border-[#3D3935]/60 hover:border-text-muted transition-colors duration-200"
+          className="relative flex flex-col w-full h-full rounded-lg overflow-hidden border border-[#3D3935]/60 hover:border-text-muted transition-colors duration-200"
         >
-          {video ? (
-            <Video src={video} className={`w-full h-full ${videoFit === "contain" ? "object-contain bg-[#0C0A09]" : "object-cover"}`} />
-          ) : images && images.length > 0 ? (
-            <ImageCarousel images={images} title={title} />
-          ) : image ? (
-            <Image
-              src={image}
-              alt={title}
-              className="w-full h-full object-cover"
-              width={1280}
-              height={720}
-            />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-b from-brand-orange/10 via-surface to-[#0C0A09] flex items-center justify-center">
-              <span className="font-sans text-display text-accent-text">{title}</span>
-            </div>
-          )}
+          {/* Media — fills the space above the title bar */}
+          <div className="relative flex-1 min-h-0 overflow-hidden bg-[#0C0A09]">
+            {video ? (
+              <Video src={video} className={`absolute inset-0 h-full w-full ${videoFit === "contain" ? "object-contain" : "object-cover"}`} />
+            ) : images && images.length > 0 ? (
+              <ImageCarousel images={images} title={title} fit={imagesFit} />
+            ) : image ? (
+              <Image
+                src={image}
+                alt={title}
+                className="absolute inset-0 h-full w-full object-cover"
+                width={1280}
+                height={720}
+              />
+            ) : (
+              <div className="absolute inset-0 bg-gradient-to-b from-brand-orange/10 via-surface to-[#0C0A09] flex items-center justify-center">
+                <span className="font-sans text-display text-accent-text">{title}</span>
+              </div>
+            )}
+          </div>
 
-          {/* Title overlay — full-width bottom of media card */}
-          <div
-            className="absolute bottom-0 left-0 right-0 flex items-center gap-3 px-4 pt-5 pb-3 rounded-b-lg bg-gradient-to-t from-black/55 via-black/20 to-transparent text-text-body pointer-events-none"
-            style={{
-              backdropFilter: "blur(10px)",
-              WebkitBackdropFilter: "blur(10px)",
-              maskImage: "linear-gradient(to top, black 75%, transparent)",
-              WebkitMaskImage: "linear-gradient(to top, black 75%, transparent)",
-            }}
-          >
+          {/* Title bar — flush below the media, never overlapping it */}
+          <div className="flex items-center gap-3 px-4 py-3 flex-shrink-0 bg-[#0C0A09] border-t border-[#3D3935]/60 text-text-body">
             <span
               className="flex items-center justify-center w-9 h-9 rounded-full flex-shrink-0 overflow-hidden font-serif text-[15px] font-bold text-white"
               style={{ backgroundColor: logoBg ?? "#1C1917" }}

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { motion } from "framer-motion"
 import { useTranslations } from "next-intl"
 import { now } from "@/data/now"
@@ -29,6 +29,14 @@ function monthTag(label: string): string {
   return `${y}-${mm}`
 }
 
+function nowTag(): string {
+  const d = new Date()
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, "0")
+  const day = String(d.getDate()).padStart(2, "0")
+  return `${y}-${m}-${day}`
+}
+
 const rowVariants = {
   hidden: { opacity: 0, y: 10 },
   visible: (i: number) => ({
@@ -42,32 +50,89 @@ const rowVariants = {
   }),
 }
 
-function nowTag(): string {
-  const d = new Date()
-  const y = d.getFullYear()
-  const m = String(d.getMonth() + 1).padStart(2, "0")
-  const day = String(d.getDate()).padStart(2, "0")
-  return `${y}-${m}-${day}`
-}
-
-type LocalEntry = { id: number; tag: string; text: string }
+type LocalEntry = { id: number; tag: string; text: string; kind?: "entry" | "system" }
 
 export function Now() {
   const t = useTranslations("Now")
   const [input, setInput] = useState("")
   const [localEntries, setLocalEntries] = useState<LocalEntry[]>([])
+  const [filter, setFilter] = useState<string | null>(null)
+  const [hydrated, setHydrated] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  // Available "branches" = the distinct project tags across the build logs.
+  const projects = Array.from(new Set(now.buildLogs.flatMap((l) => l.projects ?? [])))
+
+  const pushSystem = (text: string) =>
+    setLocalEntries((prev) => [
+      ...prev,
+      { id: Date.now(), tag: "system", text, kind: "system" },
+    ])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    const trimmed = input.trim()
-    if (!trimmed) return
+    const raw = input.trim()
+    if (!raw) return
+    setInput("")
+
+    // Git-style commands drive the build-log filter.
+    const parts = raw.split(/\s+/)
+    if (parts[0] === "git") {
+      const [, sub, arg] = parts
+      if (sub === "checkout") {
+        if (!arg || ["main", "master", "all", "."].includes(arg)) {
+          setFilter(null)
+          pushSystem("Switched to branch 'main' (all projects)")
+        } else if (projects.includes(arg)) {
+          setFilter(arg)
+          pushSystem(`Switched to branch '${arg}'`)
+        } else {
+          pushSystem(`error: pathspec '${arg}' did not match. Branches: main, ${projects.join(", ")}`)
+        }
+      } else if (sub === "branch") {
+        pushSystem(`* main  ${projects.join("  ")}`)
+      } else if (sub === "status") {
+        pushSystem(`On branch ${filter ?? "main"}`)
+      } else {
+        pushSystem(`git: '${sub ?? ""}' not supported here. Try: git checkout <project>`)
+      }
+      return
+    }
+
     setLocalEntries((prev) => [
       ...prev,
-      { id: Date.now(), tag: nowTag(), text: trimmed },
+      { id: Date.now(), tag: nowTag(), text: raw, kind: "entry" },
     ])
-    setInput("")
   }
+
+  // Restore the persisted console (active branch + logged operations) on mount.
+  useEffect(() => {
+    try {
+      const savedFilter = localStorage.getItem("now:filter")
+      if (savedFilter && projects.includes(savedFilter)) setFilter(savedFilter)
+      const savedEntries = localStorage.getItem("now:entries")
+      if (savedEntries) setLocalEntries(JSON.parse(savedEntries))
+    } catch {}
+    setHydrated(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // Persist the active branch (status).
+  useEffect(() => {
+    if (!hydrated) return
+    try {
+      if (filter) localStorage.setItem("now:filter", filter)
+      else localStorage.removeItem("now:filter")
+    } catch {}
+  }, [filter, hydrated])
+
+  // Persist the console operations/entries.
+  useEffect(() => {
+    if (!hydrated) return
+    try {
+      localStorage.setItem("now:entries", JSON.stringify(localEntries))
+    } catch {}
+  }, [localEntries, hydrated])
 
   return (
     <section id="now" className="px-4 lg:px-8 py-20 max-w-[1080px] mx-auto">
@@ -98,34 +163,37 @@ export function Now() {
               const monthOnly = monthTag(log.month)
               const translated = t.raw(`buildLog.${monthOnly}`)
               const highlights = Array.isArray(translated) ? (translated as string[]) : log.highlights
-              return highlights.map((h, j) => {
-                const idx = i * 100 + j
+              return highlights
+                .map((h, j) => ({ h, j }))
+                .filter(({ j }) => !filter || log.projects?.[j] === filter)
+                .map(({ h, j }) => {
                 const day = log.days?.[j]
                 const tag = day ? `${monthOnly}-${String(day).padStart(2, "0")}` : monthOnly
+                const project = log.projects?.[j]
                 return (
-                  <motion.span
-                    key={`${log.month}-${j}`}
-                    custom={idx}
-                    variants={rowVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "0px" }}
-                    className="block"
-                  >
+                  <span key={`${log.month}-${j}`} className="block">
                     <span className="text-[#A8A29E]">[{tag}]</span>
+                    {project && <span className="text-[#7CA5C4]"> [{project}]</span>}
                     <span className="text-[#A3B86C]"> ✓ </span>
                     <span className="text-[#FAFAF9]">{h}</span>
-                  </motion.span>
+                  </span>
                 )
               })
             })}
-            {localEntries.map((entry) => (
-              <span key={entry.id} className="block">
-                <span className="text-[#A8A29E]">[{entry.tag}]</span>
-                <span className="text-[#7CA5C4]"> » </span>
-                <span className="text-[#FAFAF9]">{entry.text}</span>
-              </span>
-            ))}
+            {localEntries.map((entry) =>
+              entry.kind === "system" ? (
+                <span key={entry.id} className="block text-[#A8A29E]">
+                  <span className="text-[#7CA5C4]">$ </span>
+                  {entry.text}
+                </span>
+              ) : (
+                <span key={entry.id} className="block">
+                  <span className="text-[#A8A29E]">[{entry.tag}]</span>
+                  <span className="text-[#7CA5C4]"> » </span>
+                  <span className="text-[#FAFAF9]">{entry.text}</span>
+                </span>
+              ),
+            )}
           </pre>
 
           {/* Interactive console input */}
@@ -134,7 +202,7 @@ export function Now() {
             className="flex items-center gap-2 mt-2 font-mono text-[12px]"
             onClick={() => inputRef.current?.focus()}
           >
-            <span className="text-[#A3B86C] flex-shrink-0">{">"}</span>
+            <span className="text-[#A3B86C] flex-shrink-0 whitespace-nowrap">{filter ?? "main"} {">"}</span>
             <input
               ref={inputRef}
               type="text"
