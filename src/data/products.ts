@@ -12,6 +12,7 @@ export interface Product {
   github?: string
   video?: string
   videoFit?: "cover" | "contain"
+  imagesFit?: "cover" | "contain"
   image?: string
   images?: string[]
   caseStudy?: string
@@ -28,13 +29,20 @@ export const products: Product[] = [
     id: 1,
     title: "Tegu",
     subtitle: "AI home services marketplace",
-    logo: "/images/projects/tegu/logo.webp",
-    logoBg: "#FB923C",
+    logo: "/images/projects/tegu/logo-green.webp",
+    logoBg: "#4F9A69",
     slug: "tegu",
+    caseStudy: "/case-study/tegu",
     description: "Marketplace connecting homeowners with verified professionals for home services in Argentina. AI-powered matching, WhatsApp integration, with a pay-per-lead model for pros.",
     tags: ["Marketplace", "Homeservices", "Mobile", "Web", "AI", "WhatsApp"],
     link: "https://tegu.ar",
-    video: "/images/projects/tegu/demo.mp4",
+    images: [
+      "/images/projects/tegu/mock-assistant.webp",
+      "/images/projects/tegu/mock-client.webp",
+      "/images/projects/tegu/mock-map.webp",
+      "/images/projects/tegu/mock-pro.webp",
+    ],
+    imagesFit: "contain",
     date: "2026",
     instagram: "https://instagram.com/tegu_app",
     tiktok: "https://tiktok.com/@tegu_app",
@@ -52,6 +60,7 @@ export const products: Product[] = [
     logo: "/images/projects/docta-valley/logo.jpg",
     logoBg: "#F5E6B0",
     slug: "docta-valley",
+    caseStudy: "/case-study/docta-valley",
     description: "Community connecting tech founders and builders in Córdoba. We create the space to spread ideas, make connections, and launch Córdoba-based startups.",
     tags: ["Community", "Startups", "Networking", "Córdoba"],
     link: "https://doctavalley.com.ar",
@@ -84,5 +93,30 @@ export const products: Product[] = [
       { value: "+8", label: "forks" },
       { value: "+118K", label: "views" },
     ],
+  },
+]
+
+export interface MoreProject {
+  title: string
+  subtitle?: string
+  link: string
+}
+
+/** Smaller ships shown as a compact, title-only stack under the featured cards. */
+export const moreProjects: MoreProject[] = [
+  {
+    title: "shipstats",
+    subtitle: "Weekly metrics → brand poster for X",
+    link: "https://github.com/mativallej/shipstats",
+  },
+  {
+    title: "building-in-public-template",
+    subtitle: "Open-source template + Claude Code skills",
+    link: "https://github.com/mativallej/building-in-public-template",
+  },
+  {
+    title: "incident-ops",
+    subtitle: "Open-source incident-ops toolkit",
+    link: "https://github.com/mativallej/incident-ops",
   },
 ]

@@ -278,46 +278,31 @@ export function ResultsCard() {
   const impacts: Impact[] = [
     {
       key: "tegu",
-      value: "+2200",
+      value: "3.000+",
       label: t("tegu.label"),
       tagline: t("tegu.tagline"),
       tldr: t.raw("tegu.tldr") as string[],
       pages: t.raw("tegu.pages") as string[][],
       accent: "#A78BFA",
-      href: "https://x.com/mativallej_/status/2053943751014555800",
-      delta: { month: t("tegu.deltaMonth"), week: t("tegu.deltaWeek") },
+      href: "https://tegu.ar/building-in-public",
       series: {
-        // Source-of-truth checkpoints across ~3 months.
+        // Month-end user checkpoints (cumulative), real snapshots.
         monthly: [
-          { label: "Mar start", value: 0 },
-          { label: "Mar mid", value: 100 },
-          { label: "Mar end", value: 600 },
-          { label: "Apr start", value: 843 },
-          { label: "Apr mid", value: 1500 },
-          { label: "Apr end", value: 2110 },
+          { label: "Mar", value: 600 },
+          { label: "Apr", value: 2110 },
           { label: "May", value: 2200 },
+          { label: "Jun", value: 2220 },
+          { label: "Jul", value: 2220 },
+          { label: "Aug", value: 3000 },
         ],
-        // Weekly view: linearly interpolated between adjacent monthly checkpoints.
-        weekly: [
-          { label: "W1 Mar", value: 0 },
-          { label: "W2 Mar", value: 50 },
-          { label: "W3 Mar", value: 100 },
-          { label: "W4 Mar", value: 350 },
-          { label: "W5 Mar", value: 600 },
-          { label: "W1 Apr", value: 843 },
-          { label: "W2 Apr", value: 1170 },
-          { label: "W3 Apr", value: 1500 },
-          { label: "W4 Apr", value: 1805 },
-          { label: "W5 Apr", value: 2110 },
-          { label: "W1 May", value: 2155 },
-          { label: "W2 May", value: 2200 },
-        ],
-        // Historical view: month-end snapshots, including pre-launch zero.
         historical: [
           { label: "Feb", value: 0 },
           { label: "Mar", value: 600 },
           { label: "Apr", value: 2110 },
           { label: "May", value: 2200 },
+          { label: "Jun", value: 2220 },
+          { label: "Jul", value: 2220 },
+          { label: "Aug", value: 3000 },
         ],
       },
     },
@@ -441,7 +426,7 @@ export function ResultsCard() {
 
         {!previewSeries && current.key === "tegu" && (
           <Image
-            src="/images/projects/tegu/logo.webp"
+            src="/images/projects/tegu/logo-green.webp"
             alt="Tegu"
             width={128}
             height={40}
@@ -748,7 +733,7 @@ export function ResultsCard() {
                   )}
                   {view === "updates" && (current.tldr || current.pages) && (
                     <a
-                      href="/tegu-updates/tegu-updates-008.md"
+                      href="/tegu-updates/tegu-updates-009.md"
                       download
                       className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.04em] px-3 py-2 rounded-md text-[#A8A29E] hover:text-white transition-colors cursor-pointer"
                     >
@@ -800,7 +785,7 @@ export function MakeItCard() {
     }
   }, [])
 
-  const { totalStars, totalForks, totalRepos } = stats
+  const { totalStars, totalForks, totalRepos, followers } = stats
 
   return (
     <motion.a
@@ -818,7 +803,7 @@ export function MakeItCard() {
         Stars on GitHub
       </p>
       <p className="text-[12px] text-[#A8A29E] leading-snug">
-        {totalForks} forks · {totalRepos} repos
+        {followers} followers · {totalForks} forks · {totalRepos} repos
       </p>
       <span className="absolute bottom-3 right-4 font-mono text-[10px] text-[#A8A29E] inline-flex items-center gap-1">
         @mativallej <span className="text-[#A8A29E] group-hover:translate-x-0.5 transition-transform inline-flex">

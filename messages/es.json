@@ -51,28 +51,61 @@
     "updated": "En vivo",
     "tegu": {
       "label": "Tegu updates",
-      "tagline": "Highlights del mes · últimos 30 días",
+      "tagline": "Log mensual · actualizado Ago 2026",
       "deltaMonth": "+800 mes",
       "deltaWeek": "+65 semana",
       "chartLabel": "Usuarios totales (acumulado)",
       "tldr": [
-        "2.110 usuarios · 1.000 activos esta semana",
-        "8 pros pagaron en 4 días · 1 churn",
-        "Pico: 21 tareas en un solo día · 13K visitas SEO"
+        "3.000+ usuarios registrados · Córdoba, orgánico",
+        "Cuotas en la app con 0% comisión · primer trabajo de $150.000 ofrecido en cuotas",
+        "Tegu 1.3: sin formulario — 100% IA conversacional · 6 presupuestos en 10 min"
       ],
       "pages": [
         [
-          "1 mes monetizando. Sólo en Córdoba. Suscripción desde el día 1: la comisión no funciona en Argentina, la historia del vertical lo mostraba. Implementamos la primera versión: 8 pros pagaron en menos de 4 días. 1 churn.",
-          "Mientras escribo esto, un pro acaba de verificar su cuenta. Cinco horas después del último release ya eran 8.",
-          "Hablando con los pros uno por uno iteramos la estructura: bajar la barrera, autoregular supply y demanda, mantener la liquidez. Pico de 21 tareas, VEINTIUNO, en un solo día. SEO trabajando solo: 13K visitas.",
-          "Recién empezamos."
+          "Agosto 2026 — Las cuotas llegan a la app",
+          "Ya se puede pagar un trabajo en cuotas desde la app, sin que Tegu cobre comisión.",
+          "El primer profesional ofreció un trabajo de $150.000 en cuotas.",
+          "Tegu 1.3: se borró el formulario entero — pedir un servicio ahora es 100% conversar con el asistente de IA.",
+          "Un pedido recibió 6 presupuestos en 10 minutos: la densidad funciona.",
+          "Superamos los 3.000 usuarios registrados."
         ],
         [
-          "Y la mejor validación del mes no es una métrica.",
-          "Un pro con 25 años en oficios, cuando le pregunté la experiencia, me dijo: \"Está muy buena la app.\" \"Suma, estamos agradecidos porque salen más trabajos.\"",
-          "Natalia consigue 1 trabajo nuevo cada 15 días. David llegó a Córdoba sin contactos, hoy trabaja con nosotros. Damián y Agustina volvieron a contratar.",
-          "La app resuelve problemas reales. Los pros pagan. Los clientes vuelven.",
-          "Nos falta mucho. Retention al mes 2. Escalar pros sin romper la liquidez. CABA. Pero la dirección está clara."
+          "Julio 2026 — Nueva marca y los primeros que pagan",
+          "Estrenamos identidad: un lagarto minimalista y un verde exacto.",
+          "El asistente de IA empieza a armar tu pedido conversando, en lugar de un formulario.",
+          "La suscripción pasó a bandas por tipo de trabajo, más simple.",
+          "Revertimos el cambio a «servicios generales»: la marca vuelve a ser el hogar.",
+          "10 profesionales pagando una suscripción, estable."
+        ],
+        [
+          "Junio 2026 — Todo en público",
+          "Sobrevivimos al Mundial: la demanda cayó ~15%, pero la oferta subió +40%.",
+          "+40 profesionales nuevos verificados.",
+          "Superamos el millón de visualizaciones en X.",
+          "Lanzamos «Descubrir» y el chat con IA antes de contratar.",
+          "Primer post del dev log y la página de building in public."
+        ],
+        [
+          "Mayo 2026 — La suscripción sale al mercado",
+          "8 pros pagaron en los primeros 4 días (y hubo 1 baja).",
+          "Pico de 21 tareas en un solo día.",
+          "Cero comisiones sobre los trabajos, siempre.",
+          "Descartamos el carrito con descuentos por complejo."
+        ],
+        [
+          "Abril 2026 — El mes que todo creció",
+          "De 843 a 2.110 usuarios en un mes.",
+          "193 tareas creadas en 8 categorías.",
+          "30 profesionales verificados.",
+          "13K visitas con el SEO funcionando solo.",
+          "WhatsApp dejó de ser canal de entrada: casi nadie lo usaba."
+        ],
+        [
+          "Marzo 2026 — Salimos al mercado",
+          "La app en producción en Córdoba Capital.",
+          "Primeras tareas reales creadas y completadas.",
+          "800K impresiones en X en dos semanas.",
+          "Primeras entrevistas en radio."
         ]
       ]
     },
@@ -124,12 +157,31 @@
     "teguMetrics": "Tegu — métricas públicas",
     "buildLogs": "Build log mensual",
     "whatNow": "Qué estoy haciendo ahora",
-    "consolePlaceholder": "escribí un log y enter…",
+    "consolePlaceholder": "probá: git checkout tegu · o escribí un log",
     "buildLog": {
+      "2026-08": [
+        "Cuotas en la app: 0% comisión, primer trabajo de $150.000 ofrecido",
+        "Tegu 1.3: sin formulario — pedir es 100% conversar con la IA (voz + fotos)",
+        "Superamos los 3.000 usuarios registrados",
+        "Superé las 200 stars y 145 seguidores en GitHub",
+        "Lancé el template open-source de building in public"
+      ],
+      "2026-07": [
+        "Nueva identidad: lagarto minimalista y un verde exacto (rediseño mono)",
+        "El asistente de IA arma tu pedido conversando, sin formulario",
+        "La suscripción pasó a bandas por tipo de trabajo",
+        "Docta Valley llegó a 240 builders en la comunidad"
+      ],
+      "2026-06": [
+        "Mapa de cobertura real en /mapa",
+        "Precios reales respaldados por datos en el blog",
+        "Dev log público y la página de building in public"
+      ],
       "2026-05": [
         "Lanzamos suscripción: 8 pros pagaron en 4 días, 1 churn",
         "Pico de 21 tareas en un solo día",
-        "Iteramos estructura hablando uno por uno con los pros"
+        "Iteramos estructura hablando uno por uno con los pros",
+        "Lancé shipstats: métricas semanales → poster para X"
       ],
       "2026-04": [
         "De 843 a 2.110 usuarios en un mes",
@@ -145,7 +197,8 @@
   },
   "Products": {
     "title": "Lo que envié",
-    "viewAll": "ver todos →"
+    "viewAll": "ver todos →",
+    "also": "También envié"
   },
   "Writing": {
     "title": "Blog",
@@ -224,6 +277,29 @@
     "tagBlog": "blog",
     "tagUpdate": "tegu updates",
     "ships": {
+      "bip-template": {
+        "target": "building-in-public-template",
+        "description": "Template open-source de Next.js para tener tu propia página de building in public — con skills de Claude Code que la configuran y draftean tu dev log entrevistándote."
+      },
+      "github-milestone-2026-08": {
+        "target": "+200 stars · +145 followers",
+        "description": "Superé las 200 stars y los 145 seguidores en mi trabajo open source en GitHub."
+      },
+      "blog-equipo": {
+        "target": "Un equipo no se busca. Se construye.",
+        "description": "Nuevo ensayo: un equipo no se busca — se construye, en línea con una visión. Cómo empezó Tegu, desde un café en Chacabuco."
+      },
+      "tegu-update-2026-08": {
+        "target": "Tegu updates — Agosto",
+        "description": "Mensual de Tegu — el mes más grande hasta ahora.",
+        "bullets": [
+          "Cuotas en la app con 0% comisión",
+          "Primer trabajo de $150.000 ofrecido en cuotas",
+          "Tegu 1.3: sin formulario, 100% IA conversacional",
+          "6 presupuestos en un pedido en 10 minutos",
+          "Superamos los 3.000 usuarios registrados"
+        ]
+      },
       "shipstats": {
         "target": "shipstats",
         "description": "Métricas semanales → poster de marca para X. JSON entra, HTML listo para screenshot sale."

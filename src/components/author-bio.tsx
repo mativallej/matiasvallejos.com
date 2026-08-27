@@ -14,13 +14,18 @@ export function AuthorBio({ locale }: Props) {
       aria-label={isEs ? "Sobre el autor" : "About the author"}
     >
       <div className="flex items-start gap-4">
-        <Image
-          src="/images/me.webp"
-          alt="Matias Vallejos"
-          width={56}
-          height={56}
-          className="rounded-full object-cover border border-[#3D3935]/60 flex-shrink-0"
-        />
+        {/* Fixed-size circular frame: the image fills it and is clipped by
+            overflow-hidden, so the 3:4 portrait always renders as a true circle
+            regardless of Preflight's `img { height: auto }`. */}
+        <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full border border-[#3D3935]/60">
+          <Image
+            src="/images/me.webp"
+            alt="Matias Vallejos"
+            fill
+            sizes="56px"
+            className="object-cover object-top"
+          />
+        </div>
         <div className="flex flex-col gap-2 min-w-0">
           <div className="flex items-baseline gap-2 flex-wrap">
             <span className="font-mono text-caption text-[#A3B86C] uppercase tracking-[0.08em]">

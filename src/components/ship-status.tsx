@@ -16,6 +16,33 @@ type Ship = {
 // Copy (target, description, bullets) lives in messages/{locale}.json under Ship.ships.<id>.
 const SHIPS: Ship[] = [
   {
+    id: "bip-template",
+    // TODO: confirm the real launch date.
+    shippedAt: "2026-08-25T10:00:00-03:00",
+    link: "https://github.com/mativallej/building-in-public-template",
+    tagKey: "tagOpenSource",
+  },
+  {
+    id: "github-milestone-2026-08",
+    // TODO: confirm the real date + exact star/follower counts.
+    shippedAt: "2026-08-24T10:00:00-03:00",
+    link: "https://github.com/mativallej",
+    tagKey: "tagMilestone",
+  },
+  {
+    id: "blog-equipo",
+    shippedAt: "2026-08-26T10:00:00-03:00",
+    link: "/blog/un-equipo-no-se-busca",
+    tagKey: "tagBlog",
+  },
+  {
+    id: "tegu-update-2026-08",
+    shippedAt: "2026-08-12T10:00:00-03:00",
+    link: "https://tegu.ar/building-in-public",
+    hasBullets: true,
+    tagKey: "tagUpdate",
+  },
+  {
     id: "shipstats",
     shippedAt: "2026-05-13T22:00:00-03:00",
     link: "https://github.com/mativallej/shipstats",

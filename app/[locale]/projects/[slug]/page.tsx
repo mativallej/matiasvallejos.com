@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { setRequestLocale, getTranslations } from "next-intl/server"
 import { notFound } from "next/navigation"
 import { Navbar } from "@/components/navbar"
@@ -9,6 +10,7 @@ import { products } from "@/data/products"
 import { breadcrumbSchema, creativeWorkSchema } from "@/lib/schema"
 import { buildAlternates, buildBreadcrumbs } from "@/lib/seo"
 import { type Locale } from "@/i18n/routing"
+import { CaseMetrics } from "@/components/case-metrics"
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }))
@@ -58,44 +60,122 @@ export default async function ProjectCaseStudyPage({
     ]),
   )
 
+  const gallery = project.images ?? []
+
   return (
-    <main className="min-h-screen bg-[#080706] flex flex-col">
+    <main className="min-h-screen bg-[#080706] flex flex-col text-[#FAFAF9]">
       <JsonLd data={creativeWorkSchema(project)} />
       <JsonLd data={breadcrumbs} />
       <Navbar />
 
-      <section className="flex-1 flex items-center justify-center px-4 lg:px-8 py-24 max-w-[720px] mx-auto w-full">
-        <div className="flex flex-col items-center text-center gap-6">
-          <span className="font-mono text-caption text-[#FB923C] uppercase tracking-[0.08em]">
-            {project.title}
+      {/* Hero */}
+      <header className="px-4 lg:px-8 max-w-[1080px] mx-auto w-full pt-20 pb-10">
+        <div className="flex items-center gap-3 mb-6">
+          {project.logo ? (
+            <span
+              className="flex items-center justify-center w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-[#3D3935]/60"
+              style={{ backgroundColor: project.logoBg ?? "#1C1917" }}
+            >
+              <Image src={project.logo} alt={project.title} width={40} height={40} className="w-full h-full object-cover" />
+            </span>
+          ) : project.emoji ? (
+            <span
+              className="flex items-center justify-center w-10 h-10 rounded-full flex-shrink-0 text-[18px]"
+              style={{ backgroundColor: project.logoBg ?? "#1C1917" }}
+            >
+              {project.emoji}
+            </span>
+          ) : null}
+          <span className="font-mono text-caption text-[#57534E] uppercase tracking-[0.12em]">
+            {project.subtitle ?? t("title")}
           </span>
+        </div>
 
-          <h1 className="font-serif text-[32px] sm:text-[40px] md:text-[56px] leading-[1.05] tracking-tight text-white">
-            {t("title")}
-          </h1>
+        <h1 className="font-serif text-[44px] sm:text-[64px] md:text-[76px] leading-[0.98] tracking-tight">
+          {project.title}
+        </h1>
 
-          <p className="text-body text-[#A8A29E] leading-relaxed max-w-[460px]">
-            {t("description")}
-          </p>
+        <p className="text-body text-[#A8A29E] leading-relaxed mt-5 max-w-[640px]">
+          {project.description}
+        </p>
 
+        {project.tags && project.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-8">
+            {project.tags.map((tag) => (
+              <span key={tag} className="font-mono text-micro uppercase tracking-[0.06em] text-[#A8A29E] border border-[#3D3935]/60 rounded-full px-3 py-1">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <div className="flex flex-wrap items-center gap-4 mt-8">
           {project.link && (
             <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-caption font-semibold uppercase bg-[#E8742A] text-[#080706] px-5 py-3 rounded-md hover:bg-[#D4622A] hover:shadow-glow transition-all duration-200 mt-2"
+              className="inline-flex items-center gap-2 font-mono text-caption font-semibold uppercase bg-[#E8742A] text-[#080706] px-5 py-3 rounded-md hover:bg-[#D4622A] transition-colors duration-200"
             >
               {t("visitProject")} →
             </a>
           )}
-
-          <Link
-            href="/"
-            className="font-mono text-caption text-[#57534E] hover:text-white transition-colors duration-200 mt-4"
-          >
-            ← {t("backHome")}
-          </Link>
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-mono text-caption uppercase text-[#A8A29E] border border-[#3D3935]/60 px-5 py-3 rounded-md hover:text-white hover:border-[#57534E] transition-colors duration-200"
+            >
+              GitHub →
+            </a>
+          )}
         </div>
+      </header>
+
+      {/* Metrics — shared cards */}
+      {project.metrics && project.metrics.length > 0 && <CaseMetrics metrics={project.metrics} />}
+
+      {/* Gallery — video + images */}
+      {(project.video || gallery.length > 0) && (
+        <section className="px-4 lg:px-8 max-w-[1080px] mx-auto w-full pb-16">
+          <div className="grid sm:grid-cols-2 gap-4">
+            {project.video && (
+              <video
+                src={project.video}
+                controls
+                playsInline
+                className={`w-full rounded-2xl border border-[#3D3935]/60 bg-[#0C0A09] ${
+                  gallery.length > 0 ? "" : "sm:col-span-2"
+                } ${project.videoFit === "contain" ? "object-contain" : "object-cover"}`}
+              />
+            )}
+            {gallery.map((src) => (
+              <div
+                key={src}
+                className="relative rounded-2xl overflow-hidden border border-[#3D3935]/60 bg-[#0C0A09]"
+              >
+                <Image
+                  src={src}
+                  alt={project.title}
+                  width={1280}
+                  height={960}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Back */}
+      <section className="px-4 lg:px-8 max-w-[1080px] mx-auto w-full pb-24 border-t border-[#3D3935]/40 pt-8">
+        <Link
+          href="/"
+          className="font-mono text-caption text-[#57534E] hover:text-white transition-colors duration-200"
+        >
+          ← {t("backHome")}
+        </Link>
       </section>
 
       <Footer />
