@@ -1,4 +1,4 @@
-# 🌐 matiasvallejos.com — Personal Brand Website
+# matiasvallejos.com — Personal Brand Website
 
 [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/mativallej_?style=social)](https://x.com/mativallej_)
 [![GitHub top language](https://img.shields.io/github/languages/top/mativallej/matiasvallejos.com?color=1081c2)](https://github.com/mativallej/matiasvallejos.com/search?l=typescript)
@@ -9,32 +9,32 @@
 
 > Personal brand and portfolio site for Matías Vallejos — Product Engineer, Co-Founder @ Tegu. Built with Next.js 16, React 19, Tailwind, and next-intl. Multilingual (EN/ES) by design.
 
-🚀 Live site: **[matiasvallejos.com](https://matiasvallejos.com/)**
+Live site: **[matiasvallejos.com](https://matiasvallejos.com/)**
 
-## 📘 Introduction
+## Introduction
 
 **matiasvallejos.com** is my digital home — a curated portfolio that doubles as a writing platform and a public log of what I'm shipping. It treats product and engineering as one discipline, and uses the site itself as a working example of the principles I write about.
 
 **What lives here:**
-- 🧠 **Writing** – Long-form essays and notes on product, engineering, and building in LatAm.
-- 🛠️ **Projects** – Case studies of what I've built (Tegu, Docta Valley, open source).
-- 📚 **Books & Reading List** – What I'm reading and what I've taken away from it.
-- 🚀 **Ship Log** – A live feed of the latest things I've shipped, with story-style cards.
-- 🌎 **Bilingual (EN/ES)** – Full i18n via `next-intl` with locale-aware routing.
+- **Writing** – Long-form essays and notes on product, engineering, and building in LatAm.
+- **Projects** – Case studies of what I've built (Tegu, Docta Valley, open source).
+- **Books & Reading List** – What I'm reading and what I've taken away from it.
+- **Ship Log** – A live feed of the latest things I've shipped, with story-style cards.
+- **Bilingual (EN/ES)** – Full i18n via `next-intl` with locale-aware routing.
 
-## ✨ Key Features
+## Key Features
 
-- **⚡ Next.js 16 + React 19** – App Router, server components, modern rendering pipeline.
-- **🌍 Internationalization** – `next-intl` with `en` / `es` locales, locale-aware routing (`/`, `/es/...`), and full message catalogs.
-- **🎨 Tailwind + shadcn/ui** – Radix-powered primitives with a hand-tuned design system, dark by default.
-- **🖱️ Custom Cursor Dot** – Brand-orange follower with `mix-blend-difference` contrast and morph-on-hover for interactive elements.
-- **📝 Markdown Blog** – Posts authored in Markdown under `content/blog/`, rendered through a `unified` + `remark` + `rehype` pipeline with autolinked headings.
-- **📊 Live Ship Status** – Floating story-mode card with swipe nav, drag-aware click handling, and full-card linking.
-- **🎞️ Framer Motion** – Smooth, opinionated motion across hero, cards, and overlays.
-- **🌗 Theming** – `next-themes` integration; sensible defaults.
-- **📈 Analytics** – `@vercel/analytics` wired up for production deploys.
+- **Next.js 16 + React 19** – App Router, server components, modern rendering pipeline.
+- **Internationalization** – `next-intl` with `en` / `es` locales, locale-aware routing (`/`, `/es/...`), and full message catalogs.
+- **Tailwind + shadcn/ui** – Radix-powered primitives with a hand-tuned design system, dark by default.
+- **Custom Cursor Dot** – Brand-orange follower with `mix-blend-difference` contrast and morph-on-hover for interactive elements.
+- **Markdown Blog** – Posts authored in Markdown under `content/blog/`, rendered through a `unified` + `remark` + `rehype` pipeline with autolinked headings.
+- **Live Ship Status** – Floating story-mode card with swipe nav, drag-aware click handling, and full-card linking.
+- **Framer Motion** – Smooth, opinionated motion across hero, cards, and overlays.
+- **Theming** – `next-themes` integration; sensible defaults.
+- **Analytics** – `@vercel/analytics` wired up for production deploys.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - **Node.js** 20+ recommended
@@ -75,7 +75,7 @@
 | `npm run lint`     | Run ESLint                                         |
 | `npx tsc --noEmit` | Type-check (the build itself ignores type errors)  |
 
-## 🧩 Detailed Setup (Developers)
+## Detailed Setup (Developers)
 
 ### Tech Stack
 
@@ -168,7 +168,7 @@ import { Link, redirect, usePathname, useRouter } from "@/i18n/navigation";
 
 Do **not** import directly from `next/link` or `next/navigation` for routes that need to respect the active locale.
 
-## 🤖 Architecture Overview
+## Architecture Overview
 
 ### Routing Pipeline
 
@@ -192,14 +192,14 @@ Do **not** import directly from `next/link` or `next/navigation` for routes that
 - `typescript.ignoreBuildErrors: true` in `next.config.mjs` — type errors don't fail the build. Run `npx tsc --noEmit` locally for type safety.
 - `@vercel/analytics` is mounted only in production (`process.env.VERCEL`).
 
-## 💡 Usage Notes
+## Usage Notes
 
 - **Locales are first-class.** Anything user-facing should live under `app/[locale]/`. The top-level `app/page.tsx` / `app/layout.tsx` are intentionally removed — do not recreate them.
 - **`proxy.ts` is the middleware.** Next.js 16 renamed `middleware.ts` → `proxy.ts`. Don't rename it back.
 - **Edit content, not components, when possible.** Blog posts, products, books, and `now` updates should be edits to `content/` or `src/data/`, not new component code.
 - **No test runner.** There is no configured test framework in this repo. Type-check + lint is the safety net.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions and ideas are welcome — especially around accessibility, copy, and translations.
 
@@ -224,16 +224,16 @@ Contributions and ideas are welcome — especially around accessibility, copy, a
 - Don't reintroduce locale-less top-level routes (`app/page.tsx`, etc.).
 - Use the wrapped navigation helpers from `src/i18n/navigation.ts`.
 
-## 📞 Contact
+## Contact
 
 If you have questions, suggestions, or want to collaborate:
 
 - **Name:** Matías Vallejos
-- 🌐 [matiasvallejos.com](https://matiasvallejos.com)
-- 𝕏 [@mativallej_](https://x.com/mativallej_)
-- 💼 [LinkedIn](https://www.linkedin.com/in/mativallej/)
-- 💻 [GitHub](https://github.com/mativallej)
+- [matiasvallejos.com](https://matiasvallejos.com)
+- [@mativallej_](https://x.com/mativallej_)
+- [LinkedIn](https://www.linkedin.com/in/mativallej/)
+- [GitHub](https://github.com/mativallej)
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
