@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="La vida no pasa en la tribuna. Pasa ahi adentro, donde te embarras.">
+  <rect width="1200" height="300" fill="#080706"/>
+  <rect x="72" y="72" width="6" height="156" rx="3" fill="#E8742A"/>
+  <text x="112" y="152" font-family="Georgia, 'Times New Roman', serif" font-size="50" fill="#FAFAF9">La vida no pasa en la tribuna.</text>
+  <text x="112" y="218" font-family="Georgia, 'Times New Roman', serif" font-size="50" fill="#FB923C">Pasa ahí adentro, donde te embarrás.</text>
+</svg>
