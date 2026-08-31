@@ -16,6 +16,8 @@ Me equivocaba.
 
 Estaba leyendo dos libros al mismo tiempo. *La Vaca Púrpura*, de Seth Godin. Y *The Lean Startup*, de Eric Ries. Uno habla de cómo cambió el marketing. El otro, de cómo se construye una startup apostando a la verdad en vez de a la suerte. Leídos juntos, me ordenaron la cabeza sobre cuál era el problema real de Tegu. Y no era el que yo creía.
 
+![La Vaca Púrpura, de Seth Godin](/images/blog/el-problema-no-era-conectar/vaca-purpura-libro.png)
+
 ## El marketing ya no se compra
 
 Godin dice algo que en 2003 era una provocación y hoy es la cancha donde jugamos todos: el sistema de atención cambió.
@@ -52,6 +54,8 @@ Y ahí es donde los dos libros se cruzaron en mi cabeza. Mi verdadero leap of fa
 
 Notable. Recordable. Lo suficientemente distinto como para que la gente vuelva. Para que el producto, diciendo la verdad, se distribuya solo. Para que cuando algo se rompe en tu casa, Tegu sea el default y no el grupo de WhatsApp.
 
+![Mi leap of faith: creía que era la hipótesis de crecimiento; el problema real era la de valor](/images/blog/el-problema-no-era-conectar/leap-of-faith.svg)
+
 ## Por qué conectar es la parte fácil
 
 Conectar un plomero con un cliente lo hace cualquier cosa. Un grupo de vecinos. Un asistente. Facebook Marketplace. La conexión no tiene defensa: el día que resolviste el problema de alguien, esa persona se guarda el contacto y la próxima vez lo llama directo.
@@ -61,6 +65,8 @@ Yo soy el primero. Tengo un plomero de confianza al que le escribo por WhatsApp 
 Ese es el mercado real: baja frecuencia —un servicio así lo necesitás cada varios meses— e informalidad, donde el contacto de confianza es el rey. En un mercado así, mejorar la búsqueda no alcanza. Mejora algo. Pero no hace que alguien vuelva.
 
 La conexión es la vaca marrón. La que nadie recuerda. Ser recordado es la vaca púrpura.
+
+![La conexión es la vaca marrón; el valor es la vaca púrpura](/images/blog/el-problema-no-era-conectar/vaca-marron-vs-purpura.svg)
 
 No es un problema operativo. Es un problema de valor.
 

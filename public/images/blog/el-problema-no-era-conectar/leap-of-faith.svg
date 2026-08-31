@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" role="img" aria-label="Lo que creia: mi leap of faith era la hipotesis de crecimiento (cold start, conectar, densidad). El problema real: la hipotesis de valor (ser notable, retener, que la gente vuelva).">
+  <rect width="1200" height="620" fill="#080706"/>
+  <rect x="24" y="24" width="1152" height="572" rx="20" fill="none" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="64" y="84" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#57534E">MI LEAP OF FAITH · DONDE ESTABA EL PROBLEMA</text>
+
+  <!-- Lo que creia -->
+  <rect x="64" y="150" width="440" height="320" rx="16" fill="none" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="96" y="206" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#57534E">LO QUE CREIA</text>
+  <text x="96" y="262" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="27" letter-spacing="1" fill="#78716C">Hipotesis de</text>
+  <text x="96" y="298" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="27" letter-spacing="1" fill="#78716C">CRECIMIENTO</text>
+  <text x="96" y="360" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" fill="#57534E">cold start</text>
+  <text x="96" y="394" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" fill="#57534E">conectar oferta y demanda</text>
+  <text x="96" y="428" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" fill="#57534E">densidad</text>
+
+  <!-- flecha -->
+  <path d="M 536 310 L 656 310" stroke="#FB923C" stroke-width="4" fill="none"/>
+  <path d="M 644 297 L 660 310 L 644 323" stroke="#FB923C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- El problema real -->
+  <rect x="696" y="150" width="440" height="320" rx="16" fill="none" stroke="#FB923C" stroke-width="2"/>
+  <text x="728" y="206" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#FB923C">EL PROBLEMA REAL</text>
+  <text x="728" y="262" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="27" letter-spacing="1" fill="#FAFAF9">Hipotesis de</text>
+  <text x="728" y="298" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="27" letter-spacing="1" fill="#FAFAF9">VALOR</text>
+  <text x="728" y="360" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" fill="#A8A29E">ser notable</text>
+  <text x="728" y="394" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" fill="#A8A29E">retener</text>
+  <text x="728" y="428" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" fill="#A8A29E">que la gente vuelva</text>
+
+  <text x="600" y="540" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" letter-spacing="1" fill="#57534E">El valor primero. La distribucion es consecuencia.</text>
+</svg>
