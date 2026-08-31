@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" width="1200" height="720" role="img" aria-label="Trabajos completados por rubro en Tegu: Plomería 44%, Manos Útiles 21%, Limpieza 14%, Aire 10%, Electricidad 7%, el resto 4%. El 96% se concentra en 5 rubros.">
+  <rect width="1200" height="720" fill="#080706"/>
+  <rect x="24" y="24" width="1152" height="672" rx="20" fill="none" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="64" y="88" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#57534E">TRABAJOS COMPLETADOS POR RUBRO</text>
+
+  <!-- Plomería 44% -->
+  <text x="300" y="186" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#E7E5E4">Plomería</text>
+  <rect x="330" y="160" width="710" height="32" rx="16" fill="#292524"/>
+  <rect x="330" y="160" width="710" height="32" rx="16" fill="#FAFAF9"/>
+  <text x="1136" y="186" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="30" fill="#FAFAF9">44%</text>
+
+  <!-- Manos Útiles 21% -->
+  <text x="300" y="264" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#E7E5E4">Manos Útiles</text>
+  <rect x="330" y="238" width="710" height="32" rx="16" fill="#292524"/>
+  <rect x="330" y="238" width="339" height="32" rx="16" fill="#FAFAF9"/>
+  <text x="1136" y="264" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="30" fill="#FAFAF9">21%</text>
+
+  <!-- Limpieza 14% -->
+  <text x="300" y="342" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#E7E5E4">Limpieza</text>
+  <rect x="330" y="316" width="710" height="32" rx="16" fill="#292524"/>
+  <rect x="330" y="316" width="226" height="32" rx="16" fill="#FAFAF9"/>
+  <text x="1136" y="342" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="30" fill="#FAFAF9">14%</text>
+
+  <!-- Aire 10% -->
+  <text x="300" y="420" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#E7E5E4">Aire</text>
+  <rect x="330" y="394" width="710" height="32" rx="16" fill="#292524"/>
+  <rect x="330" y="394" width="161" height="32" rx="16" fill="#FAFAF9"/>
+  <text x="1136" y="420" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="30" fill="#FAFAF9">10%</text>
+
+  <!-- Electricidad 7% -->
+  <text x="300" y="498" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#E7E5E4">Electricidad</text>
+  <rect x="330" y="472" width="710" height="32" rx="16" fill="#292524"/>
+  <rect x="330" y="472" width="113" height="32" rx="16" fill="#FAFAF9"/>
+  <text x="1136" y="498" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="30" fill="#FAFAF9">7%</text>
+
+  <!-- El resto 4% -->
+  <text x="300" y="576" text-anchor="end" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#78716C">El resto</text>
+  <rect x="330" y="550" width="710" height="32" rx="16" fill="#292524"/>
+  <rect x="330" y="550" width="65" height="32" rx="16" fill="#57534E"/>
+  <text x="1136" y="576" text-anchor="end" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="30" fill="#78716C">4%</text>
+
+  <text x="600" y="656" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" letter-spacing="1" fill="#57534E">El 96% sale de estos 5 rubros. La cola larga casi no mueve la aguja.</text>
+</svg>

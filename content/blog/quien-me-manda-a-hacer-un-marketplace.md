@@ -10,6 +10,8 @@ twitterUrl: null
 
 Nadie. Y sin embargo, acá estamos.
 
+![Tegu — Tu hogar, en buenas manos.](/images/blog/quien-me-manda-a-hacer-un-marketplace/marca-tegu.svg)
+
 Hace cinco meses lanzamos Tegu. En estos cinco meses aprendimos que un marketplace es, de lejos, el negocio más difícil que elegimos construir. No porque el producto sea complicado —una app que conecta a alguien que necesita un plomero con un plomero no es física cuántica—. Es difícil porque tenés que construir dos negocios a la vez, y cada decisión tiene una trampa escondida.
 
 Este es un repaso honesto de las piñas que nos llevamos, y de lo que cada una nos enseñó. Sin manual, sin teoría de libro. A los golpes.
@@ -26,13 +28,17 @@ Empezás con las dos manos atadas y tenés que soltar una sin que se te caiga la
 
 Un marketplace es oferta y demanda corriendo en paralelo, y casi nunca están sincronizados.
 
+![Oferta y demanda semana a semana: dos curvas que corren en paralelo y casi nunca coinciden en el mismo punto](/images/blog/quien-me-manda-a-hacer-un-marketplace/oferta-demanda.svg)
+
 Podés tener la demanda entrando fuerte y la oferta sin capacidad para responderla. O al revés: un montón de profesionales esperando un trabajo que no llega. Mirás un número, te ponés contento, y resulta que estabas mirando un solo lado del mercado. Aprendés a desconfiar de cualquier métrica que mire una sola cara.
 
 ## La métrica que engaña
 
 Te damos la más fácil de todas.
 
-Hoy Tegu tiene más de 3.000 usuarios. Suena bien. No significa nada.
+Hoy Tegu tiene más de 3.200 usuarios. Suena bien. No significa nada.
+
+![Tegu hoy: 3.200 usuarios, 110 profesionales, 100 tareas resueltas y 15 minutos de time to first offer](/images/blog/quien-me-manda-a-hacer-un-marketplace/metrica-3200-usuarios.svg)
 
 Lo que importa en un marketplace no es cuánta gente se registra. Es la liquidez: que alguien que necesita algo lo consiga, rápido y bien. Un registro no es liquidez. Una tarea resuelta, sí. Podés tener 100.000 registros y cero liquidez, y en ese caso no tenés nada.
 
@@ -43,6 +49,10 @@ La primera lección cara fue dejar de mirar los números que suben para sentirno
 Si la liquidez es el objetivo, ¿cómo se consigue? Con densidad.
 
 Y acá va algo contraintuitivo: no te sirven 200 profesionales repartidos por toda una ciudad. Te sirven 20 del mismo oficio, en la misma zona, disponibles hoy. La liquidez es local y es por categoría: es una propiedad de un pedacito chiquito del mercado, no del total. Diluís esa densidad y no cierra nada. Podés tener un promedio de ciudad que parece sano y esconder abajo un montón de rincones muertos.
+
+Y no es una corazonada: cuando miramos qué se resuelve de verdad, el 96% de los trabajos completados sale de apenas 5 rubros. Ahí se junta la densidad; el resto es una cola larga que casi no mueve la aguja. [Lo desglosamos rubro por rubro acá](https://tegu.ar/building-in-public/pivot-categorias).
+
+![Trabajos completados por rubro en Tegu: el 96% se concentra en 5 rubros —Plomería 44%, Manos Útiles 21%, Limpieza 14%, Aire 10%, Electricidad 7%— y todo el resto suma 4%](/images/blog/quien-me-manda-a-hacer-un-marketplace/concentracion-rubros.svg)
 
 ## Una trampa en cada movida
 
@@ -68,9 +78,21 @@ Y arriba de todo lo anterior, hay una variable que decide si algo se cierra o no
 
 Para que una persona le abra la puerta de su casa a un desconocido, tiene que confiar. Para que un profesional se juegue su reputación y su tiempo en una app nueva, tiene que confiar. La confianza es lo que convierte una oferta en un trabajo hecho. Y no se compra con pauta.
 
+Y esa confianza no la decimos nosotros: la dicen los que la usan. Las [reseñas son públicas](https://tegu.ar/opiniones), tal cual las dejaron —las buenas y las que nos marcan lo que falta.
+
+★★★★★ *"Al fin una aplicación para esto. ¡Muchísimas gracias!"* — Jez · Google Play
+
+★★★★★ *"Muy buena app para trabajos en Córdoba. Eficaz."* — Excelente, electricista habilitado · App Store
+
+★★★★★ *"Seriedad y compromiso."* — Maximiliano Benítez · Google Play
+
+★★★☆☆ *"Una app interesante, apuesto por ella. Todavía hay cosas para mejorar, pero por lo demás está genial."* — Lautaxx Disante · Google Play
+
 ## Al final, es el moat
 
 Después de cinco meses y unas cuantas piñas, llegamos a algo tan simple como difícil: casi todo se reduce a concentrarte en tu moat.
+
+![Un blanco de tiro con un dardo clavado en el centro: el juego es saber cuál es tu moat](/images/blog/quien-me-manda-a-hacer-un-marketplace/moat-target.svg)
 
 Lo simple es decirlo. Lo difícil de verdad es saber cuál es —y no confundirlo con lo que no lo es. No es la interfaz: un chat lindo lo tiene cualquiera. No es la cantidad de usuarios: ya vimos que ese número engaña. No es la amplitud del catálogo: eso solo fragmenta.
 

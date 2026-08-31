@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" role="img" aria-label="Un blanco de tiro con un dardo clavado en el centro: concentrarse en el moat.">
+  <rect width="1200" height="560" fill="#080706"/>
+  <rect x="24" y="24" width="1152" height="512" rx="20" fill="none" stroke="#3D3935" stroke-width="1.5"/>
+
+  <!-- target rings -->
+  <circle cx="600" cy="265" r="160" fill="#0C0A09" stroke="#3D3935" stroke-width="2"/>
+  <circle cx="600" cy="265" r="122" fill="none" stroke="#FB923C" stroke-width="3" opacity="0.35"/>
+  <circle cx="600" cy="265" r="85" fill="none" stroke="#FB923C" stroke-width="3" opacity="0.6"/>
+  <circle cx="600" cy="265" r="49" fill="none" stroke="#FB923C" stroke-width="3" opacity="0.9"/>
+  <circle cx="600" cy="265" r="15" fill="#FB923C"/>
+
+  <!-- dart -->
+  <g transform="rotate(-45 600 265)">
+    <line x1="600" y1="265" x2="744" y2="265" stroke="#FAFAF9" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="600,265 625,254 625,276" fill="#FAFAF9"/>
+    <polygon points="733,248 733,282 768,265" fill="#FB923C" opacity="0.6"/>
+    <polygon points="748,248 748,282 783,265" fill="#FB923C"/>
+  </g>
+
+  <text x="600" y="500" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" letter-spacing="1" fill="#57534E">El juego es saber cuál es tu moat.</text>
+</svg>
