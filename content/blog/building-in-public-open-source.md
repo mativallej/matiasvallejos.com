@@ -24,7 +24,11 @@ Un template. Next.js, listo para deployar en Vercel.
 
 Clonás el repo y en minutos tenés tu propia página de building in public: tu feature log, tus números, tu roadmap, tu dev log. Todo tuyo, sin tocar un componente.
 
+![El template recién clonado: Acme Tasks, listo para hacerlo tuyo](/images/blog/building-in-public-open-source/template-acme.png)
+
 Está en GitHub: [building-in-public-template](https://github.com/mativallej/building-in-public-template). El ejemplo vivo es la página de Tegu.
+
+![El ejemplo vivo: tegu.ar/building-in-public](/images/blog/building-in-public-open-source/pagina-tegu.png)
 
 ## Lo que lo hace distinto
 
