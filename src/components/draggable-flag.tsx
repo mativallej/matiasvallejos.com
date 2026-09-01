@@ -92,6 +92,19 @@ export function DraggableFlag() {
     return () => window.removeEventListener("keydown", onKey)
   }, [open])
 
+  // Un click dentro de la foto del hero (dispatch 'flag-to-cursor') teletransporta
+  // la bandera justo arriba del cursor. Mantiene el video y el drag intactos.
+  useEffect(() => {
+    const onMove = (e: Event) => {
+      const detail = (e as CustomEvent<{ x: number; y: number }>).detail
+      if (!detail) return
+      x.set(detail.x - COLLAPSED_SIZE / 2)
+      y.set(detail.y - COLLAPSED_SIZE - 8)
+    }
+    window.addEventListener("flag-to-cursor", onMove)
+    return () => window.removeEventListener("flag-to-cursor", onMove)
+  }, [x, y])
+
   if (!enabled) return null
 
   return (
