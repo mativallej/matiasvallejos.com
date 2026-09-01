@@ -50,8 +50,16 @@ function ImageCarousel({ images, title, fit = "cover" }: { images: string[]; tit
 
   useEffect(() => {
     if (!emblaApi || images.length <= 1) return
-    const interval = setInterval(() => emblaApi.scrollNext(), 4000)
-    return () => clearInterval(interval)
+    // Offset inicial aleatorio: evita que todas las carousels avancen en el
+    // mismo instante (Tegu y Docta Valley se veian sincronizadas).
+    let interval: ReturnType<typeof setInterval> | undefined
+    const timeout = setTimeout(() => {
+      interval = setInterval(() => emblaApi.scrollNext(), 4000)
+    }, Math.random() * 4000)
+    return () => {
+      clearTimeout(timeout)
+      if (interval) clearInterval(interval)
+    }
   }, [emblaApi, images.length])
 
   return (
