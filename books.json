@@ -342,5 +342,14 @@
       "book"
     ],
     "folder": "Read"
+  },
+  {
+    "title": "Escaping the Build Trap",
+    "author": "Melissa Perri",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Startup"
   }
 ]
