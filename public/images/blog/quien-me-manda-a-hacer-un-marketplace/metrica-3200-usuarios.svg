@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="1200" height="760" role="img" aria-label="Tegu hoy: 3.200 usuarios, 110 profesionales, 550 tareas resueltas y 15 minutos de time to first offer">
+  <rect width="1200" height="760" fill="#080706"/>
+  <rect x="24" y="24" width="1152" height="712" rx="20" fill="none" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="64" y="100" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="24" letter-spacing="3" fill="#57534E">TEGU · HOY</text>
+  <line x1="600" y1="150" x2="600" y2="712" stroke="#3D3935" stroke-width="1.5"/>
+  <line x1="64" y1="430" x2="1136" y2="430" stroke="#3D3935" stroke-width="1.5"/>
+
+  <!-- Row 1: escala (blanco) -->
+  <text x="340" y="320" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="132" fill="#FAFAF9">3.200</text>
+  <text x="340" y="374" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="24" letter-spacing="4" fill="#A8A29E">USUARIOS</text>
+  <text x="860" y="320" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="132" fill="#FAFAF9">110</text>
+  <text x="860" y="374" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="24" letter-spacing="4" fill="#A8A29E">PROFESIONALES</text>
+
+  <!-- Row 2: liquidez real (naranja) -->
+  <text x="340" y="600" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="132" fill="#FB923C">100</text>
+  <text x="340" y="654" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="24" letter-spacing="4" fill="#A8A29E">TAREAS RESUELTAS</text>
+  <text x="860" y="600" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="132" fill="#FB923C">15 min</text>
+  <text x="860" y="654" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#A8A29E">TIME TO FIRST OFFER</text>
+</svg>

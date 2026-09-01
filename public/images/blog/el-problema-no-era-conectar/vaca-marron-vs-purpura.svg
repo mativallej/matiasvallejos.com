@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" role="img" aria-label="La conexion es la vaca marron: la hace cualquiera, no se recuerda, no tiene defensa. El valor es la vaca purpura: notable, se recuerda, se distribuye solo.">
+  <rect width="1200" height="620" fill="#080706"/>
+  <rect x="24" y="24" width="1152" height="572" rx="20" fill="none" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="64" y="84" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#57534E">VACA MARRON vs VACA PURPURA</text>
+
+  <line x1="600" y1="132" x2="600" y2="500" stroke="#3D3935" stroke-width="1.5"/>
+
+  <!-- Conexion (marron) -->
+  <rect x="64" y="150" width="40" height="40" rx="8" fill="#78716C"/>
+  <text x="124" y="180" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="30" letter-spacing="2" fill="#A8A29E">CONEXION</text>
+  <text x="64" y="256" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="24" fill="#78716C">la hace cualquiera</text>
+  <text x="64" y="306" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="24" fill="#78716C">no se recuerda</text>
+  <text x="64" y="356" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="24" fill="#78716C">no tiene defensa</text>
+  <text x="64" y="466" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#57534E">la vaca marron</text>
+
+  <!-- Valor (purpura) -->
+  <rect x="664" y="150" width="40" height="40" rx="8" fill="#A78BFA"/>
+  <text x="724" y="180" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="30" letter-spacing="2" fill="#FAFAF9">VALOR</text>
+  <text x="664" y="256" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="24" fill="#A78BFA">notable</text>
+  <text x="664" y="306" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="24" fill="#A78BFA">se recuerda</text>
+  <text x="664" y="356" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="24" fill="#A78BFA">se distribuye solo</text>
+  <text x="664" y="466" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#A78BFA">la vaca purpura</text>
+
+  <text x="600" y="566" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" letter-spacing="1" fill="#57534E">Conectar es la parte facil. Ser recordado es el moat.</text>
+</svg>

@@ -12,9 +12,13 @@ Para recibir, primero tenes que dar. Y no hablo de dar cosas, hablo de dar energ
 
 > "Only those who have learned the power of sincere and selfless contribution experience life's deepest joy: true fulfillment." —Anthony Robbins
 
+![El valor no se genera acumulando. Se genera compartiendo.](/images/blog/para-recibir-primero-tenes-que-dar/destacado-valor.svg)
+
 Y eso es lo que pasa cuando das de verdad. Sentis algo que no te lo da ningun logro material, ningun titulo, ningun reconocimiento externo. Te sentis completo. Porque dar desde un lugar genuino te conecta con algo mas grande que vos mismo, te conecta con un proposito que trasciende tu persona. Y ahi es donde aparece la plenitud, no antes.
 
 Pero ojo, para dar tenes que estar dispuesto a algo que la mayoria evita: la incertidumbre. Tenes que estar abierto a sentir que quizas no funcione, abierto a lo nuevo, a lo desconocido, a la critica. A meterte en la arena, en el campo de batalla donde realmente suceden las cosas. Porque la vida no pasa en la tribuna, la vida pasa ahi adentro, donde te embarras, donde te equivocas, donde construis de verdad.
+
+![La vida no pasa en la tribuna. Pasa ahi adentro, donde te embarras.](/images/blog/para-recibir-primero-tenes-que-dar/destacado-tribuna.svg)
 
 > "Why are so many people afraid to take such small steps to help others? One of the most common reasons is that they are just embarrassed to be doing something they're uncertain about. But you know what? If you want to play the game and win, you've got to play full out."
 
@@ -51,6 +55,8 @@ Porque la recepcion, al final de cuentas, es una consecuencia. Es el resultado d
 > "Once touched by the gratitude of a fellow human being, a life transforms forever."
 
 Para recibir, primero tenes que dar.
+
+![Awaken the Giant Within, de Anthony Robbins](/images/blog/para-recibir-primero-tenes-que-dar/awaken-the-giant.png)
 
 Que estas dando hoy?
 

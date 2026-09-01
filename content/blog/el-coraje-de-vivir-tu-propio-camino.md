@@ -12,6 +12,10 @@ El arrepentimiento numero uno de los moribundos, segun Bronnie Ware en *The Top 
 
 La comparacion —hija del ego— es la que corrompe esa decision. Te empuja a copiar el camino de otro, o a rechazarlo por pura rebeldia. Las dos son formas de dejar que otros decidan por vos: en una obedeces al modelo, en la otra obedeces a su contrario. La comparacion es ego disfrazado, te pone a correr la carrera de otro mientras la tuya queda en pausa.
 
+![Cuando el futbol todavia era el plan](/images/blog/el-coraje-de-vivir-tu-propio-camino/futbol.jpg)
+
 Lo vivi a los 21, cuando Belgrano me dejo libre. Lo peor no fue quedar afuera, fue ver a los demas seguir y medirme contra cada uno. Lo que me sostuvo fue una decision tomada antes, en 2020, cuando todavia entrenaba doble turno: de noche habia empezado a estudiar programacion. No era el camino que se espera de un jugador. Era el mio. Un camino que parecia convencional —ir a la universidad— pero que era propio, porque lo elegi yo y no el mandato.
+
+![Programando: el camino que elegi yo](/images/blog/el-coraje-de-vivir-tu-propio-camino/programando.jpg)
 
 De aca sale un filtro practico: antes de cualquier decision grande, preguntarse si la estoy eligiendo yo o la esta eligiendo la comparacion. Y en el contenido de marca, hablar del camino propio sin demonizar el convencional: el cliche del dropout es tambien una forma de comparacion invertida.

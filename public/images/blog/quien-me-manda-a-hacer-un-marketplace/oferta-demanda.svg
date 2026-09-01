@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" role="img" aria-label="Oferta y demanda semana a semana: dos curvas que corren en paralelo y casi nunca coinciden en el mismo punto.">
+  <rect width="1200" height="620" fill="#080706"/>
+  <rect x="24" y="24" width="1152" height="572" rx="20" fill="none" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="64" y="84" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#57534E">OFERTA vs DEMANDA · SEMANA A SEMANA</text>
+
+  <!-- legend -->
+  <rect x="64" y="114" width="30" height="6" rx="3" fill="#FB923C"/>
+  <text x="104" y="122" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#A8A29E">DEMANDA</text>
+  <rect x="256" y="114" width="30" height="6" rx="3" fill="#FAFAF9"/>
+  <text x="296" y="122" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#A8A29E">OFERTA</text>
+
+  <polyline points="120,360 257,280 394,200 531,250 668,190 805,290 942,230 1080,300" fill="none" stroke="#FB923C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="120,430 257,410 394,350 531,300 668,330 805,250 942,320 1080,270" fill="none" stroke="#FAFAF9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="600" y="566" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" letter-spacing="1" fill="#57534E">Corren en paralelo. Casi nunca en el mismo punto.</text>
+</svg>

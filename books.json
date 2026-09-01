@@ -306,5 +306,41 @@
       "book"
     ],
     "folder": "Archive"
+  },
+  {
+    "title": "Empieza con el porqué",
+    "author": "Simon Sinek",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Startup"
+  },
+  {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Library/Personal Development"
+  },
+  {
+    "title": "Pensar rápido, pensar despacio",
+    "author": "Daniel Kahneman",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
+  },
+  {
+    "title": "Padre rico, padre pobre",
+    "author": "Robert Kiyosaki",
+    "stars": 5,
+    "tags": [
+      "book"
+    ],
+    "folder": "Read"
   }
 ]
