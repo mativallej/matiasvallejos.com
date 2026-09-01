@@ -81,6 +81,7 @@ export const products: Product[] = [
     emoji: "💸",
     logoBg: "#1C1917",
     slug: "ai-expense-tracker",
+    caseStudy: "/case-study/ai-expense-tracker",
     description: "Open-source automation that processes bank statements and receipts with GPT-4o, categorizes expenses, and populates Google Sheets dashboards. Upload via web or Google Drive.",
     tags: ["n8n", "OpenAI", "Next.js", "Google Sheets", "Docker"],
     link: "https://x.com/mativallejosdev/status/1979669047622209758",
