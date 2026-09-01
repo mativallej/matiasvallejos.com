@@ -18,8 +18,8 @@ export async function generateMetadata({
   return {
     title: isEs ? "Sobre mí" : "About",
     description: isEs
-      ? "Matías Vallejos — Product Engineer y Co-Founder de Tegu. Construyo productos digitales desde Córdoba, Argentina."
-      : "Matias Vallejos — Product Engineer & Co-Founder @ Tegu. Building lean digital products from Córdoba, Argentina.",
+      ? "Matías Vallejos — Emprendedor y Co-Founder de Tegu. Construyo productos digitales desde Córdoba, Argentina."
+      : "Matias Vallejos — Entrepreneur & Co-Founder @ Tegu. Building lean digital products from Córdoba, Argentina.",
     alternates: buildAlternates("/about", locale as Locale),
   }
 }

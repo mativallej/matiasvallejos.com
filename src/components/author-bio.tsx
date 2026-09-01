@@ -40,8 +40,8 @@ export function AuthorBio({ locale }: Props) {
           </div>
           <p className="text-body-sm text-[#A8A29E] leading-relaxed">
             {isEs
-              ? "Product Engineer & Co-Founder de Tegu. Construyo productos lean desde Córdoba, Argentina. Co-fundé Docta Valley (+240 builders) y publico open source."
-              : "Product Engineer & Co-Founder @ Tegu. Building lean products from Córdoba, Argentina. Co-founded Docta Valley (240+ builders) and ship open source."}
+              ? "Emprendedor & Co-Founder de Tegu. Construyo productos lean desde Córdoba, Argentina. Co-fundé Docta Valley (+240 builders) y publico open source."
+              : "Entrepreneur & Co-Founder @ Tegu. Building lean products from Córdoba, Argentina. Co-founded Docta Valley (240+ builders) and ship open source."}
           </p>
           <div className="flex items-center gap-4 mt-1 font-mono text-caption text-[#57534E]">
             <a

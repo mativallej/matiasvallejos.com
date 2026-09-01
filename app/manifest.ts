@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Matias Vallejos",
     short_name: "Matias",
     description:
-      "Product Engineer & Co-Founder @ Tegu. Building lean products from Córdoba, Argentina.",
+      "Entrepreneur & Co-Founder @ Tegu. Building lean products from Córdoba, Argentina.",
     start_url: "/",
     display: "standalone",
     background_color: "#080706",

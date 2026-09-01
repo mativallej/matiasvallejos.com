@@ -16,8 +16,8 @@
     "panelSection": "Section",
     "panelHome": "Home",
     "roleLine1": "Co-Founder @ Tegu",
-    "roleLine2": "Product Engineer",
-    "role": "Co-Founder @ Tegu · Product Engineer",
+    "roleLine2": "Entrepreneur",
+    "role": "Co-Founder @ Tegu · Entrepreneur",
     "available": "Available for collaborations",
     "currently": "Currently shipping Tegu in Córdoba",
     "secondary": {
@@ -29,7 +29,7 @@
       "communityTag": "Community",
       "communityTitle": "Builders in Docta Valley"
     },
-    "intro": "For technical founders in LatAm who actually want to ship. I'm a product engineer — I write code, talk to users, and treat both as one discipline. Building from Córdoba is harder than from SF, and that's the unfair advantage. Currently shipping Tegu (2,200 users), Docta Valley (240+ builders), and open source (118K views on launch).",
+    "intro": "For technical founders in LatAm who actually want to ship. I'm a entrepreneur — I write code, talk to users, and treat both as one discipline. Building from Córdoba is harder than from SF, and that's the unfair advantage. Currently shipping Tegu (2,200 users), Docta Valley (240+ builders), and open source (118K views on launch).",
     "beliefLead": "I believe the best code is the code that creates impact — not the code that impresses other developers. Every project I touch starts with a question:",
     "beliefQuote": "What problem are we actually solving?",
     "beliefClose": "I don't write code for the sake of it. I build products that people actually use — tools that feel right, work fast, and get out of the way. Less architecture, more shipping.",
@@ -42,7 +42,7 @@
     "metaLocation": "Location",
     "metaLocationValue": "Córdoba, Argentina 🇦🇷",
     "metaFocus": "Focus",
-    "metaFocusValue": "Product Engineering",
+    "metaFocusValue": "Entrepreneurship",
     "metaSince": "Since",
     "metaSinceValue": "2021"
   },
@@ -333,7 +333,7 @@
     "label": "Press",
     "title": "In the news.",
     "titleAccent": "No PR firm involved.",
-    "description": "Press coverage of Tegu and my work as a product engineer in Córdoba. Every outlet picked the story up on its own — no agency, no payola.",
+    "description": "Press coverage of Tegu and my work as a entrepreneur in Córdoba. Every outlet picked the story up on its own — no agency, no payola.",
     "filterAll": "all",
     "item": "story",
     "items": "stories",
