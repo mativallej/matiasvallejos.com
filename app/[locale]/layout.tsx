@@ -12,9 +12,9 @@ import { CursorDot } from "@/components/cursor-dot"
 import { rootGraph } from "@/lib/schema"
 import "@/styles/globals.css"
 
-const SITE_TITLE = "Matias Vallejos — Product Engineer & Co-Founder @ Tegu"
+const SITE_TITLE = "Matias Vallejos — Entrepreneur & Co-Founder @ Tegu"
 const SITE_DESCRIPTION =
-  "Product Engineer in LatAm. Building Tegu (2,200 users), co-founded Docta Valley (240+ builders), shipping open source. I treat product and engineering as one discipline."
+  "Entrepreneur in LatAm. Building Tegu (2,200 users), co-founded Docta Valley (240+ builders), shipping open source. I treat product and engineering as one discipline."
 const SITE_OG_IMAGE = `${SITE_URL}/og-1200x630.jpg`
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   keywords: [
     "Matias Vallejos",
-    "Product Engineer",
+    "Entrepreneur",
     "Co-Founder",
     "Tegu",
     "Docta Valley",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
         url: SITE_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Matias Vallejos — Co-Founder @ Tegu, Product Engineer",
+        alt: "Matias Vallejos — Co-Founder @ Tegu, Entrepreneur",
       },
     ],
   },

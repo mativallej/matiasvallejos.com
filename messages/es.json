@@ -16,8 +16,8 @@
     "panelSection": "Sección",
     "panelHome": "Inicio",
     "roleLine1": "Co-Founder @ Tegu",
-    "roleLine2": "Ingeniero de Producto",
-    "role": "Co-Founder @ Tegu · Ingeniero de Producto",
+    "roleLine2": "Emprendedor",
+    "role": "Co-Founder @ Tegu · Emprendedor",
     "available": "Disponible para colaboraciones",
     "currently": "Lanzando Tegu en Córdoba",
     "secondary": {
@@ -29,7 +29,7 @@
       "communityTag": "Comunidad",
       "communityTitle": "Builders en Docta Valley"
     },
-    "intro": "Para founders técnicos en LatAm que quieren shippear. Soy product engineer — escribo código, hablo con usuarios y los trato como una sola disciplina. Construir desde Córdoba es harder que desde SF, y esa es la ventaja injusta. Construyendo Tegu (2.200 usuarios), Docta Valley (+240 builders) y open source (118K vistas en su lanzamiento).",
+    "intro": "Para founders técnicos en LatAm que quieren shippear. Soy emprendedor — escribo código, hablo con usuarios y los trato como una sola disciplina. Construir desde Córdoba es harder que desde SF, y esa es la ventaja injusta. Construyendo Tegu (2.200 usuarios), Docta Valley (+240 builders) y open source (118K vistas en su lanzamiento).",
     "beliefLead": "Creo que el mejor código es el que genera impacto, no el que impresiona a otros desarrolladores. Cada proyecto que toco empieza con una pregunta:",
     "beliefQuote": "¿Qué problema estamos resolviendo en realidad?",
     "beliefClose": "No escribo código porque sí. Construyo productos que la gente realmente usa — herramientas que se sienten bien, funcionan rápido y no estorban. Menos arquitectura, más entrega.",
@@ -333,7 +333,7 @@
     "label": "Prensa",
     "title": "En los medios.",
     "titleAccent": "Sin agencia de PR.",
-    "description": "Cobertura de prensa de Tegu y mi trabajo como product engineer en Córdoba. Cada outlet tomó la historia por su cuenta — sin agencia, sin canje.",
+    "description": "Cobertura de prensa de Tegu y mi trabajo como emprendedor en Córdoba. Cada outlet tomó la historia por su cuenta — sin agencia, sin canje.",
     "filterAll": "todas",
     "item": "nota",
     "items": "notas",

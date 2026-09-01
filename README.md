@@ -7,7 +7,7 @@
 ![Stars](https://img.shields.io/github/stars/mativallej/matiasvallejos.com.svg)
 ![Watchers](https://img.shields.io/github/watchers/mativallej/matiasvallejos.com.svg)
 
-> Personal brand and portfolio site for Matías Vallejos — Product Engineer, Co-Founder @ Tegu. Built with Next.js 16, React 19, Tailwind, and next-intl. Multilingual (EN/ES) by design.
+> Personal brand and portfolio site for Matías Vallejos — Entrepreneur, Co-Founder @ Tegu. Built with Next.js 16, React 19, Tailwind, and next-intl. Multilingual (EN/ES) by design.
 
 Live site: **[matiasvallejos.com](https://matiasvallejos.com/)**
 

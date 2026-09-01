@@ -24,7 +24,7 @@ export function personSchema() {
     name: "Matias Vallejos",
     url: SITE_URL,
     image: absoluteUrl("/images/me.webp"),
-    jobTitle: "Product Engineer & Co-Founder",
+    jobTitle: "Entrepreneur & Co-Founder",
     worksFor: { "@id": ORG_ID },
     homeLocation: {
       "@type": "Place",
@@ -32,7 +32,7 @@ export function personSchema() {
     },
     nationality: { "@type": "Country", name: "Argentina" },
     knowsAbout: [
-      "Product Engineering",
+      "Entrepreneurship",
       "Next.js",
       "TypeScript",
       "Marketplaces",
