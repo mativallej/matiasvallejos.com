@@ -51,7 +51,6 @@ export function Hero() {
   const t = useTranslations('Hero');
   const [copied, setCopied] = useState(false);
   const [socialHover, setSocialHover] = useState(false);
-  const [photoIsVideo, setPhotoIsVideo] = useState(false);
   const [aboutExpanded, setAboutExpanded] = useState(false);
   const [aboutAnchor, setAboutAnchor] = useState<{ top: number; left: number; width: number; isMobile: boolean } | null>(null);
   const [portalReady, setPortalReady] = useState(false);
@@ -143,51 +142,25 @@ export function Hero() {
         <div className="relative rounded-2xl border border-[#3D3935]/60 overflow-hidden bg-[#12100E] h-full min-h-[200px] md:min-h-[260px]">
           <button
             type="button"
-            onClick={() => setPhotoIsVideo((v) => !v)}
-            aria-label={photoIsVideo ? 'Show photo' : 'Play video'}
+            onClick={(e) => {
+              // Click dentro de la foto: la bandera flotante salta arriba del cursor.
+              window.dispatchEvent(
+                new CustomEvent('flag-to-cursor', {
+                  detail: { x: e.clientX, y: e.clientY },
+                }),
+              );
+            }}
+            aria-label="Mover la bandera de Argentina acá"
             className="absolute inset-0 w-full h-full cursor-pointer group"
           >
-            <AnimatePresence initial={false} mode="sync">
-              {photoIsVideo ? (
-                <motion.div
-                  key="me-video"
-                  initial={{ opacity: 0, scale: 1.04 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.04 }}
-                  transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="absolute inset-0"
-                >
-                  <video
-                    src="/me.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="none"
-                    className="w-full h-full object-cover block"
-                  />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="me-photo"
-                  initial={{ opacity: 0, scale: 1.04 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.04 }}
-                  transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src="/images/me.webp"
-                    alt="Matias Vallejos"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 70vw, 340px"
-                    className="object-cover object-center block"
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
-
+            <Image
+              src="/images/me.webp"
+              alt="Matias Vallejos"
+              fill
+              priority
+              sizes="(max-width: 768px) 70vw, 340px"
+              className="object-cover object-center block scale-125 transition-transform duration-500 group-hover:scale-[1.32]"
+            />
           </button>
         </div>
 
