@@ -2,7 +2,7 @@
 title: "El coraje de vivir tu propio camino"
 description: "El camino propio no tiene que ser anti-convencional. Lo que lo vuelve tuyo no es la originalidad, es la decision. Y la comparacion, hija del ego, es lo que corrompe esa decision."
 date: "2026-07-12"
-tags: ["life", "reflection"]
+tags: ["life", "reflection", "football", "books"]
 category: "life"
 featured: true
 twitterUrl: null

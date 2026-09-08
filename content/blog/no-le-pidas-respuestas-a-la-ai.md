@@ -2,7 +2,7 @@
 title: "No le pidas respuestas a la AI, pedile preguntas"
 description: "La diferencia entre usar la AI como un buscador y usarla como un copiloto de pensamiento es una sola cosa: el proceso. Flipped Interaction, Cognitive Verifier e Iterative Refinement."
 date: "2026-01-15"
-tags: ["ai", "prompt-engineering"]
+tags: ["ai", "prompt-engineering", "engineering"]
 category: "engineering"
 featured: true
 twitterUrl: "https://x.com/mativallej_/status/2014743217204285781"

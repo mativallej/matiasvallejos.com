@@ -2,7 +2,7 @@
 title: "Para recibir, primero tenes que dar"
 description: "Construir es un acto de amor total. Es dejar de mirar para adentro buscando lo que te falta y empezar a mirar para afuera preguntandote que podes aportar."
 date: "2026-02-10"
-tags: ["life", "reflection"]
+tags: ["life", "reflection", "books"]
 category: "life"
 featured: true
 twitterUrl: "https://x.com/mativallej_/status/2023193954867372405"

@@ -2,8 +2,8 @@
 title: "¿Quién nos manda a hacer un marketplace?"
 description: "Cinco meses construyendo Tegu nos enseñaron que un marketplace es el negocio más difícil que elegimos: construís dos negocios a la vez y cada decisión tiene una trampa escondida. Un repaso honesto de las piñas que nos llevamos y de lo que cada una nos enseñó."
 date: "2026-08-31"
-tags: ["building-in-public", "founder-story"]
-category: "brand"
+tags: ["product", "marketplace", "building-in-public", "founder-story"]
+category: "product"
 featured: true
 twitterUrl: null
 ---
