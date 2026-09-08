@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700" role="img" aria-label="El norte al centro: una sola métrica, la que decide. Tres inputs lo empujan y un cerco de cuatro guardrails lo rodea. El norte no se empuja: se empujan sus inputs. Los guardrails no se optimizan: se vigilan.">
+  <defs>
+    <marker id="ns-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 11 6 L 0 11 z" fill="#FB923C"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="700" fill="#080706"/>
+  <rect x="24" y="24" width="1152" height="652" rx="20" fill="none" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="64" y="84" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#57534E">NORTE · INPUTS · GUARDRAILS</text>
+
+  <!-- ======== el cerco ======== -->
+  <rect x="140" y="150" width="920" height="400" rx="24" fill="none" stroke="#3D3935" stroke-width="2" stroke-dasharray="10 10"/>
+
+  <rect x="515" y="132" width="170" height="36" fill="#080706"/>
+  <text x="600" y="157" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="2" fill="#78716C">GUARDRAIL 1</text>
+  <rect x="975" y="332" width="170" height="36" fill="#080706"/>
+  <text x="1060" y="357" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="2" fill="#78716C">GUARDRAIL 2</text>
+  <rect x="515" y="532" width="170" height="36" fill="#080706"/>
+  <text x="600" y="557" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="2" fill="#78716C">GUARDRAIL 3</text>
+  <rect x="55" y="332" width="170" height="36" fill="#080706"/>
+  <text x="140" y="357" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="2" fill="#78716C">GUARDRAIL 4</text>
+
+  <!-- ======== los inputs ======== -->
+  <text x="330" y="232" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#A8A29E">INPUT 1</text>
+  <line x1="330" y1="252" x2="640" y2="252" stroke="#FB923C" stroke-width="4" stroke-linecap="round" marker-end="url(#ns-arrow)"/>
+  <text x="330" y="332" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#A8A29E">INPUT 2</text>
+  <line x1="330" y1="352" x2="578" y2="352" stroke="#FB923C" stroke-width="4" stroke-linecap="round" marker-end="url(#ns-arrow)"/>
+  <text x="330" y="432" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="2" fill="#A8A29E">INPUT 3</text>
+  <line x1="330" y1="452" x2="640" y2="452" stroke="#FB923C" stroke-width="4" stroke-linecap="round" marker-end="url(#ns-arrow)"/>
+
+  <!-- ======== el norte ======== -->
+  <circle cx="700" cy="352" r="112" fill="#12100E" stroke="#FB923C" stroke-width="3"/>
+  <path d="M700,280 L705.9,295.9 L722.8,296.6 L709.5,307.1 L714.1,323.4 L700,314 L685.9,323.4 L690.5,307.1 L677.2,296.6 L694.1,295.9 Z" fill="#FB923C"/>
+  <text x="700" y="374" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="34" letter-spacing="5" fill="#FAFAF9">NORTE</text>
+  <text x="700" y="408" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#A8A29E">la que decide</text>
+
+  <text x="600" y="614" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="1" fill="#57534E">El norte no se empuja. Se empujan sus inputs.</text>
+  <text x="600" y="652" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="20" letter-spacing="1" fill="#57534E">Los guardrails no se optimizan: se vigilan.</text>
+</svg>

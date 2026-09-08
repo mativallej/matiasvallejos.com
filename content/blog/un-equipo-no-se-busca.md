@@ -2,7 +2,7 @@
 title: "Un equipo no se busca. Se construye."
 description: "Un equipo no se busca: se construye en línea con una visión. La historia de cómo empezó Tegu —un café en Chacabuco, el fútbol como base, y por qué la visión va antes que la idea."
 date: "2026-08-26"
-tags: ["brand", "founder-story"]
+tags: ["founder-story", "football", "brand"]
 category: "brand"
 featured: true
 twitterUrl: null

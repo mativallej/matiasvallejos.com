@@ -2,7 +2,7 @@
 title: "Open-sourceé mi página de building in public"
 description: "Convertí la página con la que documento Tegu en un template open source: clonás, corrés un skill de Claude Code que te entrevista, y tenés la tuya deployada en minutos. Con el método adentro, no solo el código."
 date: "2026-08-26"
-tags: ["open-source", "building-in-public"]
+tags: ["open-source", "ai", "engineering", "building-in-public"]
 category: "engineering"
 featured: true
 twitterUrl: null

@@ -2,7 +2,7 @@
 title: "El problema no era conectar. Era ser una vaca púrpura."
 description: "Durante meses creí que el problema de Tegu era el cold start. Leyendo La Vaca Púrpura y The Lean Startup entendí que mi verdadero leap of faith no era la hipótesis de crecimiento, sino la de valor."
 date: "2026-08-14"
-tags: ["brand", "building-in-public"]
+tags: ["product", "marketplace", "brand", "books", "building-in-public"]
 category: "brand"
 featured: true
 twitterUrl: null

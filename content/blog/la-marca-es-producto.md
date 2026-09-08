@@ -2,7 +2,7 @@
 title: "La marca es producto"
 description: "En un mercado que funciona a confianza, la marca no es cómo se ve: es el producto. La historia de Tegu, CAC cero y por qué elegimos densidad antes que cobertura."
 date: "2026-07-13"
-tags: ["brand", "building-in-public"]
+tags: ["product", "marketplace", "brand", "building-in-public"]
 category: "brand"
 featured: true
 twitterUrl: null
