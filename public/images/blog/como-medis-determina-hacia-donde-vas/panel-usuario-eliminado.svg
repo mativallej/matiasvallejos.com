@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="Un renglón del panel de Tegu: donde iba la persona dice Usuario eliminado y deleted_3801 arroba deleted.local; al lado, el trabajo, Reparación de horno a gas en cocina, Técnico de Gas. El registro queda; el que lo hizo, no.">
+  <rect width="1200" height="420" fill="#080706"/>
+  <rect x="24" y="24" width="1152" height="372" rx="20" fill="none" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="64" y="84" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#57534E">PANEL · LEAD DISPUTADO</text>
+
+  <!-- encabezados de columna -->
+  <text x="90" y="150" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="2" fill="#57534E">PROFESIONAL</text>
+  <text x="610" y="150" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="2" fill="#57534E">TRABAJO</text>
+  <line x1="64" y1="170" x2="1136" y2="170" stroke="#3D3935" stroke-width="1.5"/>
+
+  <!-- el renglón -->
+  <rect x="64" y="186" width="1072" height="130" rx="14" fill="#12100E" stroke="#3D3935" stroke-width="1.5"/>
+  <rect x="64" y="186" width="4" height="130" rx="2" fill="#F87171"/>
+
+  <text x="90" y="234" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#78716C">Usuario eliminado</text>
+  <text x="90" y="276" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" fill="#57534E">deleted_3801@deleted.local</text>
+
+  <text x="610" y="234" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#FAFAF9">Reparación de horno a gas en cocina</text>
+  <text x="610" y="276" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#78716C">Técnico de Gas</text>
+
+  <text x="600" y="366" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="21" letter-spacing="1" fill="#57534E">El registro queda. El que lo hizo, no.</text>
+</svg>

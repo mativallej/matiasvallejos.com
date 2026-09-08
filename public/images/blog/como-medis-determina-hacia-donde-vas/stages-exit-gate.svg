@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="1200" height="640" role="img" aria-label="Tres etapas en fila —Validar, Monetizar, Crecer— con una compuerta entre una y otra. Cada etapa tiene su desafío, su métrica y su exit gate, y cada compuerta se cruza con evidencia cuantitativa y cualitativa. No se cambia de etapa por calendario: se cambia cruzando una puerta.">
+  <rect width="1200" height="640" fill="#080706"/>
+  <rect x="24" y="24" width="1152" height="592" rx="20" fill="none" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="64" y="84" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="3" fill="#57534E">STAGES · EXIT GATE</text>
+
+  <!-- ======== COMPUERTA 1 · centro x=410 ======== -->
+  <rect x="355" y="112" width="110" height="34" rx="8" fill="#12100E" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="410" y="135" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="2" fill="#FB923C">CUANTI</text>
+  <rect x="355" y="156" width="110" height="34" rx="8" fill="#12100E" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="410" y="179" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="2" fill="#FB923C">CUALI</text>
+  <line x1="410" y1="190" x2="410" y2="210" stroke="#3D3935" stroke-width="1.5"/>
+  <rect x="392" y="210" width="36" height="320" rx="18" fill="none" stroke="#FB923C" stroke-width="2.5" stroke-dasharray="8 8"/>
+  <circle cx="410" cy="370" r="6" fill="#FB923C"/>
+
+  <!-- ======== COMPUERTA 2 · centro x=790 ======== -->
+  <rect x="735" y="112" width="110" height="34" rx="8" fill="#12100E" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="790" y="135" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="2" fill="#FB923C">CUANTI</text>
+  <rect x="735" y="156" width="110" height="34" rx="8" fill="#12100E" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="790" y="179" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="18" letter-spacing="2" fill="#FB923C">CUALI</text>
+  <line x1="790" y1="190" x2="790" y2="210" stroke="#3D3935" stroke-width="1.5"/>
+  <rect x="772" y="210" width="36" height="320" rx="18" fill="none" stroke="#FB923C" stroke-width="2.5" stroke-dasharray="8 8"/>
+  <circle cx="790" cy="370" r="6" fill="#FB923C"/>
+
+  <!-- ======== ETAPA 1 · VALIDAR ======== -->
+  <rect x="64" y="210" width="310" height="320" rx="16" fill="#12100E" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="90" y="260" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="26" letter-spacing="3" fill="#FAFAF9">VALIDAR</text>
+  <line x1="90" y1="286" x2="348" y2="286" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="90" y="326" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="2" fill="#57534E">DESAFÍO</text>
+  <text x="90" y="358" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#E7E5E4">¿le sirve a alguien?</text>
+  <text x="90" y="404" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="2" fill="#57534E">MÉTRICA</text>
+  <text x="90" y="436" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#E7E5E4">prueba que sirve</text>
+  <text x="90" y="482" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="2" fill="#FB923C">EXIT GATE</text>
+  <text x="90" y="514" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#E7E5E4">deja de ser hipótesis</text>
+
+  <!-- ======== ETAPA 2 · MONETIZAR ======== -->
+  <rect x="445" y="210" width="310" height="320" rx="16" fill="#12100E" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="471" y="260" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="26" letter-spacing="3" fill="#FAFAF9">MONETIZAR</text>
+  <line x1="471" y1="286" x2="729" y2="286" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="471" y="326" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="2" fill="#57534E">DESAFÍO</text>
+  <text x="471" y="358" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#E7E5E4">¿alguien paga?</text>
+  <text x="471" y="404" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="2" fill="#57534E">MÉTRICA</text>
+  <text x="471" y="436" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#E7E5E4">prueba que pagan</text>
+  <text x="471" y="482" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="2" fill="#FB923C">EXIT GATE</text>
+  <text x="471" y="514" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#E7E5E4">el pago se sostiene</text>
+
+  <!-- ======== ETAPA 3 · CRECER ======== -->
+  <rect x="826" y="210" width="310" height="320" rx="16" fill="#12100E" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="852" y="260" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="26" letter-spacing="3" fill="#FAFAF9">CRECER</text>
+  <line x1="852" y1="286" x2="1110" y2="286" stroke="#3D3935" stroke-width="1.5"/>
+  <text x="852" y="326" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="2" fill="#57534E">DESAFÍO</text>
+  <text x="852" y="358" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#E7E5E4">¿vuelve solo?</text>
+  <text x="852" y="404" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="2" fill="#57534E">MÉTRICA</text>
+  <text x="852" y="436" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#E7E5E4">prueba que vuelven</text>
+  <text x="852" y="482" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="17" letter-spacing="2" fill="#FB923C">EXIT GATE</text>
+  <text x="852" y="514" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#57534E">···</text>
+
+  <text x="600" y="588" text-anchor="middle" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="22" letter-spacing="1" fill="#57534E">No se cambia de etapa por calendario. Se cambia cruzando una puerta.</text>
+</svg>
