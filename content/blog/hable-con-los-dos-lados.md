@@ -41,6 +41,11 @@ Compañeros de su trabajo. Estamos en la misma situación.
 
 Lo llamé y hablamos 22 minutos. Le llevó menos de 5 meses armar [ese 4,7](https://tegu.ar/profile/kt4MjS), y es con lo que un cliente decide si lo llama o no.
 
+![Una conexión de gas con el flexible corroído](/images/blog/hable-con-los-dos-lados/trabajos/conexion-gas.jpeg)
+![Un tanque de agua instalado en la terraza, con las cañerías a la vista](/images/blog/hable-con-los-dos-lados/trabajos/tanque-agua.jpeg)
+![Una cocina a gas con el horno abierto](/images/blog/hable-con-los-dos-lados/trabajos/cocina-gas.jpeg)
+![La caja de herramientas abierta en el piso, con un gato metiendo la cabeza adentro](/images/blog/hable-con-los-dos-lados/trabajos/caja-herramientas.jpeg)
+
 ## El cliente del herrero
 
 Ya había usado Tegu antes, y le había ido mal. Eligió un profesional y el profesional nunca fue (se le prendió fuego el vehículo el día de la visita, cosa que no le pasa a nadie hasta que le pasa). Desinstaló la app.

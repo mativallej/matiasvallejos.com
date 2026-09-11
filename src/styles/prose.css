@@ -82,26 +82,29 @@
   color: #FAFAF9;
 }
 
-/* Dos imágenes en un mismo párrafo se muestran una al lado de la otra
-   (en pantallas angostas se apilan, porque son capturas verticales). */
+/* Un párrafo con varias imágenes se muestra como grid: 2 imágenes quedan
+   una al lado de la otra, 4 quedan en 2x2. Debajo de 540px se apilan. */
 .prose-custom :where(p:has(> img + img)) {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 12px;
-  align-items: flex-start;
 }
 
 .prose-custom :where(p:has(> img + img) > img) {
   margin: 0;
+  width: 100%;
 }
 
 @media (min-width: 540px) {
   .prose-custom :where(p:has(> img + img)) {
-    flex-direction: row;
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .prose-custom :where(p:has(> img + img) > img) {
-    flex: 1 1 0;
-    min-width: 0;
-  }
+/* Con 4 fotos o más las celdas van cuadradas, para que la grilla lea pareja
+   aunque las fotos vengan en orientaciones distintas. */
+.prose-custom :where(p:has(> img:nth-of-type(4)) > img) {
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 6px;
 }
