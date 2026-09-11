@@ -8,17 +8,19 @@ featured: true
 twitterUrl: null
 ---
 
-Un cliente estuvo más de un mes tratando de conseguir un herrero. Me lo escribió así, con el emoji incluido:
+Esta semana hablé con dos personas de Tegu. Un cliente y un profesional.
+
+No se conocen, nunca trabajaron juntos, y ninguno sabe que existe el otro. Pero los dos me terminaron contando lo mismo, desde lados opuestos.
+
+Empiezo por el cliente, que estuvo más de un mes tratando de conseguir un herrero. Me lo escribió así, con el emoji incluido:
 
 > "Hace más de un mes que venía tratando de coordinar con un herrero para la reparación 😅"
 
 Cualquiera que haya intentado que le arreglen algo en Argentina entiende ese emoji.
 
-Del otro lado del mismo problema hay alguien como [Matías Urruttia](https://tegu.ar/profile/kt4MjS).
+## Matías Urruttia
 
-Hablé con los dos esta semana, por separado. Ninguno sabe del otro. Y los dos me terminaron contando lo mismo.
-
-## El que hace el trabajo
+No es el herrero de arriba. Hace plomería, albañilería, pintura y manos útiles, y esa historia es otra: son dos personas distintas que nunca se cruzaron.
 
 Hace 10 años que tiene el mismo trabajo. Full-time, cumpliendo horario.
 
@@ -26,7 +28,7 @@ Y a la tarde, a la noche, los fines de semana y los feriados hace plomería y ar
 
 > "yo la usaba más como un segundo trabajo. Porque tengo otro trabajo y cumplo horario en el otro trabajo… me facilitaba mucho para trabajar cuando no esté en el otro trabajo, ya sea por la tarde, tarde-noche, fines de semana, feriado"
 
-Se registró el 21 de abril. Desde entonces ofertó más de 130 veces y ganó 21 trabajos. Hace 2 meses que paga cada vez que un cliente lo elige.
+Se registró el 21 de abril. Desde entonces ganó 21 trabajos. Hace 2 meses que paga cada vez que un cliente lo elige.
 
 ![El perfil de Matías Urruttia en Tegu: 4,7 de rating, 21 trabajos, 14 reseñas, identidad verificada, miembro desde abril de 2026](/images/blog/hable-con-los-dos-lados/perfil-urruttia.png)
 ![Las reseñas de su perfil: 4,7 sobre 14 reseñas y las últimas calificaciones de 5 estrellas del 7 y el 8 de septiembre](/images/blog/hable-con-los-dos-lados/resenas-distribucion.png)
@@ -37,11 +39,11 @@ Cuando recomendó Tegu no se la recomendó a otros plomeros:
 
 Compañeros de su trabajo. Estamos en la misma situación.
 
-Lo llamé y hablamos 22 minutos. Le llevó menos de 5 meses armar ese 4,7, y es con lo que un cliente decide si lo llama o no.
+Lo llamé y hablamos 22 minutos. Le llevó menos de 5 meses armar [ese 4,7](https://tegu.ar/profile/kt4MjS), y es con lo que un cliente decide si lo llama o no.
 
-## El que lo busca
+## El cliente del herrero
 
-El cliente del herrero ya había usado Tegu antes, y le había ido mal. Eligió un profesional y el profesional nunca fue (se le prendió fuego el vehículo el día de la visita, cosa que no le pasa a nadie hasta que le pasa). Desinstaló la app.
+Ya había usado Tegu antes, y le había ido mal. Eligió un profesional y el profesional nunca fue (se le prendió fuego el vehículo el día de la visita, cosa que no le pasa a nadie hasta que le pasa). Desinstaló la app.
 
 La volvió a instalar un mes después. No porque le hubiéramos mandado nada: porque coordinar solo le estaba saliendo peor.
 
@@ -63,7 +65,7 @@ Le pregunté si contrata por precio o por confianza. Contestó: *"En las evaluac
 
 Es un cliente pidiendo un perfil. Nadie se lo sugirió.
 
-## Lo mismo desde los dos lados
+## Dos historias, la misma cosa
 
 Uno se pasó un mes buscando a alguien y terminó chequeándolo en Facebook. El otro trabaja los feriados y lo que cuida es un puntaje que le costó 5 meses armar.
 
@@ -83,7 +85,7 @@ Un mes después otro profesional nos contó que lo que lo enganchó el primer d�
 
 El cliente consiguió su herrero.
 
-Urruttia entró en abril y ofertó más de 130 veces. El 7 y el 8 de septiembre le dejaron dos reseñas de 5 estrellas.
+Urruttia entró en abril. El 7 y el 8 de septiembre le dejaron dos reseñas de 5 estrellas.
 
 Sigue trabajando. Los feriados también.
 
