@@ -81,3 +81,27 @@
 .prose-custom :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   color: #FAFAF9;
 }
+
+/* Dos imágenes en un mismo párrafo se muestran una al lado de la otra
+   (en pantallas angostas se apilan, porque son capturas verticales). */
+.prose-custom :where(p:has(> img + img)) {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.prose-custom :where(p:has(> img + img) > img) {
+  margin: 0;
+}
+
+@media (min-width: 540px) {
+  .prose-custom :where(p:has(> img + img)) {
+    flex-direction: row;
+  }
+
+  .prose-custom :where(p:has(> img + img) > img) {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
