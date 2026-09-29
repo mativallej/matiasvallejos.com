@@ -13,6 +13,15 @@ import rehypeStringify from "rehype-stringify"
 const BLOG_DIR = path.join(process.cwd(), "content/blog")
 const WORDS_PER_MINUTE = 200
 
+export type PostAudio = {
+  src: string
+  title?: string
+  duration?: string
+  note?: string
+  sourceUrl?: string
+  sourceLabel?: string
+}
+
 export type BlogPost = {
   slug: string
   title: string
@@ -22,12 +31,28 @@ export type BlogPost = {
   category: string
   featured: boolean
   twitterUrl: string | null
+  audio: PostAudio | null
   content: string
 }
 
 export type BlogPostWithHtml = BlogPost & {
   html: string
   readTime: string
+}
+
+// `audio` is an optional frontmatter block; a post without a `src` has no player.
+function parseAudio(raw: unknown): PostAudio | null {
+  if (!raw || typeof raw !== "object") return null
+  const { src, title, duration, note, sourceUrl, sourceLabel } = raw as Record<string, unknown>
+  if (typeof src !== "string" || src.length === 0) return null
+  return {
+    src,
+    title: typeof title === "string" ? title : undefined,
+    duration: typeof duration === "string" ? duration : undefined,
+    note: typeof note === "string" ? note : undefined,
+    sourceUrl: typeof sourceUrl === "string" ? sourceUrl : undefined,
+    sourceLabel: typeof sourceLabel === "string" ? sourceLabel : undefined,
+  }
 }
 
 function calculateReadTime(content: string): string {
@@ -59,6 +84,7 @@ export const getAllPosts = cache((): BlogPost[] => {
       category: data.category || "general",
       featured: data.featured || false,
       twitterUrl: data.twitterUrl || null,
+      audio: parseAudio(data.audio),
       content,
     }
   })
@@ -100,6 +126,7 @@ export const getPostBySlug = cache(async (slug: string): Promise<BlogPostWithHtm
     category: data.category || "general",
     featured: data.featured || false,
     twitterUrl: data.twitterUrl || null,
+    audio: parseAudio(data.audio),
     content,
     html: String(result),
     readTime: calculateReadTime(content),
