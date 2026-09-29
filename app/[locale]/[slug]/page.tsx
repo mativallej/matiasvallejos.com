@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { AuthorBio } from "@/components/author-bio"
+import { PostAudio } from "@/components/post-audio"
 import { JsonLd } from "@/components/json-ld"
 import { getAllPostSlugs, getPostBySlug } from "@/lib/blog"
 import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema"
@@ -129,6 +130,9 @@ export default async function BlogPostPage({
             )}
           </div>
         </header>
+
+        {/* Audio version, when the post ships one */}
+        {post.audio && <PostAudio audio={post.audio} locale={locale} />}
 
         {/* Post content */}
         <div
