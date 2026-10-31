@@ -48,9 +48,9 @@ Por eso no podés llegar pisando a otro, y no podés llegar copiando a otro. Tuv
 
 En 2020 hacía una doble vida: a la mañana entrenaba en Belgrano, a la noche cursaba la carrera de videojuegos en la universidad (la había empezado en 2018). Ahí, en pandemia, escribí mi primera línea de código. Un año después, el club me dejó libre. Nadie te prepara para que se termine lo que pensabas que iba a ser tu vida.
 
-![Febrero de 2021: un examen final de la facultad por Zoom, en plena pandemia](/images/blog/todo-es-imposible-hasta-que-salis-y-jugas/06-examen-por-zoom-2021.webp)
+![Aprendiendo inglés por Zoom con mi profe, en plena pandemia](/images/blog/todo-es-imposible-hasta-que-salis-y-jugas/06-clase-de-ingles-por-zoom.webp)
 
-*Febrero de 2021: un examen final de la facultad por Zoom, en plena pandemia.*
+*Aprendiendo inglés por Zoom con mi profe, en plena pandemia.*
 
 Encontré el software, construí una identidad nueva, y seguí jugando en el Regional hasta los 24 mientras tanto (de competir contra Boca y River a las canchas del interior). Ese descenso también forma.
 
